@@ -28,9 +28,9 @@ const Whychoose = () => {
     },
   ];
   return (
-    <div className="bg-white px-[12%]">
+    <div className="bg-white px-[12%] sm:px-5">
       <div className="text-center">
-        <h1 className="text-3xl text-secondary font-medium">
+        <h1 className="text-3xl sm:text-2xl sm:py-[8%] text-secondary font-medium">
           Why Zig Zag As Your Trusted Digital Marketing Agency In Malappuram
         </h1>
       </div>
@@ -38,7 +38,7 @@ const Whychoose = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-1 bg-box mx-2 rounded-xl flex flex-col items-center px-4 py-5 hover:shadow-lg transition-all duration-500 cursor-pointer"
+            className="flex-1 bg-box m-2 sm:min-w-[200px] rounded-xl flex flex-col items-center px-4 py-5 hover:shadow-lg transition-all duration-500 cursor-pointer"
           >
             <Image
               src={item.image}

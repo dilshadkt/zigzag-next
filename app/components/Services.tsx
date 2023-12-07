@@ -7,7 +7,7 @@ import Website from "../../public/services/Website-Development-Digital-Marketing
 import Seo from "../../public/services/seo-Digital-Marketing-Malappuram.gif";
 import Social from "../../public/services/Social-media-marketing-Digital-Marketing-Malappuram.gif";
 import bg from "../../public/services/services.png";
-
+import Link from "next/link";
 const Services = () => {
   const data = [
     {
@@ -78,39 +78,46 @@ const Services = () => {
     },
   ];
   return (
-    <div className="bg-white px-[12%] py-[3%] relative overflow-hidden z-0">
+    <div className="bg-white px-[12%] py-[4%] relative overflow-hidden z-0 sm:px-5">
       <div className="text-center">
-        <h2 className="text-3xl text-secondary font-medium">Services</h2>
+        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+          Services
+        </h2>
       </div>
       <div className="flex  flex-wrap py-[6%]">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-1 min-w-[30%] flex flex-col  items-center my-7"
+            className="flex-1 sm:min-w-[200px]  min-w-[30%] flex flex-col  items-center my-7"
           >
             <Image
               src={item.image}
-              alt={item.image}
+              alt={item.title}
               width={60}
               className="opacity-60"
             />
             <h3 className="font-semibold my-5 text-lg">{item.title}</h3>
             <ul className="list-[circle] w-[40%] ">
               {item.items.map((item, index) => (
-                <li key={index} className="my-2 text-[17px]">
+                <li
+                  key={index}
+                  className="my-2 font-medium text-gray-700 text-[17px]"
+                >
                   {item}
                 </li>
               ))}
             </ul>
             <div className="text-center mt-3 ">
-              <span className="text-red-500 cursor-pointer hover:underline">
-                Explore more
-              </span>
+              <Link href={`services/${item.title.split(" ")[0]}`}>
+                <span className="text-red-500 cursor-pointer hover:underline">
+                  Learn More
+                </span>
+              </Link>
             </div>
           </div>
         ))}
       </div>
-      <div className="absolute -top-1/2 right-0 w-full  -z-[2] left-2/4 opacity-50">
+      <div className="absolute -top-[20%] right-0 w-full  -z-[2] left-2/4 opacity-50">
         <Image src={bg} alt="background" className="w-full" />
       </div>
     </div>

@@ -8,7 +8,7 @@ const Portfolio = () => {
   const type = searchParams.get("type");
 
   return (
-    <div className="mx-[17%] flex justify-between flex-wrap">
+    <div className="mx-[17%] sm:mx-5 flex justify-between flex-wrap">
       {Works.map((item, index) =>
         type === "all" ? (
           <Card img={item.image} key={index} />

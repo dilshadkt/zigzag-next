@@ -7,11 +7,11 @@ interface Props {
 
 const Card = ({ img }: Props) => {
   return (
-    <div className="w-[32.5%] rounded-xl bg-gray-400 overflow-hidden mb-3">
+    <div className="w-[32.5%] sm:w-[48%] rounded-xl bg-gray-400 overflow-hidden mb-3">
       <Image
         src={img}
         alt="image"
-        className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"
+        className="object-cover  w-full h-full hover:scale-105 transition-all duration-700"
       />
     </div>
   );

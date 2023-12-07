@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Rajdhani } from "next/font/google";
-
+import Footer from "./components/Footer";
 import "./globals.css";
 import Navbar from "./Navbar";
 
@@ -23,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={rajdhani.className}>
         <Navbar />
-        {children}
+        <main className="pb-[8%] sm:mb-[18%]"> {children}</main>
+
+        <Footer />
       </body>
     </html>
   );

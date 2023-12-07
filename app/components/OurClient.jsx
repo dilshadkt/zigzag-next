@@ -25,15 +25,17 @@ const OurClient = () => {
     { image: white },
   ];
   return (
-    <div className="bg-white px-[12%] ">
+    <div className="bg-white px-[12%] sm:px-5 ">
       <div className="text-center">
-        <h2 className="text-3xl text-secondary font-medium">Our Clientele</h2>
+        <h2 className="text-3xl sm:text-2xl sm:py-[8%] text-secondary font-medium">
+          Our Clientele
+        </h2>
       </div>
-      <div className="flex  flex-wrap py-[6%]">
+      <div className="flex  flex-wrap py-[6%] sm:justify-center">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-1 min-w-[22%] max-w-[22%] hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl bg-white "
+            className="flex-1 min-w-[22%] bg-white sm:min-w-[40%]  max-w-[22%] hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl "
           >
             <Image
               src={item.image}

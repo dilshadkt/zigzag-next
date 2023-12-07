@@ -5,16 +5,16 @@ import Image from "next/image";
 
 const AboutUs = () => {
   return (
-    <div className="bg-white px-[12%] py-[2%] relative overflow-hidden z-0">
+    <div className="bg-white px-[12%] py-[2%] sm:px-5 relative overflow-hidden z-0">
       <div className="">
         <div className="flex justify-center">
-          <h1 className="text-3xl text-gray-500">About Us</h1>
+          <h1 className="text-3xl text-gray-500 sm:my-[5% ]">About Us</h1>
         </div>
-        <div className="flex my-9">
-          <div className="flex-1">
+        <div className="flex sm:flex-col sm:items-center   my-9">
+          <div className="flex-1 sm:w-[60%]  sm:mb-7">
             <Image src={aboutus} alt={aboutus} />
           </div>
-          <div className="text-[22px] flex-1    flex flex-col justify-center text-justify">
+          <div className="text-[22px] sm:text-lg flex-1    flex flex-col justify-center text-justify">
             <div>
               <p className="">
                 At <span className=" font-medium text-red-600">Zig Zag</span>,
@@ -33,7 +33,7 @@ const AboutUs = () => {
                 branding solutions that suit you best.
               </p>
             </div>
-            <div>
+            <div className="flex sm:justify-center sm:my-[5%]">
               <div className="py-3 px-5 border w-fit text-lg rounded-xl hover:border-orange-500 cursor-pointer">
                 Read Our Story
               </div>
@@ -41,7 +41,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className="absolute -top-1/4 right-0 w-full  -z-[2] left-2/4 opacity-50 ">
+      <div className="absolute  -top-1/4 md:-top-[5%] right-0 w-full left-2/4  -z-[2] md:left-[15%] opacity-50 ">
         <Image src={aboutbg} alt={aboutbg} />
       </div>
     </div>

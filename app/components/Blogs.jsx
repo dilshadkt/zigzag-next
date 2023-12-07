@@ -26,15 +26,17 @@ const Blogs = () => {
     },
   ];
   return (
-    <div className="bg-white px-[12%] py-6">
+    <div className="bg-white px-[12%] py-6 sm:px-5">
       <div className="text-center">
-        <h2 className="text-3xl text-secondary font-medium">Blogs</h2>
+        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+          Blogs
+        </h2>
       </div>
       <div className="flex  flex-wrap py-[6%]">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-1 flex flex-col bg-box  m-2 rounded-xl overflow-hidden hover:shadow-lg pb-3 transition-all  duration-700 cursor-pointer"
+            className="flex-1 sm:min-w-[200px] flex flex-col bg-box  m-2 rounded-xl overflow-hidden hover:shadow-lg pb-3 transition-all  duration-700 cursor-pointer"
           >
             <div className="w-full flex-initial h-[200px] overflow-hidden ">
               <Image
