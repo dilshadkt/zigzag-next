@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Rajdhani } from "next/font/google";
-import Footer from "./components/Footer";
 import "./globals.css";
-import Navbar from "./Navbar";
 
 const rajdhani = Rajdhani({
   weight: ["300", "400", "500", "600", "700"],
@@ -22,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rajdhani.className}>
-        <Navbar />
-        <main className="pb-[8%] sm:mb-[18%]"> {children}</main>
-
-        <Footer />
+        <main className=" sm:mb-[18%]"> {children}</main>
       </body>
     </html>
   );
