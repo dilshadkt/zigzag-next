@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/(root)/services/Boxes.jsx",
-    "app/blogs/[id]/page.jsx"
+    "app/blogs/[id]/page.jsx",
+    "app/(dashboard)/admin/works/page.jsx",
+    "app/(dashboard)/admin/works/addwork/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

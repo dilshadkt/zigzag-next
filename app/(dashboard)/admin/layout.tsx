@@ -5,8 +5,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navabar />
-      <div className="flex h-[87vh]">
-        <div className="flex-initial w-[20%] border">
+      <div className="flex  min-h-[87vh]">
+        <div className="flex-initial bg-slate-100 w-[20%] border">
           <SideBar />
         </div>
         <div className="flex-1 px-[3%] ">
