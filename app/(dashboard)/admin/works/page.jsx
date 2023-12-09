@@ -1,10 +1,15 @@
-import React from "react";
 import AddIcon from "@mui/icons-material/Add";
-import { Works } from "@/public/worls/Works";
 import Image from "next/image";
 import Link from "next/link";
+async function getWorks() {
+  const res = await fetch("http://localhost:8080/work", {
+    next: { revalidate: 0 },
+  });
+  return res.json();
+}
+const page = async () => {
+  const works = await getWorks();
 
-const page = () => {
   return (
     <>
       <div>
@@ -19,9 +24,14 @@ const page = () => {
           </Link>
         </div>
         <div className="p-5 border rounded-lg flex flex-wrap">
-          {Works.map((item) => (
-            <div className="flex-1 min-w-[20%] m-2  cursor-pointer overflow-hidden rounded-lg">
+          {works.map((item, index) => (
+            <div
+              key={index}
+              className="w-[23%] min-w-[20%]   m-2  cursor-pointer overflow-hidden rounded-lg"
+            >
               <Image
+                width={150}
+                height={150}
                 src={item.image}
                 alt=""
                 className="hover:scale-105 transition-all duration-700 w-full h-full "

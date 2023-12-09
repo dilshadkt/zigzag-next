@@ -14,9 +14,11 @@
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
     "@next/font": "^14.0.1",
+    "axios": "^1.6.2",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
     "@types/node": "^20",
