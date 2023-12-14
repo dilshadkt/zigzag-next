@@ -10,7 +10,7 @@ const Boxes = ({ datas }) => {
     const result = datas.filter((item) => item.id === id);
     setContent(result[0]);
   }
-  console.log(content);
+
   return (
     <div className="flex ">
       <div className="flex-initial w-[30%] ">

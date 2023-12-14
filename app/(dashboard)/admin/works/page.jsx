@@ -1,14 +1,22 @@
+"use client";
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
 import Link from "next/link";
-async function getWorks() {
-  const res = await fetch("http://localhost:8080/work", {
-    next: { revalidate: 0 },
-  });
-  return res.json();
-}
-const page = async () => {
-  const works = await getWorks();
+import { Suspense, useEffect, useState } from "react";
+import axios from "axios";
+import EditBox from "@/app/(dashboard)/admin/components/EditBox";
+
+const page = () => {
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [data, setData] = useState([]);
+  const [dataToEdit, setDataToEdit] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/work")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -23,23 +31,35 @@ const page = async () => {
             </div>
           </Link>
         </div>
-        <div className="p-5 border rounded-lg flex flex-wrap">
-          {works.map((item, index) => (
+
+        <div className="p-5 border rounded-lg grid grid-cols-4">
+          {data.map((item, index) => (
             <div
+              onClick={() => {
+                setIsEditOpen(!isEditOpen);
+                setDataToEdit(item);
+              }}
               key={index}
-              className="w-[23%] min-w-[20%]   m-2  cursor-pointer overflow-hidden rounded-lg"
+              className="h-[200px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
             >
               <Image
                 width={150}
                 height={150}
                 src={item.image}
                 alt=""
-                className="hover:scale-105 transition-all duration-700 w-full h-full "
+                className="hover:scale-105 transition-all duration-700 w-full h-full object-cover  "
               />
             </div>
           ))}
         </div>
       </div>
+      {isEditOpen && (
+        <EditBox
+          isEditOpen={isEditOpen}
+          setIsEditOpen={setIsEditOpen}
+          dataToEdit={dataToEdit}
+        />
+      )}
     </>
   );
 };
