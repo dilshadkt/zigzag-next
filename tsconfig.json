@@ -30,7 +30,9 @@
     "app/(root)/services/Boxes.jsx",
     "app/blogs/[id]/page.jsx",
     "app/(dashboard)/admin/works/page.jsx",
-    "app/(dashboard)/admin/works/addwork/page.jsx"
+    "app/(dashboard)/admin/works/addwork/page.jsx",
+    "app/(dashboard)/admin/experts/page.jsx",
+    "app/(dashboard)/admin/client/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -34,7 +34,7 @@ const OurClient = () => {
       <div className="flex  flex-wrap py-[6%] sm:justify-center">
         {data.map((item, index) => (
           <div
-            key={index}
+            key={`${item.length}-${index}`}
             className="flex-1 min-w-[22%] bg-white sm:min-w-[40%]  max-w-[22%] hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl "
           >
             <Image

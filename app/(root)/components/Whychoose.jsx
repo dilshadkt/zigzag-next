@@ -37,7 +37,7 @@ const Whychoose = () => {
       <div className="py-[6%]  flex flex-wrap">
         {data.map((item, index) => (
           <div
-            key={index}
+            key={`${index} - 0${item.title}`}
             className="flex-1 bg-box m-2 sm:min-w-[200px] rounded-xl flex flex-col items-center px-4 py-5 hover:shadow-lg transition-all duration-500 cursor-pointer"
           >
             <Image

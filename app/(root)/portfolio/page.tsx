@@ -11,7 +11,7 @@ const Portfolio = () => {
     <div className="mx-[17%] sm:mx-5 flex justify-between flex-wrap">
       {Works.map((item, index) =>
         type === "all" ? (
-          <Card img={item.image} key={index} />
+          <Card img={item.image} key={`${index} -${item.image}`} />
         ) : (
           item.status === type && <Card img={item.image} key={index} />
         )

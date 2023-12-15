@@ -35,7 +35,7 @@ const Blogs = () => {
       <div className="flex  flex-wrap py-[6%]">
         {data.map((item, index) => (
           <div
-            key={index}
+            key={`${index}-${item.title}`}
             className="flex-1 sm:min-w-[200px] flex flex-col bg-box  m-2 rounded-xl overflow-hidden hover:shadow-lg pb-3 transition-all  duration-700 cursor-pointer"
           >
             <div className="w-full flex-initial h-[200px] overflow-hidden ">

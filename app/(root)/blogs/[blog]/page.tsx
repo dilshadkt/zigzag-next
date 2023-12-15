@@ -50,7 +50,7 @@ const page = ({ params: { blog } }: Props) => {
         <div className="my-[2%]  leading-8">
           <ul className="list-[number] pl-5 text-red-500 font-medium">
             {data[0].list.map((item, index) => (
-              <li key={index} className="my-2">
+              <li key={`${item}-${item.subhead}`} className="my-2">
                 {item.subhead}
               </li>
             ))}
@@ -60,11 +60,11 @@ const page = ({ params: { blog } }: Props) => {
           <ul className="list-[number]">
             {data[0].list.map((item, index) => (
               <>
-                <li key={index} className="my-2">
+                <li key={`${index}-${item.subhead}`} className="my-2">
                   {item.subhead}
                 </li>
                 {item.content.map((items, index) => (
-                  <ul key={index}>
+                  <ul key={`${index}-${items}`}>
                     <li>{items}</li>
                   </ul>
                 ))}

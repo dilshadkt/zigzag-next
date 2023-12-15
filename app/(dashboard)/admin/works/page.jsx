@@ -2,7 +2,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import EditBox from "@/app/(dashboard)/admin/components/EditBox";
 
@@ -35,11 +35,11 @@ const page = () => {
         <div className="p-5 border rounded-lg grid grid-cols-4">
           {data.map((item, index) => (
             <div
+              key={`${index - item.type}`}
               onClick={() => {
                 setIsEditOpen(!isEditOpen);
                 setDataToEdit(item);
               }}
-              key={index}
               className="h-[200px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
             >
               <Image

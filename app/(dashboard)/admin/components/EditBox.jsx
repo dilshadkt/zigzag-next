@@ -5,7 +5,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
   const { register, watch } = useForm();
-  console.log(watch());
+  console.log(dataToEdit.type === "Social Media   ");
   ///////// remove data 👨‍🔧👨‍🔧👨‍🔧///////
   const removeWorks = (id) => {
     axios
@@ -31,6 +31,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
   return (
     <>
       <div
+        onClick={() => setIsEditOpen(!isEditOpen)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
       <div
@@ -60,18 +61,18 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
             <form onSubmit={() => editWork(dataToEdit._id)} className="my-2">
               <div className="w-full flex flex-col items-center justify-center">
                 <select
+                  defaultValue={
+                    dataToEdit.type === "Social Media   "
+                      ? "Social Media"
+                      : "Brand Identity"
+                  }
                   {...register("type", {
                     required: "you to specify the category",
                   })}
                   className="border p-3 rounded-lg w-[250px]"
                 >
                   <option value="Brand Identity">Brand Identity</option>
-                  <option
-                    value="Social Media
-"
-                  >
-                    Social Media
-                  </option>
+                  <option value="Social Media">Social Media</option>
                 </select>
 
                 <select

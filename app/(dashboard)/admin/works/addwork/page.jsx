@@ -59,7 +59,6 @@ const page = () => {
 
               {image.length !== 0 && (
                 <div className="w-full h-full">
-                  {" "}
                   <Image
                     src={image}
                     alt="added image"

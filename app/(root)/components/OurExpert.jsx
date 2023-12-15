@@ -86,14 +86,14 @@ const OurExpert = () => {
         <h2 className="text-3xl text-secondary font-medium">Our Experts</h2>
       </div>
       <div className="flex my-[5%]  overflow-hidden   max-w-[780px] ">
-        {people.map((person) => {
+        {people.map((person, index) => {
           const { id, image, name, title } = person;
 
           return (
             <div
               className="w-full flex flex-col items-center  transition-all duration-500 mx-5"
               style={{ transform: `translateX(-${index * 125}%)` }}
-              key={id}
+              key={`${id}-${name}-${index}`}
             >
               <div className="w-[150px]   rounded-full border-4 overflow-hidden h-[150px]">
                 <Image

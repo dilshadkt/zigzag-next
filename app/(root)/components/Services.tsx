@@ -87,7 +87,7 @@ const Services = () => {
       <div className="flex  flex-wrap py-[6%]">
         {data.map((item, index) => (
           <div
-            key={index}
+            key={`${index}-${item.title}`}
             className="flex-1 sm:min-w-[200px]  min-w-[30%] flex flex-col  items-center my-7"
           >
             <Image
@@ -100,7 +100,7 @@ const Services = () => {
             <ul className="list-[circle] w-[40%] ">
               {item.items.map((item, index) => (
                 <li
-                  key={index}
+                  key={`${index} - ${item}`}
                   className="my-2 font-medium text-gray-700 text-[17px]"
                 >
                   {item}
