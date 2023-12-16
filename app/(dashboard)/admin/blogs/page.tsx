@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className=" my-[2%]">
       <div className="flex items-center justify-end my-[2%]">
-        <Link href={"/admin/blogs/add-blog"}>
+        <Link href={"/admin/blogs/add-blog1"}>
           <div className="cursor-pointer hover:text-red-400" title="add image">
             <AddIcon />
           </div>
