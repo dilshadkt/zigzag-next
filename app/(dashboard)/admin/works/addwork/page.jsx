@@ -13,10 +13,11 @@ const page = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState([]);
+  const [previewImg, setPreviewImg] = useState(null);
   const addWorks = () => {
     const datas = new FormData();
-    datas.append("photos", watch().photos[0]);
+    datas.append("photos", image);
     datas.append("category", watch().category);
     datas.append("star", watch().star);
     axios
@@ -24,7 +25,12 @@ const page = () => {
       .then((res) => setImage(res.data))
       .catch((err) => console.log(err));
   };
-
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+      setPreviewImg(URL.createObjectURL(event.target.files[0]));
+    }
+  };
   return (
     <div>
       <div className="flex items-center justify-start my-[2%]">
@@ -53,6 +59,7 @@ const page = () => {
                   type="file"
                   className="hidden"
                   name="photos"
+                  onChange={onImageChange}
                 />
                 <AddAPhotoIcon className="text-[100px]" />
               </label>
@@ -60,7 +67,7 @@ const page = () => {
               {image.length !== 0 && (
                 <div className="w-full h-full">
                   <Image
-                    src={image}
+                    src={previewImg}
                     alt="added image"
                     width={150}
                     height={150}

@@ -5,6 +5,7 @@ import AddClinetLogo from "./AddClinetLogo";
 import Image from "next/image";
 import axios from "axios";
 import EditClients from "./EditClients";
+import Shimmer from "../components/Shimmer";
 const page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -16,7 +17,9 @@ const page = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  return (
+  return data.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div>
         <div className="flex items-center justify-end my-[2%]">

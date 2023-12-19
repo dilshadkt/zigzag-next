@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import EditBox from "@/app/(dashboard)/admin/components/EditBox";
+import Shimmer from "../components/Shimmer";
 
 const page = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -18,7 +19,9 @@ const page = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return (
+  return data.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div>
         <div className="flex items-center justify-end my-[2%]">
@@ -35,7 +38,7 @@ const page = () => {
         <div className="p-5 border rounded-lg grid grid-cols-4">
           {data.map((item, index) => (
             <div
-              key={`${index - item.type}`}
+              key={index}
               onClick={() => {
                 setIsEditOpen(!isEditOpen);
                 setDataToEdit(item);

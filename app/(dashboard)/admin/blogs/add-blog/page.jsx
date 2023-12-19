@@ -5,7 +5,6 @@ import FieldArray from "./FieldArray";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const defaultValues = {
   test: [
@@ -16,7 +15,6 @@ const defaultValues = {
   ],
 };
 const page = () => {
-  const navigator = useRouter();
   const [waiter, setWaiter] = useState(false);
   const [image, setImage] = useState([]);
   const [previewImg, setPreviewImg] = useState(null);
@@ -48,6 +46,7 @@ const page = () => {
       .post("http://localhost:8080/blogs", blog)
       .then((res) => {
         setWaiter(false);
+        navigator.back();
       })
       .catch((err) => console.log(err));
   };
@@ -145,7 +144,6 @@ const page = () => {
           type="submit"
         />
       </div>
-      <div onClick={() => navigator("/")}>fasf</div>
     </form>
   );
 };

@@ -8,15 +8,22 @@ import axios from "axios";
 const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
+  const [previewImg, setPreviewImg] = useState(null);
 
   const AddClient = () => {
     const data = new FormData();
-    data.append("photos", watch().photos[0]);
+    data.append("photos", image);
     data.append("name", watch().name);
     axios
       .post("http://localhost:8080/clients", data)
-      .then((res) => setImage(res.data))
+      .then((res) => setIsOpen(!isOpoen))
       .catch((err) => console.log(err));
+  };
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+      setPreviewImg(URL.createObjectURL(event.target.files[0]));
+    }
   };
   return (
     <>
@@ -42,6 +49,7 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
               type="file"
               className="hidden"
               name="photos"
+              onChange={onImageChange}
             />
             <AddAPhotoIcon className="text-[100px]" />
           </label>
@@ -49,7 +57,7 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
           {image.length !== 0 && (
             <div className="w-full h-full">
               <Image
-                src={image}
+                src={previewImg}
                 alt="added image"
                 width={150}
                 height={150}

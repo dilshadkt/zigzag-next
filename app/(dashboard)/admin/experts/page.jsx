@@ -5,6 +5,7 @@ import AddExpert from "./AddExpert";
 import Image from "next/image";
 import axios from "axios";
 import EditExpert from "./EditExpert";
+import Shimmer from "../components/Shimmer";
 const page = () => {
   const [data, setData] = useState([]);
   const [isAddExpertOpen, setIsAddExpertOpen] = useState(false);
@@ -16,7 +17,9 @@ const page = () => {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  return (
+  return data.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
       <div className="flex items-center justify-end my-[2%]">
         <div

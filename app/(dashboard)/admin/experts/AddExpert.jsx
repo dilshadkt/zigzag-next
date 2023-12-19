@@ -8,9 +8,10 @@ import Image from "next/image";
 const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
+  const [previewImg, setPreviewImg] = useState(null);
   const addNewExperts = () => {
     const data = new FormData();
-    data.append("photos", watch().photos[0]);
+    data.append("photos", image);
     data.append("name", watch().name);
     data.append("role", watch().role);
     axios
@@ -21,6 +22,12 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
         location.reload();
       })
       .catch((err) => console.log(err));
+  };
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setImage(event.target.files[0]);
+      setPreviewImg(URL.createObjectURL(event.target.files[0]));
+    }
   };
   return (
     <>
@@ -46,6 +53,7 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
               type="file"
               className="hidden"
               name="photos"
+              onChange={onImageChange}
             />
             <AddAPhotoIcon className="text-[100px]" />
           </label>
@@ -53,7 +61,7 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
           {image.length !== 0 && (
             <div className="w-full h-full">
               <Image
-                src={image}
+                src={previewImg}
                 alt="added image"
                 width={150}
                 height={150}

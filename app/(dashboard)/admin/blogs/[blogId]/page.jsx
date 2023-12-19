@@ -2,7 +2,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Shimmer from "../../components/Shimmer";
 const page = ({ params: { blogId } }) => {
+  const router = useRouter();
   const [blog, setBlog] = useState(false);
   useEffect(() => {
     axios
@@ -10,6 +13,12 @@ const page = ({ params: { blogId } }) => {
       .then((res) => setBlog(res.data))
       .catch((err) => console.log(err));
   }, []);
+  const deleteBlog = (id) => {
+    axios
+      .delete(`http://localhost:8080/blogs?blogId=${id}`)
+      .then(() => router.back())
+      .catch((err) => console.log(err));
+  };
   return blog ? (
     <div className=" px-[14%] py-[4%]">
       <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
@@ -57,7 +66,7 @@ const page = ({ params: { blogId } }) => {
                 )}
                 {item?.nestedArray.map((items, index) => (
                   <ul key={`${index}-${items}`}>
-                    <li>{items?.subhead}</li>
+                    <li className="my-2">{items?.subhead}</li>
 
                     <li>{items?.desc}</li>
                   </ul>
@@ -75,14 +84,19 @@ const page = ({ params: { blogId } }) => {
           </div>
         )}
         <div className="my-[2%]">
-          <button className="bg-red-500 text-white text-lg font-semibold px-5 hover:bg-red-400 p-3 rounded-xl">
+          <button
+            onClick={() => deleteBlog(blogId)}
+            className="bg-red-500 text-white text-lg font-semibold px-5 hover:bg-red-400 p-3 rounded-xl"
+          >
             Delete
           </button>
         </div>
       </div>
     </div>
   ) : (
-    <>loading</>
+    <>
+      <Shimmer />
+    </>
   );
 };
 
