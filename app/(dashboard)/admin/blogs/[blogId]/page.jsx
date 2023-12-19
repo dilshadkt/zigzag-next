@@ -44,6 +44,17 @@ const page = ({ params: { blogId } }) => {
                 <li key={`${index}-${item.name}`} className="my-2">
                   {item.name}
                 </li>
+                {item?.image && (
+                  <div className="w-[200px] h-[200px] flex items-center justify-center overflow-hidden rounded-xl p-2 border">
+                    <Image
+                      src={item.image}
+                      alt="sybone"
+                      width={100}
+                      height={100}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+                )}
                 {item?.nestedArray.map((items, index) => (
                   <ul key={`${index}-${items}`}>
                     <li>{items?.subhead}</li>
@@ -63,6 +74,11 @@ const page = ({ params: { blogId } }) => {
             <div className="my-1">{blog?.conclustion}</div>
           </div>
         )}
+        <div className="my-[2%]">
+          <button className="bg-red-500 text-white text-lg font-semibold px-5 hover:bg-red-400 p-3 rounded-xl">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   ) : (

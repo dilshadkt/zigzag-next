@@ -5,6 +5,7 @@ import FieldArray from "./FieldArray";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const defaultValues = {
   test: [
@@ -15,6 +16,7 @@ const defaultValues = {
   ],
 };
 const page = () => {
+  const navigator = useRouter();
   const [waiter, setWaiter] = useState(false);
   const [image, setImage] = useState([]);
   const [previewImg, setPreviewImg] = useState(null);
@@ -32,13 +34,12 @@ const page = () => {
 
   const onSubmit = (data) => {
     const blog = new FormData();
-    const result = data.test.map((item) =>
-      item.nestedArray.map((sub) => ({
-        image: sub.img[0],
-        head: sub.subhead,
-      }))
-    );
-    blog.append("image", image);
+
+    data.test.forEach((item) => {
+      return item.nestedArray.forEach((item) =>
+        blog.append(`photos`, item.img[0])
+      );
+    });
 
     setWaiter(true);
     blog.append("blog", JSON.stringify(data));
@@ -46,7 +47,6 @@ const page = () => {
     axios
       .post("http://localhost:8080/blogs", blog)
       .then((res) => {
-        setImage(res.data);
         setWaiter(false);
       })
       .catch((err) => console.log(err));
@@ -107,7 +107,7 @@ const page = () => {
         {...{ control, register, defaultValues, getValues, setValue, errors }}
       />
       <textarea
-        {...register("conclustion")}
+        {...register("conclustion", { required: true })}
         className="w-full p-5 border rounded-xl mt-6"
         placeholder="conculstion ....."
       />
@@ -145,6 +145,7 @@ const page = () => {
           type="submit"
         />
       </div>
+      <div onClick={() => navigator("/")}>fasf</div>
     </form>
   );
 };
