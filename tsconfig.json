@@ -32,7 +32,9 @@
     "app/(dashboard)/admin/works/page.jsx",
     "app/(dashboard)/admin/works/addwork/page.jsx",
     "app/(dashboard)/admin/experts/page.jsx",
-    "app/(dashboard)/admin/client/page.jsx"
+    "app/(dashboard)/admin/client/page.jsx",
+    "app/(dashboard)/admin/blogs/page.jsx",
+    "app/(dashboard)/admin/blogs/[blogId]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
