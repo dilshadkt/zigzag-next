@@ -1,7 +1,7 @@
 import React from "react";
 import { Works } from "@/public/worls/Works";
 import Image from "next/image";
-
+import Link from "next/link";
 const Portfolio = () => {
   return (
     <div className="bg-white px-[12%] py-[5%] sm:px-5">
@@ -25,9 +25,11 @@ const Portfolio = () => {
         ))}
       </div>
       <div className="text-center">
-        <h4 className="text-red-500 hover:underline cursor-pointer">
-          Explore more
-        </h4>
+        <Link href={"/portfolio?type=all"}>
+          <h4 className="text-red-500 hover:underline cursor-pointer">
+            Explore more
+          </h4>
+        </Link>
       </div>
     </div>
   );

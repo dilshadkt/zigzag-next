@@ -16,7 +16,7 @@ export default function Home() {
       <OurClient />
       <Blogs />
       <Portfolio />
-      {/* <OurExpert /> */}
+      <OurExpert />
       <Services />
     </div>
   );

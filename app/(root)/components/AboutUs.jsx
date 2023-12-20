@@ -2,7 +2,7 @@ import React from "react";
 import aboutus from "@/public/about.png";
 import aboutbg from "@/public/About Us.png";
 import Image from "next/image";
-
+import Link from "next/link";
 const AboutUs = () => {
   return (
     <div className="bg-white px-[12%] py-[2%] sm:px-5 relative overflow-hidden z-0">
@@ -34,9 +34,11 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="flex sm:justify-center sm:my-[5%]">
-              <div className="py-3 px-5 border w-fit text-lg rounded-xl hover:border-orange-500 cursor-pointer">
-                Read Our Story
-              </div>
+              <Link href={"/about"}>
+                <div className="py-3 px-5 border w-fit text-lg rounded-xl hover:border-orange-500 cursor-pointer">
+                  Read Our Story
+                </div>
+              </Link>
             </div>
           </div>
         </div>

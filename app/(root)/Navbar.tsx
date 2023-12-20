@@ -6,6 +6,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileNav from "./components/MobileNav";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
   const currentPath = usePathname();
@@ -96,7 +97,7 @@ const Navbar = () => {
               {" "}
               <li>Portfolio</li>
             </Link>
-            <Link href={"blogs"}>
+            <Link href={"/blogs"}>
               <li>Blogs</li>
             </Link>
             <Link
@@ -116,6 +117,11 @@ const Navbar = () => {
         </div>
       </div>
       <MobileNav />
+      <div className="bg-green-500 w-[45px] h-[45px] rounded-full fixed bottom-5 right-5  text-white cursor-pointer flex items-center justify-center">
+        <a href="https://wa.me/9946443551?text=Hello ZigZag">
+          <WhatsAppIcon />
+        </a>
+      </div>
     </div>
   );
 };

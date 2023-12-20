@@ -40,7 +40,7 @@ const page = ({ params: { blogId } }) => {
         <div className="my-[2%]  leading-8">
           <ul className="list-[number] pl-5 text-red-500 font-medium">
             {blog.test.map((item, index) => (
-              <li key={`${item}-${item.name}`} className="my-2">
+              <li key={`${index}-${item.name}`} className="my-2">
                 {item.name}
               </li>
             ))}

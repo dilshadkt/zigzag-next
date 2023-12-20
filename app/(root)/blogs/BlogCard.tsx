@@ -1,31 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+interface Props {
+  mainHead: String;
+  desc: String;
+  image: string;
+  id: String;
+}
 
-const BlogCard = () => {
+const BlogCard = ({ mainHead, desc, image, id }: Props) => {
   return (
     <div className="border p-2 w-fit rounded-xl flex-1 mx-2 cursor-pointer hover:bg-gray-100">
-      <Link href={"blogs/dilshhad"}>
-        <div>
+      <Link href={`blogs/${id}`}>
+        <div className="w-full h-[250px] overflow-hidden">
           <Image
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-888269360780625633/original/521ab928-cb08-42d3-8948-fafaf96c7317.jpeg?im_w=720"
-            alt=""
+            src={image}
+            alt={image.split("/")[image.split("/").length - 1]}
             width={250}
             height={250}
-            className="w-full rounded-xl"
+            className="w-full h-full object-cover rounded-xl"
           />
         </div>
         <div className="my-[5%]">
           <h3 className="text-lg text-primary font-medium text-center">
-            we serve you the best 10 digital marketing agency in Kerala
+            {mainHead}
           </h3>
         </div>
         <div className="px-3">
-          <p className="text-justify text-[17px]">
-            we serve you the best 10 digital marketing agency in Kerala No
-            Comments are you tired of looking best digital marketing agency in
-            Kerala, don’t worry we will be with you. We are ...
-          </p>
+          <p className="text-justify text-[17px]">{`${desc.slice(
+            0,
+            150
+          )} ...`}</p>
         </div>
         <div className="flex justify-center my-[5%]">
           <button className="text-red-500  hover:font-semibold">

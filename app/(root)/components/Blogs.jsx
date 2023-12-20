@@ -4,6 +4,7 @@ import Expert from "@/public/blogs/Digital Marketing Agency Expert Strategies fo
 import Proven from "@/public/blogs/Digital Marketing Agency Proven Strategies for Online Success.jpg";
 import Help from "@/public/blogs/How To Digital Marketing Agency Helps Businesses Stay Ahead.jpg";
 import Image from "next/image";
+import Link from "next/link";
 const Blogs = () => {
   const data = [
     {
@@ -52,9 +53,11 @@ const Blogs = () => {
         ))}
       </div>
       <div className="text-center">
-        <h4 className="text-red-500 hover:underline cursor-pointer">
-          Explore more
-        </h4>
+        <Link href={"/blogs"}>
+          <h4 className="text-red-500 hover:underline cursor-pointer">
+            Explore more
+          </h4>
+        </Link>
       </div>
     </div>
   );
