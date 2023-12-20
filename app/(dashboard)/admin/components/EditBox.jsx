@@ -62,9 +62,9 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
               <div className="w-full flex flex-col items-center justify-center">
                 <select
                   defaultValue={
-                    dataToEdit.type === "Social Media   "
-                      ? "Social Media"
-                      : "Brand Identity"
+                    dataToEdit.type === "Brand Identity"
+                      ? "Brand Identity"
+                      : "Social Media"
                   }
                   {...register("type", {
                     required: "you to specify the category",

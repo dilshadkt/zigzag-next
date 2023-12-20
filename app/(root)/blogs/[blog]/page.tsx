@@ -24,31 +24,6 @@ const page = async ({ params: { blog } }: Props) => {
   const res = await fetch(`http://localhost:8080/blogs?blogId=${blog}`);
   const Blog: Blog = await res.json();
 
-  const data = [
-    {
-      heading: "We Serve You The Best Digital 10 Marketing Agency In Kerala",
-      content:
-        "are you tired of looking best digital marketing agency in Kerala, don’t worry we will be with you. We are sharing here the best 10 digital marketing agencies in Kerala",
-      list: [
-        {
-          subhead: "list of best 10 digital marketing agencies in Kerala",
-          content: [
-            "Zig zag Digital digital solution",
-            "Haris&co.",
-            "Viral mafia",
-            "web dura technology",
-            "OREXIS Digital Marketing Company",
-          ],
-        },
-        {
-          subhead: "why use digital marketing in the present time",
-          content: [
-            "In today’s world, digital marketing is like a superpower for businesses. Imagine the internet as a big playground where lots of people hang out. Digital marketing helps businesses join the fun and talk directly to these people. It’s like having a magic wand to find the exact people who would love what you offer. And guess what? You can see how well your magic is working by checking numbers that tell you what’s happening.",
-          ],
-        },
-      ],
-    },
-  ];
   return (
     <div className=" px-[14%] py-[4%]">
       <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
@@ -101,7 +76,7 @@ const page = async ({ params: { blog } }: Props) => {
                       <ul key={`${index}-${items}`}>
                         <li className="my-2">{items?.subhead}</li>
 
-                        <li>{items?.desc}</li>
+                        <li className="">{items?.desc}</li>
                       </ul>
                     ))}
                   </ul>

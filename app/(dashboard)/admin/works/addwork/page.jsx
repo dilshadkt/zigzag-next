@@ -6,7 +6,9 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 const page = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,7 +24,7 @@ const page = () => {
     datas.append("star", watch().star);
     axios
       .post("http://localhost:8080/work", datas)
-      .then((res) => setImage(res.data))
+      .then(() => router.back())
       .catch((err) => console.log(err));
   };
   const onImageChange = (event) => {

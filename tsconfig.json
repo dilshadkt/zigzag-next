@@ -34,7 +34,8 @@
     "app/(dashboard)/admin/experts/page.jsx",
     "app/(dashboard)/admin/client/page.jsx",
     "app/(dashboard)/admin/blogs/page.jsx",
-    "app/(dashboard)/admin/blogs/[blogId]/page.jsx"
+    "app/(dashboard)/admin/blogs/[blogId]/page.jsx",
+    "app/(root)/components/RecentWork.jsx"
   ],
   "exclude": ["node_modules"]
 }

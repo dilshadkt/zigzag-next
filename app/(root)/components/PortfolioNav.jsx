@@ -10,13 +10,13 @@ const PortfolioNav = () => {
             {" "}
             <li className="mx-3 cursor-pointer hover:text-red-500">ALL</li>
           </Link>
-          <Link href={"?type=brand"}>
+          <Link href={"?type=Brand Identity"}>
             {" "}
             <li className="mx-3 cursor-pointer hover:text-red-500">
               Brand Identity
             </li>
           </Link>
-          <Link href={"?type=social"}>
+          <Link href={"?type=Social Media"}>
             {" "}
             <li className="mx-3 cursor-pointer hover:text-red-500">
               Social Media
