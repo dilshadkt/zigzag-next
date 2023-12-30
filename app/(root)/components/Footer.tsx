@@ -16,13 +16,13 @@ const Footer = async () => {
   return (
     <>
       <div className="bg-[#FCFAFA] px-[5%] flex py-[5%] relative">
-        <div className="flex-initial w-[40%] sm:w-full ">
+        <div className="flex-initial w-[40%] md:w-full ">
           <div>
-            <div className="h-[90px] sm:h-[40px] sm:mt-6  overflow-hidden flex items-center justify-start">
+            <div className="h-[90px] md:h-[40px] sm:mt-6  overflow-hidden flex items-center justify-start">
               <Image
                 src={footer}
                 alt={"digital marketing solution in malappuram"}
-                className="w-[200px] sm:w-[120px] "
+                className="w-[200px] md:w-[120px] "
               />
             </div>
 
@@ -71,7 +71,7 @@ const Footer = async () => {
             </div>
           </div>
         </div>
-        <div className="sm:hidden flex-1  flex text-primary">
+        <div className="md:hidden flex-1  flex text-primary">
           <div className="flex-initial  w-[20%]">
             <h3 className="font-semibold text-xl mb-6">Company</h3>
 
@@ -159,22 +159,22 @@ const Footer = async () => {
             </ul>
           </div>
         </div>
-        <div className="bg-white flex sm:flex-col rounded-3xl shadow-2xl absolute px-5 py-[2%] sm:py-[3%] bottom-[90%] w-[70%] sm:w-[90%] left-0 right-0 m-auto z-0">
+        <div className="bg-white flex md:flex-col rounded-3xl shadow-2xl absolute px-5 py-[2%] sm:py-[3%] bottom-[90%] w-[70%] sm:w-[90%] left-0 right-0 m-auto z-0">
           <div className="flex-1  text-3xl flex items-center justify-center">
-            <div className="w-[70%] sm:w-[80%]">
-              <h3 className="sm:text-xl sm:text-center font-semibold text-red-500">
+            <div className="w-[70%] md:w-[80%]">
+              <h3 className="sm:text-xl md:text-2xl md:text-center font-semibold text-red-500">
                 Wish To Take Your Business To The Next Level?
               </h3>
             </div>
           </div>
           <div className="flex-1  flex justify-center items-center ">
             <div className="flex flex-col items-center w-[80%]">
-              <h3 className="sm:hidden text-lg mb-2 text-primary">
+              <h3 className="md:hidden text-lg mb-2 text-primary">
                 Create Compelling Online Presence & Drive Sales With The Best
                 Digital Marketing Agency in Malappuram
               </h3>
               <Link href={"/contact"}>
-                <span className="my-3 sm:my-0 sm:text-black  font-medium text-red-500 cursor-pointer hover:bg-gray-100 p-2 rounded-2xl px-4">
+                <span className="my-3 md:my-0 sm:text-black  font-medium text-red-500 cursor-pointer hover:bg-gray-100 p-2 rounded-2xl px-4">
                   Get A Free Consultation
                 </span>
               </Link>
@@ -183,7 +183,7 @@ const Footer = async () => {
         </div>
       </div>
       <div className="bg-[#FCFAFA]">
-        <h4 className="p-2 text-center">
+        <h4 className="p-2 text-center md:pb-[15%] sm:pb-0">
           © 2023 Zig Zag Digital Marketing Agency Manjeri. All rights reserved.
         </h4>
       </div>

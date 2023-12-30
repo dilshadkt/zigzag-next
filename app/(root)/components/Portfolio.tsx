@@ -13,20 +13,20 @@ const Portfolio = async () => {
   const staredWork: Work[] = await response.json();
 
   return (
-    <div className="bg-white px-[12%] py-[5%] sm:px-5">
+    <div className="bg-white px-[12%] py-[5%] sm:px-5 md:px-6">
       <div className="text-center pt-6">
         <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
           Portfolio
         </h2>
       </div>
-      <div className="grid grid-cols-4 py-[5%]">
+      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 py-[5%]">
         {staredWork.slice(0, 8).map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="h-[250px] sm:w-[48%] rounded-xl bg-gray-400 overflow-hidden mx-2 mb-4"
+            className="h-[250px] sm:h-[150px] lg:h-[180px] rounded-xl bg-gray-400 overflow-hidden mx-2 mb-4"
           >
             <Image
-              className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"
+              className="object-cover  w-full h-full hover:scale-105 transition-all duration-700"
               src={item.image}
               width={100}
               height={100}

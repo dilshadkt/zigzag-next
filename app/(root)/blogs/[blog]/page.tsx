@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import LatesBlog from "./LatesBlog";
+
 interface Props {
   params: { blog: string };
 }
@@ -25,76 +27,84 @@ const page = async ({ params: { blog } }: Props) => {
   const Blog: Blog = await res.json();
 
   return (
-    <div className=" px-[14%] py-[4%]">
-      <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
-        <Image
-          src={Blog.photos}
-          alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
-          width={200}
-          height={200}
-          className="w-full object-cover "
-        />
-      </div>
-      <div className="flex justify-center my-[2%]">
-        <h1 className="text-3xl text-red-500 font-bold">{Blog.mainHead}</h1>
-      </div>
-      <div className="text-xl">
-        <div>
-          <p>{Blog.description}</p>
+    <>
+      {" "}
+      <div className=" px-[14%] sm:px-5 md:px-6  py-[4%]">
+        <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
+          <Image
+            src={Blog.photos}
+            alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
+            width={200}
+            height={200}
+            className="w-full object-cover "
+          />
         </div>
-        <div className="my-[2%]  leading-8">
-          <ul className="list-[number] pl-5 text-red-500 font-medium">
-            {Blog.test.map((item, index) => (
-              <li key={`${index}-${item.name}`} className="my-2">
-                {item.name}
-              </li>
-            ))}
-          </ul>
+        <div className="flex justify-center my-[2%]">
+          <h1 className="text-3xl text-red-500 font-bold">{Blog.mainHead}</h1>
         </div>
-        <div>
-          <ul className="list-[number]">
-            {Blog.test.map((item, index) => (
-              <>
-                <li key={`${index}-nested${item.name}`} className="my-2">
+        <div className="text-xl">
+          <div>
+            <p className="text-justify">{Blog.description}</p>
+          </div>
+          <div className="my-[2%]  leading-8">
+            <ul className="list-[number] pl-5 text-red-500 font-medium">
+              {Blog.test.map((item, index) => (
+                <li key={`${index}-${item.name}`} className="my-2">
                   {item.name}
                 </li>
-                {item?.nestedArray?.map((items, index) => (
-                  <ul key={`${index}-${items.subhead}`}>
-                    <li>{items.subhead}</li>
-                    {item?.image && (
-                      <div className="w-[200px] h-[200px] flex items-center justify-center overflow-hidden rounded-xl p-2 border">
-                        <Image
-                          src={item?.image}
-                          alt="sybone"
-                          width={100}
-                          height={100}
-                          className="w-full h-full object-cover rounded-xl"
-                        />
-                      </div>
-                    )}
-                    {item?.nestedArray.map((items, index) => (
-                      <ul key={`${index}-${items}`}>
-                        <li className="my-2">{items?.subhead}</li>
-
-                        <li className="">{items?.desc}</li>
-                      </ul>
-                    ))}
-                  </ul>
-                ))}
-              </>
-            ))}
-          </ul>
-        </div>
-        {Blog?.conclustion && (
-          <div>
-            <h4 className="text-lg font-semibold my-4 text-red-500">
-              conclusion :{" "}
-            </h4>
-            <div className="my-1">{Blog?.conclustion}</div>
+              ))}
+            </ul>
           </div>
-        )}
+          <div>
+            <ul className="list-[number]">
+              {Blog.test.map((item, index) => (
+                <>
+                  <li key={`${index}-nested${item.name}`} className="my-2">
+                    {item.name}
+                  </li>
+                  {item?.nestedArray?.map((items, index) => (
+                    <ul key={`${index}-${items.subhead}`}>
+                      <li>{items.subhead}</li>
+                      {item?.image && (
+                        <div className="w-[200px] h-[200px] flex items-center justify-center overflow-hidden rounded-xl p-2 border">
+                          <Image
+                            src={item?.image}
+                            alt="sybone"
+                            width={100}
+                            height={100}
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                      )}
+                      {item?.nestedArray.map((items, index) => (
+                        <ul key={`${index}-${items}`}>
+                          <li className="my-2">{items?.subhead}</li>
+
+                          <li>
+                            <p className="text-justify"> {items?.desc}</p>
+                          </li>
+                        </ul>
+                      ))}
+                    </ul>
+                  ))}
+                </>
+              ))}
+            </ul>
+          </div>
+          {Blog?.conclustion && (
+            <div>
+              <h4 className="text-lg font-semibold my-4 text-red-500">
+                conclusion :{" "}
+              </h4>
+              <div className="my-1">
+                <p className="text-justify">{Blog?.conclustion}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        <LatesBlog />
       </div>
-    </div>
+    </>
   );
 };
 

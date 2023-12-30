@@ -6,6 +6,7 @@ import Blogs from "@/app/(root)/components/Blogs";
 import OurExpert from "@/app/(root)/components/OurExpert";
 import Portfolio from "@/app/(root)/components/Portfolio";
 import Services from "@/app/(root)/components/Services";
+import Feedback from "./components/Feedback";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Portfolio />
       <OurExpert />
       <Services />
+      <Feedback />
     </div>
   );
 }

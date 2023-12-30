@@ -6,26 +6,28 @@ import Vision from "./Vision";
 import OurClient from "@/app/(root)/components/OurClient";
 import Whychoose from "@/app/(root)/components/Whychoose";
 import RecentWork from "@/app/(root)/components/RecentWork";
-
+// import Readmore from "./Readmore";
+import dynamic from "next/dynamic";
+const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
     <div>
-      <div className="bg-white px-[12%] sm:px-5 py-[2%] relative overflow-hidden z-0">
-        <div className="">
+      <div className="bg-white px-[12%] sm:px-5 md:px-6 py-[2%] relative overflow-hidden z-0">
+        <div>
           <div className="flex justify-center">
             <h1 className="text-3xl text-gray-500">About Us</h1>
           </div>
-          <div className="flex my-9 sm:flex-col">
-            <div className="flex-1 flex sm:justify-center sm:mb-[8%]">
+          <div className="flex my-9 md:flex-col">
+            <div className="flex-1 flex md:justify-center md:mb-[8%] items-center">
               <Image
                 src={aboutus}
-                className="sm:w-[65%]"
+                className="sm:w-[50%] md:w-[40%] h-fit"
                 alt={
                   "Digital Marketing Company in Malappuram providing result-oriented marketing solutions for brands since 2020."
                 }
               />
             </div>
-            <div className="text-[22px] flex-1  sm:text-lg   flex flex-col justify-center text-justify">
+            <div className="text-[22px] flex-1  md:text-lg   flex flex-col justify-center text-justify">
               <div>
                 <p className="">
                   The story that leads us on the extraordinary journey of
@@ -56,11 +58,16 @@ const AboutUs = () => {
                   world
                 </p>
               </div>
+
+              <Readmore />
             </div>
           </div>
         </div>
         <div className="absolute -top-1/4 right-0 w-full  -z-[2] left-2/4 opacity-50 ">
-          <Image src={aboutbg} alt={""} />
+          <Image
+            src={aboutbg}
+            alt={"best digital marketing agency in malappuram"}
+          />
         </div>
       </div>
       <Vision />

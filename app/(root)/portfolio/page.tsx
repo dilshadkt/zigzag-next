@@ -19,7 +19,7 @@ const Portfolio = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="mx-[17%] sm:mx-5 lg:mb-[15%] grid grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+    <div className="mx-[17%] md:mx-5 md:pt-6 lg:mb-[15%] grid grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
       {works.map((item, index) =>
         type === "all" ? (
           <Card img={item.image} key={`${index} -${item.image}`} />

@@ -5,10 +5,10 @@ interface Props {
 
 const ServiceBox = ({ data }: Props) => {
   return (
-    <div className="flex flex-wrap">
+    <div className="grid grid-cols-4 md:grid-cols-2">
       {data.map((item, index) => (
         <div
-          className="px-3 sm:min-w-[200px] py-[4%] sm:p-7  text-secondary hover:shadow-md transition-all duration-200 flex-1 m-1 bg-box rounded-2xl flex items-center "
+          className="px-3 md:p-[10%] py-[4%] sm:p-7  text-secondary hover:shadow-md transition-all duration-200 flex-1 m-1 bg-box rounded-2xl flex items-center "
           key={`${item}-${index}`}
         >
           <h4 className="text-center text-lg"> {item}</h4>

@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex-1 h-full">
           <Image src={logo} alt="logo" width={80} />
         </div>
-        <div className="flex-initial w-[40%] sm:hidden text-rose-200">
+        <div className="flex-initial w-[40%] md:hidden text-rose-200">
           <ul className="flex  items-center h-full font-medium justify-around">
             <Link
               href={"/"}
@@ -97,7 +97,12 @@ const Navbar = () => {
               {" "}
               <li>Portfolio</li>
             </Link>
-            <Link href={"/blogs"}>
+            <Link
+              className={
+                currentPath === "/blogs" ? `underline underline-offset-8 ` : ``
+              }
+              href={"/blogs"}
+            >
               <li>Blogs</li>
             </Link>
             <Link

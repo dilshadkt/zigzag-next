@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 const AboutUs = () => {
   return (
-    <div className="bg-white px-[12%] py-[2%] sm:px-5 relative overflow-hidden z-0">
+    <div className="bg-white px-[12%] py-[2%] sm:px-5 md:px-6 relative overflow-hidden z-0">
       <div className="">
         <div className="flex justify-center">
           <h1 className="text-3xl text-gray-500 sm:my-[5% ]">About Us</h1>
@@ -14,10 +14,11 @@ const AboutUs = () => {
           <div className="flex-1 sm:w-[60%]  sm:mb-7">
             <Image
               src={aboutus}
+              className="md:w-[90%]"
               alt={"digital marketing agency in malappuram"}
             />
           </div>
-          <div className="text-[22px] sm:text-lg flex-1    flex flex-col justify-center text-justify">
+          <div className="text-[22px] md:text-lg flex-1    flex flex-col justify-center text-justify">
             <div>
               <p className="">
                 At <span className=" font-medium text-red-600">Zig Zag</span>,

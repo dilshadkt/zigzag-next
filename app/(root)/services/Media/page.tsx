@@ -1,55 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import media1 from "@/public/services/media/Creative Conceptualization.jpg";
 import media from "@/public/services/media/Diverse Content Formats.jpg";
-import media2 from "@/public/services/media/Final Delivery.jpg";
-import media3 from "@/public/services/media/High-Quality Production.jpg";
-import media4 from "@/public/services/media/Media Production Services.jpg";
-import media5 from "@/public/services/media/Review and Feedback.jpg";
-import media6 from "@/public/services/media/Storytelling.jpeg";
 import RecentWork from "@/app/(root)/components/RecentWork";
+import { data } from "@/public/services/media/data";
 const page = () => {
-  const data = [
-    {
-      title: "1.Creative Conceptualization    ",
-      id: 1,
-      img: media1,
-      desc: "Behind every great media is a great idea. Our creative minds collaborate with you to understand your brand, objectives, and message. We then transform these understandings into imaginative concepts that captivate and inspire. ",
-    },
-    {
-      title: "2. High-Quality Production    ",
-      id: 2,
-      img: media3,
-      desc: "Quality is our core focus. From pre-production planning to filming and editing, our team ensures every aspect of production meets the highest standards. We use state-of-the-art equipment and techniques to bring your vision to life.    ",
-    },
-    {
-      title: "3.  Diverse Content Formats  ",
-      id: 3,
-      img: media4,
-      desc: "We offer diverse media content formats. From short videos for reels and YouTube shorts to documentaries and stunning photography, we produce a wide range of content that suits your brand's needs.    ",
-    },
-    {
-      title: "4.Review and Feedback    ",
-      id: 4,
-      img: media5,
-      desc: "This is where we open our hearts to constructive feedback from our clients and deliver results that exceed all their expectations.    By opening the communication channel, both teams can discuss their thoughts and finally land on the same page for successful media production     ",
-    },
-    {
-      title: "5.Final Delivery    ",
-      id: 5,
-      img: media2,
-      desc: "We firmly believe time management is the key to sustaining fruitful relationships with our esteemed clients.  Talk to our expert media professionals to create visuals that captivate, inspire, and drive meaningful engagement for you! .  ",
-    },
-    {
-      title: "6. Storytelling   ",
-      id: 6,
-      img: media6,
-      desc: "Every piece of media we create is an opportunity for your brand to tell a compelling story that the audience can connect with, to deliver your unique voice, values, and messaging.  Whether it's a promotional video, a social media campaign, or an images series, we try to carry a steady brand picture that resonates with your audience. We create media that appears amazing and conveys a significant and remarkable message. This approach facilitates your target audience to connect with your brand on a deeper level retaining them as your customers.",
-    },
-  ];
   return (
     <>
-      <div className="mx-[13%] mt-9 sm:mx-5">
+      <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6">
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-center  rounded-xl overflow-hidden h-[320px] sm:h-[220px]">
             <Image
@@ -62,7 +19,7 @@ const page = () => {
           <h1 className="text-center my-7 text-3xl font-semibold text-red-500">
             Media Production Services in Malappuram
           </h1>
-          <div className="text-2xl sm:text-[20px]">
+          <div className="text-2xl md:text-[20px]">
             <p className="text-justify leading-[35px] ">
               As a cutting-edge digital marketing agency in Malappuram, we
               specialize in bringing captivating visual narratives that amplify

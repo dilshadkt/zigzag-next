@@ -15,24 +15,24 @@ const OurClient = async () => {
   const clientLogo: ClinetLogo[] = await response.json();
 
   return (
-    <div className="bg-white px-[12%] sm:px-5 ">
+    <div className="bg-white px-[12%] sm:px-5 md:px-6">
       <div className="text-center">
         <h2 className="text-3xl sm:text-2xl sm:py-[8%] text-secondary font-medium">
           Our Clientele
         </h2>
       </div>
-      <div className="grid grid-cols-4 py-[6%] sm:justify-center">
+      <div className="grid grid-cols-4 py-[6%] sm:justify-center md:grid-cols-3 sm:grid-cols-2 ">
         {clientLogo.map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="flex-1  bg-white  sm:min-w-[40%]  hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl "
+            className="flex-1  bg-white   hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl "
           >
             <Image
               src={item.image}
               alt={item.image.split("/")[item.image.split("/").length - 1]}
               width={100}
               height={100}
-              className="w-fit object-fill h-[90px]"
+              className="w-[80%] object-cover h-[90px]"
             />
           </div>
         ))}
