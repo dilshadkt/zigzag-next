@@ -3,6 +3,7 @@ import React from "react";
 import performance from "@/public/services/performance/A,B Testing.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/performance/data";
+import { Metadata } from "next";
 
 const page = () => {
   return (
@@ -29,9 +30,9 @@ const page = () => {
               outcomes, and increased ROI.
             </p>
           </div>
-          <h4 className="font-semibold text-xl my-5">
+          <h2 className="font-semibold text-xl my-5">
             Why Performance Marketing Matters?
-          </h4>
+          </h2>
           <p className="text-justify text-xl  leading-[35px]">
             Businesses grow better when they invest in performance marketing,
             which drives measurable results. Generating tangible outcomes that
@@ -40,9 +41,9 @@ const page = () => {
             strategies that perform well.
           </p>
 
-          <h4 className="font-semibold text-xl my-5 sm:my-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:my-[10%]">
             Our Performance Marketing Approach
-          </h4>
+          </h2>
           <div>
             {data.map((item) => (
               <div
@@ -79,3 +80,9 @@ const page = () => {
 };
 
 export default page;
+
+export const metadata: Metadata = {
+  title: "Best Performance Marketing Agency in Malappuram",
+  description:
+    "As your trusted performance marketing agency in malappuram, we provide paid ads, google ads and other performance marketing services for your brand",
+};

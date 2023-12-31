@@ -3,6 +3,7 @@ import React from "react";
 import media from "@/public/services/media/Diverse Content Formats.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/media/data";
+import { Metadata } from "next";
 const page = () => {
   return (
     <>
@@ -27,9 +28,9 @@ const page = () => {
               brand's storytelling to new heights with stunning visuals.
             </p>
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:mt-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:mt-[10%]">
             Why Media Production Matters?
-          </h4>
+          </h2>
           <p className="text-justify text-xl leading-[35px]">
             Great visuals and compelling stories make you stand out in a world
             of endless information and content consumption. Media production is
@@ -37,9 +38,9 @@ const page = () => {
             impression.
           </p>
 
-          <h4 className="font-semibold text-xl my-5 sm:my-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:my-[10%]">
             Our Media Production Approach
-          </h4>
+          </h2>
           <div>
             {data.map((item) => (
               <div
@@ -76,3 +77,9 @@ const page = () => {
 };
 
 export default page;
+
+export const metadata: Metadata = {
+  title: " Best Media Production Service Agency in Malappuram.",
+  description:
+    " As your trusted digital marketing agency in malappuram, we provide  Comprehensive media production services services for your brand",
+};

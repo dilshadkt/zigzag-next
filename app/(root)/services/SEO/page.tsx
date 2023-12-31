@@ -5,6 +5,7 @@ import { benifits } from "@/public/services/seo/data";
 import seo from "@/public/services/seo/seo.jpg";
 import ServiceBox from "@/app/(root)/components/ServiceBox";
 import RecentWork from "@/app/(root)/components/RecentWork";
+import { Metadata } from "next";
 const page = () => {
   return (
     <>
@@ -36,15 +37,15 @@ const page = () => {
               rank No.1 on Google!
             </p>
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:mt-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:mt-[10%]">
             Why Social Media Marketing?
-          </h4>
+          </h2>
           <div className="my-3 sm:my-2">
             <ServiceBox data={benifits} />
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:my-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:my-[10%]">
             Our Social Media Marketing Approach
-          </h4>
+          </h2>
           <div>
             {data.map((item) => (
               <div
@@ -81,3 +82,8 @@ const page = () => {
 };
 
 export default page;
+export const metadata: Metadata = {
+  title: "Best SEO Agency in Malappuram",
+  description:
+    " As your trusted SEO agency in malappuram, we provide corporate SEo marketing services for your brand.",
+};

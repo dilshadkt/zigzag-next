@@ -8,6 +8,7 @@ import Whychoose from "@/app/(root)/components/Whychoose";
 import RecentWork from "@/app/(root)/components/RecentWork";
 // import Readmore from "./Readmore";
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
@@ -81,3 +82,9 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+export const metadata: Metadata = {
+  title: "Creative Digital Marketing Solutions in Malappuram",
+  description:
+    "Join our top digital marketing agency in Malappuram. Discover our passion and client-centric approach that turns visions into success. ",
+};

@@ -5,6 +5,7 @@ import ServiceBox from "@/app/(root)/components/ServiceBox";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/corperate/data";
 import { benifits } from "@/public/services/corperate/data";
+import { Metadata } from "next";
 
 const page = () => {
   return (
@@ -34,15 +35,15 @@ const page = () => {
               audience, making you stay on top of their mind.
             </p>
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:mt-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:mt-[10%]">
             Why Corporate Branding Matters?
-          </h4>
+          </h2>
           <div className="my-4 sm:my-2">
             <ServiceBox data={benifits} />
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:my-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:my-[10%]">
             Our Unique Corporate Branding Approach
-          </h4>
+          </h2>
           <div>
             {data.map((item) => (
               <div
@@ -79,3 +80,9 @@ const page = () => {
 };
 
 export default page;
+
+export const metadata: Metadata = {
+  title: "Best Corporate Branding Service in Malappuram",
+  description:
+    " As your trusted corporate branding agency in malappuram, we provide corporate branding services for your brand",
+};

@@ -3,6 +3,7 @@ import React from "react";
 import webdev from "@/public/services/webdev/Content Integration.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/webdev/data";
+import { Metadata } from "next";
 
 const page = () => {
   return (
@@ -29,9 +30,9 @@ const page = () => {
               engaging, and converting.
             </p>
           </div>
-          <h4 className="font-semibold text-xl my-5 sm:mt-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:mt-[10%]">
             Why Website Development Matters?
-          </h4>
+          </h2>
           <p className="text-justify text-xl leading-[35px]">
             Your website is the first impression and virtual front door to your
             business. Greet your potential customers with irresistible copy,
@@ -39,9 +40,9 @@ const page = () => {
             step.
           </p>
 
-          <h4 className="font-semibold text-xl my-5 sm:my-[10%]">
+          <h2 className="font-semibold text-xl my-5 sm:my-[10%]">
             Our Social Media Marketing Approach
-          </h4>
+          </h2>
           <div>
             {data.map((item) => (
               <div
@@ -78,3 +79,8 @@ const page = () => {
 };
 
 export default page;
+export const metadata: Metadata = {
+  title: "Best Website Development Agency in Malappuram ",
+  description:
+    " As your trusted website development agency in malappuram, we provide complete website development and maintenance services for your brand",
+};

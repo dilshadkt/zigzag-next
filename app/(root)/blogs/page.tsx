@@ -8,7 +8,9 @@ interface Blog {
 }
 
 const page = async () => {
-  const res = await fetch("http://localhost:8080/blogs");
+  const res = await fetch("http://localhost:8080/blogs", {
+    next: { revalidate: 3 },
+  });
   const blogs: Blog[] = await res.json();
 
   return (

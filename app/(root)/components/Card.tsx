@@ -11,8 +11,9 @@ const Card = ({ img }: Props) => {
       <Image
         src={img}
         alt="image"
-        width={100}
-        height={100}
+        width={400}
+        height={400}
+        quality={90}
         className="object-cover  w-full h-full hover:scale-105 transition-all duration-700"
       />
     </div>

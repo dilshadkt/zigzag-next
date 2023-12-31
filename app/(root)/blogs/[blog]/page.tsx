@@ -1,6 +1,7 @@
 import Image from "next/image";
-import React from "react";
+import React, { Fragment } from "react";
 import LatesBlog from "./LatesBlog";
+import { Metadata } from "next";
 
 interface Props {
   params: { blog: string };
@@ -12,6 +13,8 @@ interface Blog {
   photos: string;
   test: Array<TestItem>;
   conclustion: string;
+  metaTitle: string;
+  metaDescription: string;
 }
 interface TestItem {
   name: string;
@@ -28,8 +31,7 @@ const page = async ({ params: { blog } }: Props) => {
 
   return (
     <>
-      {" "}
-      <div className=" px-[14%] sm:px-5 md:px-6  py-[4%]">
+      <div className=" px-[14%]  md:px-6  py-[4%]">
         <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
           <Image
             src={Blog.photos}
@@ -37,6 +39,7 @@ const page = async ({ params: { blog } }: Props) => {
             width={200}
             height={200}
             className="w-full object-cover "
+            quality={100}
           />
         </div>
         <div className="flex justify-center my-[2%]">
@@ -58,8 +61,8 @@ const page = async ({ params: { blog } }: Props) => {
           <div>
             <ul className="list-[number]">
               {Blog.test.map((item, index) => (
-                <>
-                  <li key={`${index}-nested${item.name}`} className="my-2">
+                <Fragment key={`${index}-nested${item.name}`}>
+                  <li className="my-2 md:mx-4 font-semibold mt-5">
                     {item.name}
                   </li>
                   {item?.nestedArray?.map((items, index) => (
@@ -72,6 +75,7 @@ const page = async ({ params: { blog } }: Props) => {
                             alt="sybone"
                             width={100}
                             height={100}
+                            quality={90}
                             className="w-full h-full object-cover rounded-xl"
                           />
                         </div>
@@ -87,7 +91,7 @@ const page = async ({ params: { blog } }: Props) => {
                       ))}
                     </ul>
                   ))}
-                </>
+                </Fragment>
               ))}
             </ul>
           </div>
@@ -109,3 +113,16 @@ const page = async ({ params: { blog } }: Props) => {
 };
 
 export default page;
+export async function generateMetadata({
+  params: { blog },
+}: Props): Promise<Metadata> {
+  const res = await fetch(`http://localhost:8080/blogs?blogId=${blog}`, {
+    next: { revalidate: 2 },
+  });
+  const blogs: Blog = await res.json();
+
+  return {
+    title: blogs.metaTitle,
+    description: blogs.metaDescription,
+  };
+}
