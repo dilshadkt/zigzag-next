@@ -36,7 +36,8 @@
     "app/(dashboard)/admin/blogs/page.jsx",
     "app/(dashboard)/admin/blogs/[blogId]/page.jsx",
     "app/(root)/components/RecentWork.tsx",
-    "app/(root)/components/Feedback.jsx"
+    "app/(root)/components/Feedback.jsx",
+    "app/(root)/components/Testimonial.jsx"
   ],
   "exclude": ["node_modules"]
 }

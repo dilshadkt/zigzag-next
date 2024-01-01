@@ -6,9 +6,14 @@ import Blogs from "@/app/(root)/components/Blogs";
 import OurExpert from "@/app/(root)/components/OurExpert";
 import Portfolio from "@/app/(root)/components/Portfolio";
 import Services from "@/app/(root)/components/Services";
-import Feedback from "./components/Feedback";
+import Testimonial from "./components/Testimonial";
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch("http://localhost:8080/testimonial", {
+    next: { revalidate: 5 },
+  });
+  const testimonia = await res.json();
+
   return (
     <div>
       <LandPage />
@@ -19,7 +24,7 @@ export default function Home() {
       <Portfolio />
       <OurExpert />
       <Services />
-      <Feedback />
+      <Testimonial data={testimonia} />
     </div>
   );
 }
