@@ -2,16 +2,17 @@ import React from "react";
 import BlogCard from "./BlogCard";
 interface Blog {
   _id: String;
-  mainHead: String;
+  heading: String;
   description: String;
   photos: string;
 }
 
 const page = async () => {
-  const res = await fetch("http://localhost:8080/blogs", {
+  const res = await fetch("http://localhost:8080/blogs/test", {
     next: { revalidate: 3 },
   });
   const blogs: Blog[] = await res.json();
+  console.log(blogs);
 
   return (
     <div className=" px-[12%] py-[4%] sm:px-5">
@@ -28,9 +29,9 @@ const page = async () => {
       <div className="grid grid-cols-3 sm:grid-cols-1">
         {blogs.map((item) => (
           <BlogCard
-            key={`${item._id}-${item.mainHead}`}
+            key={`${item._id}-${item.heading}`}
             id={item._id}
-            mainHead={item.mainHead}
+            mainHead={item.heading}
             desc={item.description}
             image={item.photos}
           />

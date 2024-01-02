@@ -56,8 +56,8 @@ const Testimonial = ({ data }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -65,8 +65,8 @@ const Testimonial = ({ data }) => {
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -81,12 +81,17 @@ const Testimonial = ({ data }) => {
   };
   return (
     <div className="bg-white">
-      <div className="px-[12%]">
+      <div className="text-center lg:mb-10 md:mt-0 mb-4 ">
+        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+          Testimonial
+        </h2>
+      </div>
+      <div className="px-[12%] md:[10%]  ">
         <Slider {...settings}>
           {data.map((item) => (
             <div
               key={item._id}
-              className={`cursor-pointer mt-8    relative  mx-2  mb-[40%]`}
+              className={`cursor-pointer mt-[25%] md:mt-[15%]   relative  mx-2  mb-[40%]`}
             >
               <div
                 style={{ background: `${item.color}` }}

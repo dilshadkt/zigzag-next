@@ -7,7 +7,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 interface Blog {
-  mainHead: string;
+  heading: string;
   _id: string;
 }
 const Footer = async () => {
@@ -152,7 +152,7 @@ const Footer = async () => {
               {latestArticle.map((item) => (
                 <Link key={item._id} href={`/blogs/${item._id}`}>
                   <li className="my-2 cursor-pointer hover:text-[#15181e]">
-                    {item.mainHead}
+                    {item.heading}
                   </li>
                 </Link>
               ))}

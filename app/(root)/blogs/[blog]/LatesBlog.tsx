@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 interface Blog {
-  mainHead: string;
+  heading: string;
   photos: string;
   _id: string;
 }
@@ -35,7 +35,7 @@ const LatesBlog = async () => {
                 />
               </div>
               <div className="flex items-center flex-1 w-full p-3 ">
-                <h3 className="text-center text-secondary">{item.mainHead}</h3>
+                <h3 className="text-center text-secondary">{item.heading}</h3>
               </div>
             </Link>
           </div>

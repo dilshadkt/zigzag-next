@@ -2,29 +2,19 @@ import Image from "next/image";
 import React, { Fragment } from "react";
 import LatesBlog from "./LatesBlog";
 import { Metadata } from "next";
+import parse from "html-react-parser";
 
 interface Props {
   params: { blog: string };
 }
 interface Blog {
   _id: string;
-  mainHead: String;
-  description: String;
   photos: string;
-  test: Array<TestItem>;
-  conclustion: string;
+  test: string;
   metaTitle: string;
   metaDescription: string;
 }
-interface TestItem {
-  name: string;
-  nestedArray: Array<NesteItem>;
-  image: string;
-}
-interface NesteItem {
-  subhead: string;
-  desc: string;
-}
+
 const page = async ({ params: { blog } }: Props) => {
   const res = await fetch(`http://localhost:8080/blogs?blogId=${blog}`);
   const Blog: Blog = await res.json();
@@ -42,7 +32,8 @@ const page = async ({ params: { blog } }: Props) => {
             quality={100}
           />
         </div>
-        <div className="flex justify-center my-[2%]">
+        <div>{parse(Blog.test)}</div>
+        {/* <div className="flex justify-center my-[2%]">
           <h1 className="text-3xl text-red-500 font-bold">{Blog.mainHead}</h1>
         </div>
         <div className="text-xl">
@@ -105,7 +96,7 @@ const page = async ({ params: { blog } }: Props) => {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
         <LatesBlog />
       </div>
     </>

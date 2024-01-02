@@ -1,12 +1,15 @@
 "use client";
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Shimmer from "../../components/Shimmer";
 import { useForm } from "react-hook-form";
 import Loading from "./Loading";
+import parse from "html-react-parser";
+import RichText from "@/app/(dashboard)/admin/blogs/add-blog1/RichText";
 const page = ({ params: { blogId } }) => {
+  const [content, setContent] = useState("");
   const [blog, setBlog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
@@ -15,7 +18,10 @@ const page = ({ params: { blogId } }) => {
   useEffect(() => {
     axios
       .get(`http://localhost:8080/blogs?blogId=${blogId}`)
-      .then((res) => setBlog(res.data))
+      .then((res) => {
+        setBlog(res.data);
+        setContent(res.data.test);
+      })
       .catch((err) => console.log(err));
   }, []);
   const router = useRouter();
@@ -35,8 +41,8 @@ const page = ({ params: { blogId } }) => {
       .catch((err) => console.log(err));
   };
   return blog ? (
-    <div className=" px-[14%] py-[4%]">
-      <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
+    <div className=" px-[10%] py-[4%]">
+      <div className="w-full h-[300px] overflow-hidden flex rounded-xl relative">
         <Image
           src={blog.photos}
           alt=" "
@@ -44,93 +50,45 @@ const page = ({ params: { blogId } }) => {
           height={200}
           className="w-full object-cover "
         />
-      </div>
-      <div className="flex justify-center my-[2%]">
-        <h1 className="text-3xl text-red-500 font-bold">{blog?.mainHead}</h1>
-      </div>
-      <div className="text-xl">
-        <div>
-          <p>{blog?.description}</p>
+        <div className="absolute w-[40px] h-[40px] bg-white rounded-full flex items-center justify-center  right-3 cursor-pointer top-3 transform hover:scale-90 transition-all ">
+          ✏️
         </div>
-        <div className="my-[2%]  leading-8">
-          <ul className="list-[number] pl-5 text-red-500 font-medium">
-            {blog?.test?.map((item, index) => (
-              <li key={`${index}-${item.name}`} className="my-2">
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <ul className="list-[number]">
-            {blog?.test?.map((item, index) => (
-              <Fragment key={`${index}-${item.name}`}>
-                <li className="my-2">{item.name}</li>
-                {item?.image && (
-                  <div className="w-[200px] h-[200px] flex items-center justify-center overflow-hidden rounded-xl p-2 border">
-                    <Image
-                      src={item.image}
-                      alt="sybone"
-                      width={100}
-                      height={100}
-                      priority
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
-                )}
-                {item?.nestedArray.map((items, index) => (
-                  <ul key={`${index}-${items}`}>
-                    <li className="my-2">{items?.subhead}</li>
+      </div>
+      <div className="my-4">
+        <RichText content={content} setContent={setContent} />
+      </div>
 
-                    <li>{items?.desc}</li>
-                  </ul>
-                ))}
-              </Fragment>
-            ))}
-          </ul>
+      <div className="border mt-[5%] p-5 rounded-xl bg-gray-200">
+        <div className="grid grid-cols-5">
+          <label>meta title :</label>
+          <input
+            type="text"
+            {...register("metaTitle")}
+            className="border col-span-4 p-2"
+          />
         </div>
-        {blog?.conclustion && (
-          <div>
-            <h4 className="text-lg font-semibold my-4 text-red-500">
-              conclusion :{" "}
-            </h4>
-            <div className="my-1">{blog?.conclustion}</div>
-          </div>
-        )}
-        <div className="border p-5  rounded-xl  text-base mt-5 ">
-          <div className="grid grid-cols-5">
-            <label>meta title : </label>
-            <input
-              {...register("metaTitle")}
-              type="text"
-              placeholder={blog.metaTitle}
-              className="col-span-4 border p-3 rounded-xl"
-            />
-          </div>
-          <div className="grid grid-cols-5 my-4">
-            <label className="text-sm">meta description : </label>
-            <textarea
-              {...register("metaDescription")}
-              type="text"
-              placeholder={blog.metaDescription}
-              className="col-span-4 border p-3 rounded-xl"
-            />
-          </div>
+        <div className="grid grid-cols-5 my-2">
+          <label>meta description :</label>
+          <textarea
+            {...register("metaDescription")}
+            type="text"
+            className="border col-span-4 p-2"
+          />
         </div>
-        <div className="my-[2%]">
-          <button
-            onClick={() => deleteBlog(blogId)}
-            className="bg-red-500 text-white text-lg font-semibold px-5 hover:bg-red-400 p-3 rounded-xl"
-          >
-            Delete
-          </button>
-          <button
-            onClick={() => updateBlog(blogId)}
-            className="bg-blue-500 ml-3 text-white text-lg font-semibold px-5 hover:bg-blue-400 p-3 rounded-xl"
-          >
-            Edit
-          </button>
-        </div>
+      </div>
+      <div className="my-3">
+        <button
+          onClick={() => deleteBlog(blogId)}
+          className="bg-red-500 mr-2 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-xl"
+        >
+          Delete
+        </button>
+        <button
+          onClick={() => updateBlog(blogId)}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl"
+        >
+          Edit
+        </button>
       </div>
       {isLoading && <Loading />}
     </div>

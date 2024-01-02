@@ -20,7 +20,7 @@ const page = () => {
   ) : (
     <div className=" my-[2%]">
       <div className="flex items-center justify-end my-[2%]">
-        <Link href={"/admin/blogs/add-blog"}>
+        <Link href={"/admin/blogs/add-blog1"}>
           <div className="cursor-pointer hover:text-red-400" title="add image">
             <AddIcon />
           </div>
@@ -42,12 +42,12 @@ const page = () => {
                 </div>
                 <div>
                   <h3 className="text-center text-primary font-medium my-2">
-                    {`${item?.mainHead.slice(0, 50)} ...`}
+                    {`${item?.heading?.slice(0, 50)} ...`}
                   </h3>
                 </div>
                 <div className="my-[3%]">
                   <p className="text-justify">
-                    {`${item?.description.slice(0, 150)}...`}
+                    {`${item?.description?.slice(0, 150)}...`}
                   </p>
                 </div>
                 <div className="flex justify-center my-3">

@@ -10,7 +10,7 @@ interface Props {
 
 const BlogCard = ({ mainHead, desc, image, id }: Props) => {
   return (
-    <div className="border p-2 w-fit rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
+    <div className="border p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
       <Link href={`blogs/${id}`}>
         <div className="w-full h-[250px] overflow-hidden">
           <Image
