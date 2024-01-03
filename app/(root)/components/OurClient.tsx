@@ -30,9 +30,10 @@ const OurClient = async () => {
             <Image
               src={item.image}
               alt={item.image.split("/")[item.image.split("/").length - 1]}
-              width={100}
-              height={100}
-              className="w-[80%] object-cover h-[90px]"
+              width={400}
+              height={300}
+              quality={100}
+              className="w-[50%] object-cover h-[80px]"
             />
           </div>
         ))}

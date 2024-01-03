@@ -7,10 +7,10 @@ interface Props {
 
 const Card = ({ img }: Props) => {
   return (
-    <div className="mx-1 h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-3">
+    <div className="mx-1 h-[300px] rounded-xl bg-gray-400 overflow-hidden mb-3">
       <Image
         src={img}
-        alt="image"
+        alt={img.split("/")[img.split("/").length - 1]}
         width={400}
         height={400}
         quality={90}

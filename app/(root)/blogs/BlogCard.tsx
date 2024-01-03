@@ -16,8 +16,8 @@ const BlogCard = ({ mainHead, desc, image, id }: Props) => {
           <Image
             src={image}
             alt={image.split("/")[image.split("/").length - 1]}
-            width={250}
-            height={250}
+            width={400}
+            height={400}
             className="w-full h-full object-cover rounded-xl"
           />
         </div>

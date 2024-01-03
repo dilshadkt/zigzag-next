@@ -4,6 +4,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 interface Props {
   isEdit: boolean;
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +22,7 @@ interface Client {
   role: string;
 }
 const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
-  const [loader, setLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
     defaultValues: {
       name: testimonial?.name,
@@ -30,24 +33,27 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
     },
   });
   const remove = (id: any) => {
-    setLoader(!loader);
+    setIsLoading(!isLoading);
     axios
       .delete(`http://localhost:8080/testimonial/${id}`)
       .then(() => {
-        setLoader(!loader);
+        setIsLoading(false);
         location.reload();
       })
       .catch((err) => console.log(err));
   };
   const updateClients = (id: any) => {
-    setLoader(!loader);
+    setIsLoading(!isLoading);
     axios
       .patch(`http://localhost:8080/testimonial/${id}`, watch())
       .then(() => {
-        setLoader(!loader);
+        setIsLoading(false);
         location.reload();
+        toast.success("successfully updated");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <>
@@ -116,15 +122,20 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
             Edit
           </button>
         </div>
-        <div
-          className={`${
-            loader ? `flex` : `hidden`
-          }  absolute top-0 rounded-xl flex items-center justify-center left-0 bottom-0 right-0 m-auto bg-white opacity-40`}
-        >
-          <span className="loading loading-dots loading-xs"></span>
-          <span className="loading loading-dots loading-xs"></span>
-        </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading && <Loading />}
     </>
   );
 };

@@ -26,8 +26,8 @@ const Blogs = async () => {
               <div className="w-full flex-initial h-[200px] overflow-hidden ">
                 <Image
                   src={item.photos}
-                  width={100}
-                  height={100}
+                  width={400}
+                  height={400}
                   alt={
                     item.photos.split("/")[item.photos.split("/").length - 1]
                   }

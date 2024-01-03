@@ -5,14 +5,18 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 const AddTestimonial = ({ isOpoen, setIsOpen }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
   const [previewImg, setPreviewImg] = useState(null);
-  const [loader, setLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const AddTestimonials = () => {
-    setLoader(!loader);
+    setIsLoading(!isLoading);
+
     const data = new FormData();
     data.append("photos", image);
     data.append("name", watch().name);
@@ -25,9 +29,13 @@ const AddTestimonial = ({ isOpoen, setIsOpen }) => {
       .post("http://localhost:8080/testimonial", data)
       .then(() => {
         setIsOpen(!isOpoen);
-        setLoader(!loader);
+        setIsLoading(false);
+        toast.success("successfully added");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.warning(err);
+        setIsLoading(false);
+      });
   };
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -114,15 +122,20 @@ const AddTestimonial = ({ isOpoen, setIsOpen }) => {
         >
           ADD
         </button>
-        <div
-          className={`${
-            loader ? `flex` : `hidden`
-          }  absolute top-0 rounded-xl flex items-center justify-center left-0 bottom-0 right-0 m-auto bg-white opacity-40`}
-        >
-          <span className="loading loading-dots loading-xs"></span>
-          <span className="loading loading-dots loading-xs"></span>
-        </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading && <Loading />}
     </>
   );
 };

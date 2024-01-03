@@ -9,8 +9,8 @@ import Loading from "./Loading";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { ToastContainer, toast } from "react-toastify";
 import RichText from "@/app/(dashboard)/admin/blogs/add-blog/RichText";
-
 import "react-toastify/dist/ReactToastify.css";
+
 const page = ({ params: { blogId } }) => {
   const [content, setContent] = useState("");
   const [blog, setBlog] = useState(false);
@@ -31,10 +31,18 @@ const page = ({ params: { blogId } }) => {
 
   const router = useRouter();
   const deleteBlog = (id) => {
+    setIsLoading(!isLoading);
     axios
       .delete(`http://localhost:8080/blogs?blogId=${id}`)
-      .then(() => router.back())
-      .catch((err) => console.log(err));
+      .then(() => {
+        setIsLoading(false);
+        router.back();
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+        toast.warning("server is busy try later");
+      });
   };
 
   const updateBlog = (id) => {
@@ -47,11 +55,15 @@ const page = ({ params: { blogId } }) => {
       blog.append("metaDescription", watch().metaDescription);
     axios
       .patch(`http://localhost:8080/blogs?blogId=${id}`, blog)
-      .then((res) => {
+      .then(() => {
         setIsLoading(false);
         toast.success("successfully updated");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning("server is busy try later");
+        console.log(err);
+      });
   };
 
   const onImageChange = (event) => {
@@ -82,8 +94,8 @@ const page = ({ params: { blogId } }) => {
               <Image
                 src={previewImg}
                 alt="preview image"
-                width={150}
-                height={150}
+                width={400}
+                height={400}
                 quality={90}
                 priority
                 className="w-full h-full object-cover"

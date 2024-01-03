@@ -43,11 +43,11 @@ const page = () => {
                 setIsEditOpen(!isEditOpen);
                 setDataToEdit(item);
               }}
-              className="h-[200px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
+              className="h-[280px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
             >
               <Image
-                width={150}
-                height={150}
+                width={300}
+                height={300}
                 src={item.image}
                 alt=""
                 className="hover:scale-105 transition-all duration-700 w-full h-full object-cover  "

@@ -8,11 +8,10 @@ interface Blog {
 }
 
 const page = async () => {
-  const res = await fetch("http://localhost:8080/blogs/test", {
-    next: { revalidate: 3 },
+  const res = await fetch("http://localhost:8080/blogs", {
+    next: { revalidate: 0 },
   });
   const blogs: Blog[] = await res.json();
-  console.log(blogs);
 
   return (
     <div className=" px-[12%] py-[4%] sm:px-5">

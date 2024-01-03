@@ -1,25 +1,46 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 const EditClients = ({ isEdit, setIsEdit, clients }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
     defaultValues: {
       name: clients.name,
     },
   });
   const remove = (id) => {
+    setIsLoading(!isLoading);
     axios
       .delete(`http://localhost:8080/clients/${id}`)
-      .then(() => location.reload())
-      .catch((err) => console.log(err));
+      .then(() => {
+        setIsLoading(false);
+        location.reload();
+        toast.success("successfully removed");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning(err);
+      });
   };
   const updateClients = (id) => {
+    setIsLoading(!isLoading);
     axios
       .patch(`http://localhost:8080/clients/${id}`, watch())
-      .then(() => location.reload())
-      .catch((err) => console.log(err));
+      .then(() => {
+        setIsLoading(false);
+        location.reload();
+        toast.success("successfully updated");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning(err);
+      });
   };
   return (
     <>
@@ -68,6 +89,19 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
           </button>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading && <Loading />}
     </>
   );
 };

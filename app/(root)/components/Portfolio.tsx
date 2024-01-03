@@ -28,8 +28,8 @@ const Portfolio = async () => {
             <Image
               className="object-cover  w-full h-full hover:scale-105 transition-all duration-700"
               src={item.image}
-              width={100}
-              height={100}
+              width={450}
+              height={450}
               alt={item.image.split("/")[item.image.split("/").length - 1]}
             />
           </div>

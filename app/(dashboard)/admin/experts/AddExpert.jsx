@@ -5,11 +5,16 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [previewImg, setPreviewImg] = useState(null);
   const addNewExperts = () => {
+    setIsLoading(!isLoading);
     const data = new FormData();
     data.append("photos", image);
     data.append("name", watch().name);
@@ -20,8 +25,13 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
         setImage(res.data);
         setIsAddExpertOpen(!isAddExpertOpen);
         location.reload();
+        setIsLoading(false);
+        toast.success("successfully added");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning(err);
+      });
   };
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -91,6 +101,19 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
           Add
         </button>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading && <Loading />}
     </>
   );
 };

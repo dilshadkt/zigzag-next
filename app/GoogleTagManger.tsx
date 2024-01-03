@@ -1,10 +1,9 @@
 import Script from "next/script";
-import React from "react";
 
 const GoogleTagManger = () => {
   return (
     <>
-      <Script>{`
+      <Script id="google-tag-manger">{`
         (function (w, d, s, l, i)
         {
         w[l] = w[l] || [];

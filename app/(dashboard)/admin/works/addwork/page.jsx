@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const page = () => {
   const router = useRouter();
   const {
@@ -16,16 +19,26 @@ const page = () => {
     formState: { errors },
   } = useForm();
   const [image, setImage] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [previewImg, setPreviewImg] = useState(null);
   const addWorks = () => {
+    setLoading(!loading);
     const datas = new FormData();
     datas.append("photos", image);
     datas.append("category", watch().category);
     datas.append("star", watch().star);
     axios
       .post("http://localhost:8080/work", datas)
-      .then(() => router.back())
-      .catch((err) => console.log(err));
+      .then(() => {
+        router.back();
+        setLoading(false);
+        toast.success("successfully added");
+      })
+      .catch((err) => {
+        toast.warning("server is busy , try later");
+        setLoading(false);
+        console.log(err);
+      });
   };
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -122,6 +135,19 @@ const page = () => {
               </button>
             </div>
           </form>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
+          {loading && <Loading />}
         </div>
       </div>
     </div>

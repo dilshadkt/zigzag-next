@@ -1,9 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 const EditExpert = ({ expert, setIsEdit, isEdit }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
     defaultValues: {
       name: expert.name,
@@ -11,17 +16,33 @@ const EditExpert = ({ expert, setIsEdit, isEdit }) => {
     },
   });
   const remove = (id) => {
+    setIsLoading(!isLoading);
     axios
       .delete(`http://localhost:8080/experts/${id}`)
-      .then(() => location.reload())
-      .catch((err) => console.log(err));
+      .then(() => {
+        setIsLoading(false);
+        location.reload();
+        toast.success("successfully deleted");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning(err);
+      });
   };
 
   const updateExperts = (id) => {
+    setIsLoading(!isLoading);
     axios
       .patch(`http://localhost:8080/experts/${id}`, watch())
-      .catch(() => location.reload())
-      .catch((err) => console.log(err));
+      .catch(() => {
+        setIsLoading(false);
+        location.reload();
+        toast.success("successfully updated");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning(err);
+      });
   };
   return (
     <>
@@ -76,6 +97,19 @@ const EditExpert = ({ expert, setIsEdit, isEdit }) => {
           </button>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading && <Loading />}
     </>
   );
 };

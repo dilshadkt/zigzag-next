@@ -30,12 +30,12 @@ const page = () => {
         <div className="grid grid-cols-3">
           {data.map((item, index) => (
             <Link key={`${index}`} href={`/admin/blogs/${item._id}`}>
-              <div className="border p-3 cursor-pointer hover:bg-gray-200 rounded-xl m-2">
-                <div className="w-full border h-[180px] rounded-xl overflow-hidden">
+              <div className="border p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
+                <div className="w-full border h-[220px] rounded-xl overflow-hidden">
                   <Image
                     src={item.photos}
-                    width={200}
-                    height={200}
+                    width={400}
+                    height={400}
                     alt="blog"
                     className="w-full h-full object-cover"
                   />

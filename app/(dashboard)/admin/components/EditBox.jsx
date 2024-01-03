@@ -1,32 +1,49 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
+  const [loading, setLoading] = useState(false);
   const { register, watch } = useForm();
   console.log(dataToEdit.type === "Social Media   ");
   ///////// remove data 👨‍🔧👨‍🔧👨‍🔧///////
   const removeWorks = (id) => {
+    setLoading(!loading);
     axios
       .delete(`http://localhost:8080/work/${id}`)
       .then(() => {
+        setLoading(false);
         setIsEditOpen(!isEditOpen);
         location.reload();
+        toast.success("successfully  removed");
       })
-      .catch((err) => err);
+      .catch((err) => {
+        setLoading(false);
+        toast.warning(err);
+      });
   };
 
   ////// edit works 🤡🤡🤡///////
 
   const editWork = (id) => {
+    setLoading(!loading);
     axios
       .patch(`http://localhost:8080/work/${id}`, watch())
       .then(() => {
         setIsEditOpen(!isEditOpen);
         location.reload();
+        setLoading(false);
+        toast.success("successfully updated");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoading(false);
+        toast.warning(err);
+      });
   };
   return (
     <>
@@ -101,6 +118,19 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {loading && <Loading />}
     </>
   );
 };

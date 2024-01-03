@@ -6,6 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import EditClients from "./EditClients";
 import Shimmer from "../components/Shimmer";
+
 const page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -57,6 +58,7 @@ const page = () => {
           ))}
         </div>
       </div>
+
       {isOpen && <AddClinetLogo isOpoen={isOpen} setIsOpen={setIsOpen} />}
       {isEdit && (
         <EditClients clients={client} isEdit={isEdit} setIsEdit={setIsEdit} />

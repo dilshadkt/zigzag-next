@@ -6,9 +6,12 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Addblog = () => {
   const [image, setImage] = useState([]);
-  const [waiter, setWaiter] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [content, setContent] = useState("");
   const [previewImg, setPreviewImg] = useState(null);
   const { register, watch } = useForm();
@@ -26,6 +29,7 @@ const Addblog = () => {
   ////// post blog ⚠️⚠️⚠️⚠️ /////////////////////////////////
 
   const postBLog = () => {
+    setLoader(!loader);
     const blog = new FormData();
     const data = {
       test: content,
@@ -38,9 +42,15 @@ const Addblog = () => {
     axios
       .post("http://localhost:8080/blogs", blog)
       .then(() => {
+        setLoader(false);
         navigator.back();
+        toast.success("successfully added");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.warning("server is busy try later 🥸");
+        setLoader(false);
+        console.log(err);
+      });
   };
   console.log(watch().metaDescription);
   return (
@@ -75,8 +85,6 @@ const Addblog = () => {
         </div>
       </div>
       <RichText content={content} setContent={setContent} />
-      {content}
-
       <div className="border my-3 p-5 rounded-xl bg-gray-200">
         <div className="grid grid-cols-5">
           <label>meta title :</label>
@@ -103,6 +111,19 @@ const Addblog = () => {
           Post this Blog
         </button>
       </div>
+      {loader && <Loading />}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };
