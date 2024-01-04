@@ -31,13 +31,14 @@
     "app/blogs/[id]/page.jsx",
     "app/(dashboard)/admin/works/page.jsx",
     "app/(dashboard)/admin/works/addwork/page.jsx",
-    "app/(dashboard)/admin/experts/page.jsx",
+    "app/(dashboard)/admin/experts/page.tsx",
     "app/(dashboard)/admin/client/page.jsx",
     "app/(dashboard)/admin/blogs/page.jsx",
     "app/(dashboard)/admin/blogs/[blogId]/page.jsx",
     "app/(root)/components/RecentWork.tsx",
     "app/(root)/components/Feedback.jsx",
-    "app/(root)/components/Testimonial.jsx"
+    "app/(root)/components/Testimonial.jsx",
+    "app/(dashboard)/admin/blogs/add-blog/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

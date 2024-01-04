@@ -7,7 +7,7 @@ import { data } from "@/public/services/corperate/data";
 import { benifits } from "@/public/services/corperate/data";
 import { Metadata } from "next";
 
-const page = () => {
+const Corperates = () => {
   return (
     <>
       <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6">
@@ -79,7 +79,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Corperates;
 
 export const metadata: Metadata = {
   title: "Best Corporate Branding Service in Malappuram",

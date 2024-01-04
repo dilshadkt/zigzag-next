@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import AddTestimonial from "./AddTestimonial";
 import axios from "axios";
 import EditTest from "./EditTest";
-
+import Image from "next/image";
 interface Data {
   photos: string;
   name: string;
@@ -22,7 +22,7 @@ const Testimonials = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/testimonial")
+      .get("https://zigzag.onrender.com/testimonial")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -61,7 +61,12 @@ const Testimonials = () => {
 
               <div className="avatar absolute -top-[7%]">
                 <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={item?.photos} />
+                  <Image
+                    src={item?.photos}
+                    alt="testimonial logo"
+                    width={200}
+                    height={200}
+                  />
                 </div>
               </div>
 

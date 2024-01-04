@@ -5,7 +5,7 @@ import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/webdev/data";
 import { Metadata } from "next";
 
-const page = () => {
+const Websites = () => {
   return (
     <>
       <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6">
@@ -78,7 +78,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Websites;
 export const metadata: Metadata = {
   title: "Best Website Development Agency in Malappuram ",
   description:

@@ -7,11 +7,17 @@ import { useEffect } from "react";
 import axios from "axios";
 import Shimmer from "../components/Shimmer";
 
-const page = () => {
-  const [data, setData] = useState([]);
+interface Data {
+  _id: string;
+  photos: string;
+  heading: string;
+  description: String;
+}
+const Blog = () => {
+  const [data, setData] = useState<Data[]>([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/blogs")
+      .get("https://zigzag.onrender.com/blogs")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -62,4 +68,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Blog;

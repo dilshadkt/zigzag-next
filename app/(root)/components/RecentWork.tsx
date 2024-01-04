@@ -7,7 +7,7 @@ interface Latest {
 }
 
 const RecentWork = async () => {
-  const response = await fetch("http://localhost:8080/work/latest");
+  const response = await fetch("https://zigzag.onrender.com/work/latest");
   const latestWork: Latest[] = await response.json();
 
   return (
@@ -23,8 +23,8 @@ const RecentWork = async () => {
               className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"
               src={item.image}
               alt={item.image.split("/")[item.image.split("/").length - 1]}
-              width={100}
-              height={100}
+              width={400}
+              height={400}
             />
           </div>
         ))}

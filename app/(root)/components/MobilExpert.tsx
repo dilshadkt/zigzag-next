@@ -20,7 +20,7 @@ const MobilExpert = ({ experts }: Expert) => {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index]);
+  }, [index, experts.length]);
 
   // autoslide, clearInterval = een cleanup functie noodzakelijk bij interval
   useEffect(() => {

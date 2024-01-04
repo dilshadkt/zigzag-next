@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const {
     register,
@@ -28,7 +28,7 @@ const page = () => {
     datas.append("category", watch().category);
     datas.append("star", watch().star);
     axios
-      .post("http://localhost:8080/work", datas)
+      .post("https://zigzag.onrender.com/work", datas)
       .then(() => {
         router.back();
         setLoading(false);
@@ -154,4 +154,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

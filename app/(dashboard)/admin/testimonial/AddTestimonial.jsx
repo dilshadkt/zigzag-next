@@ -26,7 +26,7 @@ const AddTestimonial = ({ isOpoen, setIsOpen }) => {
     data.append("role", watch().role);
 
     axios
-      .post("http://localhost:8080/testimonial", data)
+      .post("https://zigzag.onrender.com/testimonial", data)
       .then(() => {
         setIsOpen(!isOpoen);
         setIsLoading(false);

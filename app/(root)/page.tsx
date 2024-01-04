@@ -9,7 +9,7 @@ import Services from "@/app/(root)/components/Services";
 import Testimonial from "./components/Testimonial";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:8080/testimonial", {
+  const res = await fetch("https://zigzag.onrender.com/testimonial", {
     next: { revalidate: 5 },
   });
   const testimonia = await res.json();

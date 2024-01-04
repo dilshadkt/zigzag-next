@@ -6,7 +6,7 @@ import seo from "@/public/services/seo/seo.jpg";
 import ServiceBox from "@/app/(root)/components/ServiceBox";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { Metadata } from "next";
-const page = () => {
+const Seo = () => {
   return (
     <>
       <div className="mx-[13%] mt-9  sm:mx-5 md:mx-6">
@@ -81,7 +81,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Seo;
 export const metadata: Metadata = {
   title: "Best SEO Agency in Malappuram",
   description:

@@ -11,7 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import RichText from "@/app/(dashboard)/admin/blogs/add-blog/RichText";
 import "react-toastify/dist/ReactToastify.css";
 
-const page = ({ params: { blogId } }) => {
+const Page = ({ params: { blogId } }) => {
   const [content, setContent] = useState("");
   const [blog, setBlog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,19 +21,19 @@ const page = ({ params: { blogId } }) => {
   const { register, watch } = useForm();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/blogs?blogId=${blogId}`)
+      .get(`https://zigzag.onrender.com/blogs?blogId=${blogId}`)
       .then((res) => {
         setBlog(res.data);
         setContent(res.data.test);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [blogId]);
 
   const router = useRouter();
   const deleteBlog = (id) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`http://localhost:8080/blogs?blogId=${id}`)
+      .delete(`https://zigzag.onrender.com/blogs?blogId=${id}`)
       .then(() => {
         setIsLoading(false);
         router.back();
@@ -54,7 +54,7 @@ const page = ({ params: { blogId } }) => {
     watch().metaDescription &&
       blog.append("metaDescription", watch().metaDescription);
     axios
-      .patch(`http://localhost:8080/blogs?blogId=${id}`, blog)
+      .patch(`  /blogs?blogId=${id}`, blog)
       .then(() => {
         setIsLoading(false);
         toast.success("successfully updated");
@@ -188,4 +188,4 @@ const page = ({ params: { blogId } }) => {
   );
 };
 
-export default page;
+export default Page;

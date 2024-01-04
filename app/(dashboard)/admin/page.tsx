@@ -1,9 +1,7 @@
-import React from "react";
-import Image from "next/image";
 import logo from "@/public/digital-market-agency-in-malappuram.png";
+import Image from "next/image";
 
-import { redirect } from "next/navigation";
-const page = () => {
+const Home = () => {
   return (
     <div className="h-[100vh] overflow-hidden flex items-center justify-center ">
       <Image
@@ -15,4 +13,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Home;

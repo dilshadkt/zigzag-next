@@ -7,7 +7,7 @@ import social from "@/public/services/social/Strategy Planning.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { Metadata } from "next";
 
-const page = () => {
+const Socials = () => {
   return (
     <>
       <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6">
@@ -78,7 +78,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Socials;
 
 export const metadata: Metadata = {
   title: "Best Social Media Marketing in Malappuram",

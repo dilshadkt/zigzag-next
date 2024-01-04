@@ -15,7 +15,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
   const removeWorks = (id) => {
     setLoading(!loading);
     axios
-      .delete(`http://localhost:8080/work/${id}`)
+      .delete(`https://zigzag.onrender.com/work/${id}`)
       .then(() => {
         setLoading(false);
         setIsEditOpen(!isEditOpen);
@@ -33,7 +33,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
   const editWork = (id) => {
     setLoading(!loading);
     axios
-      .patch(`http://localhost:8080/work/${id}`, watch())
+      .patch(`https://zigzag.onrender.com/work/${id}`, watch())
       .then(() => {
         setIsEditOpen(!isEditOpen);
         location.reload();

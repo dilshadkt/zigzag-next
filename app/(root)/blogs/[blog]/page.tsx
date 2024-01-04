@@ -15,8 +15,8 @@ interface Blog {
   metaDescription: string;
 }
 
-const page = async ({ params: { blog } }: Props) => {
-  const res = await fetch(`http://localhost:8080/blogs?blogId=${blog}`);
+const BlogPage = async ({ params: { blog } }: Props) => {
+  const res = await fetch(`https://zigzag.onrender.com/blogs?blogId=${blog}`);
   const Blog: Blog = await res.json();
 
   return (
@@ -40,7 +40,7 @@ const page = async ({ params: { blog } }: Props) => {
   );
 };
 
-export default page;
+export default BlogPage;
 export async function generateMetadata({
   params: { blog },
 }: Props): Promise<Metadata> {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navabar from "./components/Navabar";
 import SideBar from "./components/SideBar";
 import Login from "./Login";
-const layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isLogin, setIsLogin] = useState(true);
   useEffect(() => {
     const val = localStorage.getItem("admin");
@@ -30,4 +30,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default Layout;

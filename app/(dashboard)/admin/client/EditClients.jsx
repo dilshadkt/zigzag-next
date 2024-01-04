@@ -31,7 +31,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
   const updateClients = (id) => {
     setIsLoading(!isLoading);
     axios
-      .patch(`http://localhost:8080/clients/${id}`, watch())
+      .patch(`https://zigzag.onrender.com/clients/${id}`, watch())
       .then(() => {
         setIsLoading(false);
         location.reload();

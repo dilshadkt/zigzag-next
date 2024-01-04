@@ -7,14 +7,14 @@ import axios from "axios";
 import EditBox from "@/app/(dashboard)/admin/components/EditBox";
 import Shimmer from "../components/Shimmer";
 
-const page = () => {
+const Work = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [data, setData] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/work")
+      .get("https://zigzag.onrender.com/work")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -67,4 +67,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Work;

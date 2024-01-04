@@ -7,7 +7,7 @@ interface Blog {
   _id: string;
 }
 const Blogs = async () => {
-  const res = await fetch("http://localhost:8080/blogs/latest");
+  const res = await fetch("https://zigzag.onrender.com/blogs/latest");
   const blog: Blog[] = await res.json();
   return (
     <div className="bg-white px-[12%] py-6 sm:px-5 md:px-6">

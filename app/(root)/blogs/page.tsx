@@ -7,8 +7,8 @@ interface Blog {
   photos: string;
 }
 
-const page = async () => {
-  const res = await fetch("http://localhost:8080/blogs", {
+const Blogs = async () => {
+  const res = await fetch("https://zigzag.onrender.com/blogs", {
     next: { revalidate: 0 },
   });
   const blogs: Blog[] = await res.json();
@@ -40,4 +40,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Blogs;

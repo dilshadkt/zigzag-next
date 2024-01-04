@@ -40,7 +40,7 @@ const Addblog = () => {
     blog.append("photos", image);
 
     axios
-      .post("http://localhost:8080/blogs", blog)
+      .post("https://zigzag.onrender.com", blog)
       .then(() => {
         setLoader(false);
         navigator.back();

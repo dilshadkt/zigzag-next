@@ -9,10 +9,9 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
   const { register, watch } = useForm();
-  console.log(watch());
   const verifyLogin = () => {
     axios
-      .post("http://localhost:8080/verifyLogin", watch())
+      .post("https://zigzag.onrender.com/verifyLogin", watch())
       .then((res) => {
         localStorage.setItem("admin", "true");
         setIsLogin(false);

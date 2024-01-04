@@ -5,7 +5,7 @@ import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/performance/data";
 import { Metadata } from "next";
 
-const page = () => {
+const Perfomances = () => {
   return (
     <>
       <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6 ">
@@ -79,7 +79,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Perfomances;
 
 export const metadata: Metadata = {
   title: "Best Performance Marketing Agency in Malappuram",

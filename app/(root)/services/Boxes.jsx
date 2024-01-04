@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Corperate5 from "../../public/services/corperate/Online Presence.jpg";
-
 import Image from "next/image";
-
 const Boxes = ({ datas }) => {
   const [content, setContent] = useState([]);
   function changeTheme(id) {

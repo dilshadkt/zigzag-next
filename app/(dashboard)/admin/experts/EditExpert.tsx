@@ -7,18 +7,34 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
-const EditExpert = ({ expert, setIsEdit, isEdit }) => {
+interface EditExpertProps {
+  expert: Experts | undefined;
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  isEdit: boolean;
+}
+interface Experts {
+  _id: string;
+  image: string;
+  name: string;
+  role: string;
+}
+
+const EditExpert: React.FC<EditExpertProps> = ({
+  expert,
+  setIsEdit,
+  isEdit,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
     defaultValues: {
-      name: expert.name,
-      role: expert.role,
+      name: expert?.name ?? "",
+      role: expert?.role ?? "",
     },
   });
-  const remove = (id) => {
+  const remove = (id: string | undefined) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`http://localhost:8080/experts/${id}`)
+      .delete(`https://zigzag.onrender.com/experts/${id}`)
       .then(() => {
         setIsLoading(false);
         location.reload();
@@ -30,10 +46,10 @@ const EditExpert = ({ expert, setIsEdit, isEdit }) => {
       });
   };
 
-  const updateExperts = (id) => {
+  const updateExperts = (id: string | undefined) => {
     setIsLoading(!isLoading);
     axios
-      .patch(`http://localhost:8080/experts/${id}`, watch())
+      .patch(`https://zigzag.onrender.com/experts/${id}`, watch())
       .catch(() => {
         setIsLoading(false);
         location.reload();
@@ -60,10 +76,10 @@ const EditExpert = ({ expert, setIsEdit, isEdit }) => {
         <div className="p-2 border h-[220px] rounded-xl my-2">
           <div className="w-full h-full">
             <Image
-              src={expert.image}
+              src={expert?.image || ""}
               alt="added image"
-              width={150}
-              height={150}
+              width={200}
+              height={200}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>
@@ -72,25 +88,25 @@ const EditExpert = ({ expert, setIsEdit, isEdit }) => {
           <input
             {...register("name")}
             type="text"
-            placeholder={expert.name}
+            placeholder={expert?.name}
             className="border w-full p-3 rounded-xl "
           />
           <input
             {...register("role")}
             type="text"
-            placeholder={expert.role}
+            placeholder={expert?.role}
             className="border mt-3 w-full p-3 rounded-xl "
           />
         </div>
         <div className="flex  items-center justify-between w-full">
           <button
-            onClick={() => remove(expert._id)}
+            onClick={() => remove(expert?._id)}
             className="border hover:bg-blue-500 hover:text-white  px-4 py-3 rounded-xl font-medium my-2"
           >
             Remove
           </button>
           <button
-            onClick={() => updateExperts(expert._id)}
+            onClick={() => updateExperts(expert?._id)}
             className="bg-red-500 text-white px-4 py-3 rounded-xl font-medium my-2"
           >
             Edit

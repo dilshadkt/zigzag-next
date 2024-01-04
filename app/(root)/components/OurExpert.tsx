@@ -12,7 +12,7 @@ interface Experts {
 const OurExpert = () => {
   const [data, setData] = useState<Experts[]>([]);
   useEffect(() => {
-    fetch("http://localhost:8080/experts")
+    fetch("https://zigzag.onrender.com/experts")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -25,7 +25,7 @@ const OurExpert = () => {
     if (index > lastIndex - 3) {
       setIndex(0);
     }
-  }, [index]);
+  }, [index, data.length]);
   useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1);

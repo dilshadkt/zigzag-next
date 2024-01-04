@@ -11,7 +11,7 @@ interface Blog {
   _id: string;
 }
 const Footer = async () => {
-  const response = await fetch("http://localhost:8080/blogs/latest");
+  const response = await fetch("https://zigzag.onrender.com/blogs/latest");
   const latestArticle: Blog[] = await response.json();
   return (
     <>

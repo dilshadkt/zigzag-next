@@ -4,7 +4,7 @@ import media from "@/public/services/media/Diverse Content Formats.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/media/data";
 import { Metadata } from "next";
-const page = () => {
+const Medias = () => {
   return (
     <>
       <div className="mx-[13%] mt-9 sm:mx-5 md:mx-6">
@@ -25,7 +25,7 @@ const page = () => {
               As a cutting-edge digital marketing agency in Malappuram, we
               specialize in bringing captivating visual narratives that amplify
               brand impact. Join us in media production, and let us get your
-              brand's storytelling to new heights with stunning visuals.
+              brand&apos; storytelling to new heights with stunning visuals.
             </p>
           </div>
           <h2 className="font-semibold text-xl my-5 sm:mt-[10%]">
@@ -76,7 +76,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Medias;
 
 export const metadata: Metadata = {
   title: " Best Media Production Service Agency in Malappuram.",

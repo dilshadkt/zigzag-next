@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
+import Image from "next/image";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -108,7 +109,12 @@ const Testimonial = ({ data }) => {
 
                 <div className="avatar absolute -top-[7%]">
                   <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={item?.photos} />
+                    <Image
+                      src={item?.photos}
+                      alt="testimonial logo"
+                      width={200}
+                      height={200}
+                    />
                   </div>
                 </div>
 

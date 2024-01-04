@@ -35,7 +35,7 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
   const remove = (id: any) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`http://localhost:8080/testimonial/${id}`)
+      .delete(`https://zigzag.onrender.com/testimonial/${id}`)
       .then(() => {
         setIsLoading(false);
         location.reload();
@@ -45,7 +45,7 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
   const updateClients = (id: any) => {
     setIsLoading(!isLoading);
     axios
-      .patch(`http://localhost:8080/testimonial/${id}`, watch())
+      .patch(`https://zigzag.onrender.com/testimonial/${id}`, watch())
       .then(() => {
         setIsLoading(false);
         location.reload();

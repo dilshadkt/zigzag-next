@@ -19,7 +19,7 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
     data.append("photos", image);
     data.append("name", watch().name);
     axios
-      .post("http://localhost:8080/clients", data)
+      .post("https://zigzag.onrender.com/clients", data)
       .then(() => {
         setIsLoading(false);
         setIsOpen(!isOpoen);

@@ -7,14 +7,14 @@ import axios from "axios";
 import EditClients from "./EditClients";
 import Shimmer from "../components/Shimmer";
 
-const page = () => {
+const Client = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [client, setClient] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:8080/clients")
+      .get("https://zigzag.onrender.com/clients")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -67,4 +67,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Client;

@@ -6,14 +6,20 @@ import Image from "next/image";
 import axios from "axios";
 import EditExpert from "./EditExpert";
 import Shimmer from "../components/Shimmer";
-const page = () => {
-  const [data, setData] = useState([]);
+interface Data {
+  _id: string;
+  image: string;
+  name: string;
+  role: string;
+}
+const Experts = () => {
+  const [data, setData] = useState<Data[]>([]);
   const [isAddExpertOpen, setIsAddExpertOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
-  const [expert, setExprt] = useState("");
+  const [expert, setExprt] = useState<Data | undefined>(undefined);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/experts")
+      .get("https://zigzag.onrender.com/experts")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -69,4 +75,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Experts;

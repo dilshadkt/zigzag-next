@@ -6,7 +6,6 @@ import Vision from "./Vision";
 import OurClient from "@/app/(root)/components/OurClient";
 import Whychoose from "@/app/(root)/components/Whychoose";
 import RecentWork from "@/app/(root)/components/RecentWork";
-// import Readmore from "./Readmore";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
