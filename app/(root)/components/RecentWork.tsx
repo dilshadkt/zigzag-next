@@ -11,13 +11,13 @@ const RecentWork = async () => {
   const latestWork: Latest[] = await response.json();
 
   return (
-    <div className="px-[12%] lg:pb-[10%] md:pb-[20%] sm:pb-5 md:px-6">
+    <div className="bg-white px-[12%] pb-[10%] md:pb-[20%] sm:pb-[25%] md:px-6">
       <h4 className="text-xl font-semibold">Our Recent Works</h4>
       <div className="grid grid-cols-4 my-6  ">
         {latestWork.slice(0, 4).map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="mx-1 lg:h-[150px] sm:h-[100px] h-[220px] rounded-xl bg-gray-400 overflow-hidden mb-4"
+            className="mx-1 sm:h-[100px] lg:h-[180px]  h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-4"
           >
             <Image
               className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"

@@ -9,7 +9,7 @@ const Whychoose = () => {
           Why Zig Zag As Your Trusted Digital Marketing Agency In Malappuram
         </h1>
       </div>
-      <div className="py-[6%]  grid grid-cols-4 md:grid-cols-2">
+      <div className="py-[6%]  grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
         {data.map((item, index) => (
           <div
             key={`${index} - 0${item.title}`}
@@ -18,10 +18,10 @@ const Whychoose = () => {
             <Image
               src={item.image}
               alt={item.image}
-              width={60}
-              className="opacity-70"
+              width={40}
+              className="opacity-70 sm:w-[20%]"
             />
-            <h3 className="my-3 font-semibold">{item.title}</h3>
+            <h3 className="my-3 font-semibold text-black">{item.title}</h3>
             <p className="text-center text-secondary">{item.desc}</p>
           </div>
         ))}

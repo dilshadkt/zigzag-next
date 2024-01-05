@@ -71,7 +71,7 @@ const AboutUs = () => {
         </div>
       </div>
       <Vision />
-      <div className="my-[3%]">
+      <div className="bg-white py-[3%]">
         <Whychoose />
       </div>
       <OurClient />

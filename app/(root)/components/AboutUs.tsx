@@ -18,9 +18,9 @@ const AboutUs = () => {
               alt={"digital marketing agency in malappuram"}
             />
           </div>
-          <div className="text-[22px] md:text-lg flex-1    flex flex-col justify-center text-justify">
+          <div className="text-[22px] md:text-lg flex-1 text-black   flex flex-col justify-center text-justify">
             <div>
-              <p className="">
+              <p className=" ">
                 At <span className=" font-medium text-red-600">Zig Zag</span>,
                 we believe the “Road To Success Is Not A Straight One,” hence
                 the name. As your trusted Digital Marketing Agency in

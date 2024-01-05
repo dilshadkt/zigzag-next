@@ -3,7 +3,7 @@ import Services from "../components/Services";
 
 const Service = () => {
   return (
-    <div>
+    <div className="bg-white">
       <Services />
     </div>
   );

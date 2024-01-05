@@ -7,7 +7,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
-      <main className="mb-[10%]  md:mb-0 sm:mb-[10%]"> {children}</main>
+      <main className=" md:mb-0 "> {children}</main>
 
       <Footer />
     </div>

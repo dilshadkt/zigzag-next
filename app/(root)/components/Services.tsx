@@ -11,11 +11,11 @@ const Services = () => {
           Services
         </h2>
       </div>
-      <div className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 py-[6%]">
+      <div className="grid  grid-cols-3 md:grid-cols-2 sm:grid-cols-1 py-[6%]">
         {data.map((item, index) => (
           <div
             key={`${index}-${item.title}`}
-            className=" flex flex-col  items-center my-7"
+            className=" flex flex-col  items-center my-7 sm:my-8"
           >
             <Image
               src={item.image}
@@ -23,7 +23,7 @@ const Services = () => {
               width={60}
               className="opacity-60"
             />
-            <h3 className="font-semibold my-5 text-lg">{item.title}</h3>
+            <h3 className="font-semibold my-5 sm:my-0 text-lg">{item.title}</h3>
             <ul className="list-[circle] w-[40%] ">
               {item.items.map((item, index) => (
                 <li

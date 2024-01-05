@@ -46,7 +46,7 @@ const MobilExpert = ({ experts }: Expert) => {
         return (
           <div
             key={_id}
-            className={`absolute top-0 left-0 w-full flex flex-col items-center   transition-all duration-500   opacity-0 ${
+            className={`absolute top-[17%] left-0 w-full flex flex-col items-center   transition-all duration-500   opacity-0 ${
               position === "activeSlide" && `opacity-100`
             }`}
             style={{

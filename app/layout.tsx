@@ -26,7 +26,7 @@ export default function RootLayout({
       </head>
 
       <body className={rajdhani.className}>
-        <main className=" sm:mb-[18%]"> {children}</main>
+        <main> {children}</main>
       </body>
     </html>
   );

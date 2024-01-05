@@ -5,7 +5,7 @@ import WifiCalling3Icon from "@mui/icons-material/WifiCalling3";
 
 const ContactBox = () => {
   return (
-    <div className="flex sm:flex-col my-[5%] md:pb-[5%]">
+    <div className="flex sm:flex-col my-[5%] md:pb-[15%] ">
       <div className="p-[4%] md:p-3 border flex-1 flex flex-col items-center justify-center m-3 rounded-xl">
         <LocationOnIcon className="text-red-500 text-[50px] my-3" />
         <h4 className="text-center md:text-sm">

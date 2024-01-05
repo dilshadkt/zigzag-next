@@ -21,7 +21,7 @@ const BlogPage = async ({ params: { blog } }: Props) => {
 
   return (
     <>
-      <div className=" px-[14%]  md:px-6  py-[4%]">
+      <div className="bg-white px-[14%]  md:px-6  py-[4%]">
         <div className="w-full h-[300px] overflow-hidden flex rounded-xl">
           <Image
             src={Blog.photos}

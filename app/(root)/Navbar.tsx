@@ -122,7 +122,7 @@ const Navbar = () => {
         </div>
       </div>
       <MobileNav />
-      <div className="bg-green-500 w-[45px] h-[45px] rounded-full fixed bottom-5 right-5  text-white cursor-pointer flex items-center justify-center">
+      <div className="bg-green-500 w-[45px] h-[45px] rounded-full fixed bottom-5 md:bottom-[13%] right-5  text-white cursor-pointer flex items-center justify-center">
         <a href="https://wa.me/9946443551?text=Hello ZigZag">
           <WhatsAppIcon />
         </a>

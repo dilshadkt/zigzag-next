@@ -4,7 +4,7 @@ import mission from "@/public/vision/mission digital marketing agency malappuram
 import vision from "@/public/vision/vission digital marketing agency malappuram.png";
 const Vision = () => {
   return (
-    <div className="px-[12%] mb-[5%]">
+    <div className="px-[12%] bg-white pb-[5%]">
       <div className="flex md:flex-col">
         <div className="flex-1  flex items-center   justify-center">
           <Image

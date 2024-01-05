@@ -34,7 +34,7 @@ const Contact = () => {
     }
   };
   return (
-    <div className="mx-[17%] sm:mx-5 md:mx-6 my-[3%] ">
+    <div className="px-[17%] sm:px-5 md:px-6 bg-white py-[3%] ">
       <div className="w-full flex items-center flex-col">
         <h1 className="text-[#DB002F] text-3xl">Contact</h1>
         <h3 className="text-gray-500 my-8 text-xl md:text-center">
@@ -51,7 +51,7 @@ const Contact = () => {
           </div>
           <div className="flex-1  flex items-center justify-center">
             <form
-              className="w-[80%] sm:w-[95%]"
+              className="w-[80%] sm:w-[95%] "
               ref={form}
               onSubmit={sendEmail}
             >
@@ -60,25 +60,25 @@ const Contact = () => {
                 placeholder="Enter your name"
                 required
                 name="name"
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border bg-white my-2 w-full p-3 border-red-300 rounded-xl"
               />
               <input
                 type="number"
                 required
                 placeholder="Enter your mobile number"
                 name="Number"
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border bg-white my-2 w-full p-3 border-red-300 rounded-xl"
               />
               <input
                 type="email"
                 placeholder="Enter your email"
                 required
                 name="email"
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border bg-white my-2 w-full p-3 border-red-300 rounded-xl"
               />
               <select
                 required
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
                 name="find-us"
               >
                 <option>How did you find us?</option>
@@ -92,7 +92,7 @@ const Contact = () => {
               </select>
               <select
                 required
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
                 name="enquiry"
               >
                 <option>Enquiry on</option>
@@ -105,7 +105,7 @@ const Contact = () => {
                 <option>Other</option>
               </select>
               <select
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
                 name="budget"
               >
                 <option>Select Your Budget</option>
@@ -116,11 +116,11 @@ const Contact = () => {
                 <option>Other</option>
               </select>
               <textarea
-                className="border my-2 w-full p-3 border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
                 name="message"
                 placeholder="message"
               ></textarea>
-              <button className="p-3 bg-red-300  rounded-xl">Submit</button>
+              <button className="p-3 bg-red-300   rounded-xl">Submit</button>
             </form>
           </div>
         </div>

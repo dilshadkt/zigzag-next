@@ -14,7 +14,7 @@ const Blogs = async () => {
   const blogs: Blog[] = await res.json();
 
   return (
-    <div className=" px-[12%] py-[4%] sm:px-5">
+    <div className=" px-[12%] py-[4%] bg-white pb-[10%] sm:px-5">
       <div className="text-center">
         <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
           Blogs

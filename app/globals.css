@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  color: black;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

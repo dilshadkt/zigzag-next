@@ -81,13 +81,13 @@ const Testimonial = ({ data }) => {
     ],
   };
   return (
-    <div className="bg-white">
+    <div className="bg-white pb-[10%]">
       <div className="text-center lg:mb-10 md:mt-0 mb-4 ">
         <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
           Testimonial
         </h2>
       </div>
-      <div className="px-[12%] md:[10%]  ">
+      <div className="px-[12%] mb-0 ">
         <Slider {...settings}>
           {data.map((item) => (
             <div

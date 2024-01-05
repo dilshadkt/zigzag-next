@@ -3,7 +3,7 @@ import React from "react";
 
 const PortfolioNav = () => {
   return (
-    <div className="mx-[17%] sm:mx-0 my-[2%] sm:my-[5%]">
+    <div className="mx-[17%]  sm:mx-0 py-[2%] sm:py-[5%]">
       <div className=" flex justify-center">
         <ul className="flex ">
           <Link href={"?type=all"}>

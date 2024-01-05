@@ -19,7 +19,7 @@ const Portfolio = async () => {
           Portfolio
         </h2>
       </div>
-      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 py-[5%]">
+      <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 py-[5%] sm:mt-4">
         {staredWork.slice(0, 8).map((item, index) => (
           <div
             key={`${item._id}-${index}`}

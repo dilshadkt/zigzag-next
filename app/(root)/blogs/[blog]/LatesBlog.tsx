@@ -10,7 +10,7 @@ const LatesBlog = async () => {
   const res = await fetch("http://localhost:8080/blogs/latest");
   const blog: Blog[] = await res.json();
   return (
-    <div className="mt-5">
+    <div className="mt-5 pb-[10%]">
       <div>
         <h2 className="text-primary text-lg font-semibold py-4">
           Latest Articles
