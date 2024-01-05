@@ -54,7 +54,7 @@ const Page = ({ params: { blogId } }) => {
     watch().metaDescription &&
       blog.append("metaDescription", watch().metaDescription);
     axios
-      .patch(`  /blogs?blogId=${id}`, blog)
+      .patch(`https://zigzag.onrender.com/blogs?blogId=${id}`, blog)
       .then(() => {
         setIsLoading(false);
         toast.success("successfully updated");

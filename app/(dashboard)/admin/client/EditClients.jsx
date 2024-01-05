@@ -17,7 +17,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
   const remove = (id) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`http://localhost:8080/clients/${id}`)
+      .delete(`https://zigzag.onrender.com/clients/${id}`)
       .then(() => {
         setIsLoading(false);
         location.reload();
