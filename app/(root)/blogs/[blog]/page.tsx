@@ -44,7 +44,7 @@ export default BlogPage;
 export async function generateMetadata({
   params: { blog },
 }: Props): Promise<Metadata> {
-  const res = await fetch(`http://localhost:8080/blogs?blogId=${blog}`, {
+  const res = await fetch(`https://zigzag.onrender.com/blogs?blogId=${blog}`, {
     next: { revalidate: 2 },
   });
   const blogs: Blog = await res.json();
