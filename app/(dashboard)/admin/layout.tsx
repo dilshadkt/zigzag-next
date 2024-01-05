@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     setIsLogin(val === "true" ? false : true);
   }, []);
   return (
-    <div>
+    <div className="bg-white">
       {isLogin ? (
         <Login setIsLogin={setIsLogin} />
       ) : (
