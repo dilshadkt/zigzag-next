@@ -60,8 +60,8 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
             <Image
               src={clients.image}
               alt="added image"
-              width={150}
-              height={150}
+              width={400}
+              height={400}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>
@@ -71,7 +71,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
             {...register("name")}
             type="text"
             placeholder={clients.name}
-            className="border w-full p-3 rounded-xl "
+            className="border bg-white w-full p-3 rounded-xl "
           />
         </div>
         <div className="flex  items-center justify-between w-full">

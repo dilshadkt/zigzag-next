@@ -100,7 +100,7 @@ const Page = () => {
                 {...register("category", {
                   required: "you to specify the category",
                 })}
-                className="border p-3 rounded-lg w-[250px]"
+                className="border bg-white p-3 rounded-lg w-[250px]"
               >
                 <option
                   value="Brand Identity
@@ -122,7 +122,7 @@ const Page = () => {
                 {...register("star", {
                   required: "you have to whether it is stared or not",
                 })}
-                className="border p-3 rounded-lg w-[250px] my-[5%]"
+                className="border bg-white p-3 rounded-lg w-[250px] my-[5%]"
               >
                 <option value="false">Not stared ✖️</option>
                 <option value="true"> Stared ⭐</option>

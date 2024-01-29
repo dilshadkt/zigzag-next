@@ -47,8 +47,9 @@ const Client = () => {
                   <Image
                     src={item.image}
                     alt="experts"
-                    width={100}
-                    height={100}
+                    width={500}
+                    height={500}
+                    quality={100}
                     className="w-full h-full object-cover"
                   />
                 </div>

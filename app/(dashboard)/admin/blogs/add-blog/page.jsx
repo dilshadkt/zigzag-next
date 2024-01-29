@@ -91,7 +91,7 @@ const Addblog = () => {
           <input
             type="text"
             {...register("metaTitle")}
-            className="border col-span-3 p-2"
+            className="bg-white border col-span-3 p-2"
           />
         </div>
         <div className="grid grid-cols-5 my-2">
@@ -99,7 +99,7 @@ const Addblog = () => {
           <textarea
             {...register("metaDescription")}
             type="text"
-            className="border col-span-3 p-2"
+            className="bg-white border col-span-3 p-2"
           />
         </div>
       </div>

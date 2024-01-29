@@ -86,7 +86,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
                   {...register("type", {
                     required: "you to specify the category",
                   })}
-                  className="border p-3 rounded-lg w-[250px]"
+                  className="bg-white border p-3 rounded-lg w-[250px]"
                 >
                   <option value="Brand Identity">Brand Identity</option>
                   <option value="Social Media">Social Media</option>
@@ -97,7 +97,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
                   {...register("stared", {
                     required: "you have to whether it is stared or not",
                   })}
-                  className="border p-3 rounded-lg w-[250px] my-[5%]"
+                  className="bg-white border p-3 rounded-lg w-[250px] my-[5%]"
                 >
                   <option value="false">Not stared ✖️</option>
                   <option value="true"> Stared ⭐</option>

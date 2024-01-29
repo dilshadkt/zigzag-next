@@ -85,13 +85,13 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
             {...register("name")}
             type="text"
             placeholder="Name"
-            className="border w-full p-3 rounded-xl "
+            className="border bg-white w-full p-3 rounded-xl "
           />
           <input
             {...register("role")}
             type="text"
             placeholder="Role"
-            className="border mt-3 w-full p-3 rounded-xl "
+            className="border bg-white mt-3 w-full p-3 rounded-xl "
           />
         </div>
         <button

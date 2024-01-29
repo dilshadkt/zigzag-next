@@ -83,7 +83,7 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
             {...register("name")}
             type="text"
             placeholder="logo name"
-            className="border w-full p-3 rounded-xl "
+            className="border w-full bg-white p-3 rounded-xl "
           />
         </div>
 

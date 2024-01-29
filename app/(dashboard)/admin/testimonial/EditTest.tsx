@@ -84,24 +84,24 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
             {...register("name")}
             type="text"
             placeholder={testimonial?.name}
-            className="border w-full p-3 rounded-xl "
+            className="border bg-white w-full p-3 rounded-xl "
           />
           <textarea
             {...register("description")}
             placeholder={testimonial?.name}
-            className="border w-full p-3 rounded-xl mt-2 "
+            className="border bg-white w-full p-3 rounded-xl mt-2 "
           />
           <input
             {...register("designation")}
             type="text"
             placeholder={testimonial?.designation}
-            className="border w-full p-3 rounded-xl "
+            className="border bg-white w-full p-3 rounded-xl "
           />
           <input
             {...register("role")}
             type="text"
             placeholder={testimonial?.role}
-            className="border w-full p-3 rounded-xl my-2 "
+            className="border bg-white w-full p-3 rounded-xl my-2 "
           />
           <div className="p-2 border rounded-xl flex justify-between">
             <input type="color" {...register("color")} />

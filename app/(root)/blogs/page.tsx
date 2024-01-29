@@ -8,7 +8,7 @@ interface Blog {
 }
 
 const Blogs = async () => {
-  const res = await fetch("https://zigzag.onrender.com/blogs", {
+  const res = await fetch("http://zigzagapi.zigzagdigitalmarketingsolutions.com/blogs", {
     next: { revalidate: 0 },
   });
   const blogs: Blog[] = await res.json();

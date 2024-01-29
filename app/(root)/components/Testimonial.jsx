@@ -92,11 +92,11 @@ const Testimonial = ({ data }) => {
           {data.map((item) => (
             <div
               key={item._id}
-              className={`cursor-pointer mt-[25%] md:mt-[15%]   relative  mx-2  mb-[40%]`}
+              className={` cursor-pointer mt-[25%] md:mt-[15%]    relative  mx-2  mb-[40%]`}
             >
               <div
                 style={{ background: `${item.color}` }}
-                className="rounded-xl flex flex-col justify-between min-h-[280px] p-5 border mx-5"
+                className="rounded-xl flex flex-col shadow-xl justify-between min-h-[280px] p-5 border mx-5"
               >
                 <div>
                   <div className="text-end ">

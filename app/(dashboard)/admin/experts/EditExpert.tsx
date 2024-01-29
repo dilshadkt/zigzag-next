@@ -89,13 +89,13 @@ const EditExpert: React.FC<EditExpertProps> = ({
             {...register("name")}
             type="text"
             placeholder={expert?.name}
-            className="border w-full p-3 rounded-xl "
+            className="border w-full bg-white p-3 rounded-xl "
           />
           <input
             {...register("role")}
             type="text"
             placeholder={expert?.role}
-            className="border mt-3 w-full p-3 rounded-xl "
+            className="border bg-white mt-3 w-full p-3 rounded-xl "
           />
         </div>
         <div className="flex  items-center justify-between w-full">

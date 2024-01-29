@@ -140,7 +140,7 @@ const Page = ({ params: { blogId } }) => {
             type="text"
             placeholder={blog.metaTitle}
             {...register("metaTitle")}
-            className="border col-span-4 p-2"
+            className="border bg-white col-span-4 p-2"
           />
         </div>
         <div className="grid grid-cols-5 my-2">
@@ -149,7 +149,7 @@ const Page = ({ params: { blogId } }) => {
             {...register("metaDescription")}
             type="text"
             placeholder={blog.metaDescription}
-            className="border col-span-4 p-2"
+            className="border bg-white col-span-4 p-2"
           />
         </div>
       </div>

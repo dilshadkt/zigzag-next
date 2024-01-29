@@ -26,7 +26,7 @@ const BlogPage = async ({ params: { blog } }: Props) => {
           <Image
             src={Blog.photos}
             alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
-            width={500}
+            width={600}
             height={400}
             className="w-full object-cover "
             quality={100}
