@@ -34,7 +34,7 @@ const EditExpert: React.FC<EditExpertProps> = ({
   const remove = (id: string | undefined) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`https://zigzag.onrender.com/experts/${id}`)
+      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`)
       .then(() => {
         setIsLoading(false);
         location.reload();
@@ -49,7 +49,7 @@ const EditExpert: React.FC<EditExpertProps> = ({
   const updateExperts = (id: string | undefined) => {
     setIsLoading(!isLoading);
     axios
-      .patch(`https://zigzag.onrender.com/experts/${id}`, watch())
+      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`, watch())
       .catch(() => {
         setIsLoading(false);
         location.reload();

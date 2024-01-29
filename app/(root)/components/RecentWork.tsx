@@ -7,7 +7,7 @@ interface Latest {
 }
 
 const RecentWork = async () => {
-  const response = await fetch("https://zigzag.onrender.com/work/latest");
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work/latest`);
   const latestWork: Latest[] = await response.json();
 
   return (

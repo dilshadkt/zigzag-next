@@ -14,7 +14,7 @@ const Work = () => {
 
   useEffect(() => {
     axios
-      .get("https://zigzag.onrender.com/work")
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/work`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

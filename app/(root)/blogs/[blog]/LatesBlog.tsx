@@ -7,7 +7,7 @@ interface Blog {
   _id: string;
 }
 const LatesBlog = async () => {
-  const res = await fetch("https://zigzag.onrender.com/blogs/latest");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/latest`);
   const blog: Blog[] = await res.json();
   return (
     <div className="mt-5 pb-[10%]">

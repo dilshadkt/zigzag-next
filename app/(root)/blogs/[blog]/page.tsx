@@ -16,7 +16,7 @@ interface Blog {
 }
 
 const BlogPage = async ({ params: { blog } }: Props) => {
-  const res = await fetch(`https://zigzag.onrender.com/blogs?blogId=${blog}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${blog}`);
   const Blog: Blog = await res.json();
 
   return (
@@ -44,7 +44,7 @@ export default BlogPage;
 export async function generateMetadata({
   params: { blog },
 }: Props): Promise<Metadata> {
-  const res = await fetch(`https://zigzag.onrender.com/blogs?blogId=${blog}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${blog}`, {
     next: { revalidate: 2 },
   });
   const blogs: Blog = await res.json();

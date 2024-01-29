@@ -7,7 +7,7 @@ interface Work {
 }
 
 const Portfolio = async () => {
-  const response = await fetch("https://zigzag.onrender.com/work?type=true", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work?type=true`, {
     next: { revalidate: 100 },
   });
   const staredWork: Work[] = await response.json();

@@ -17,7 +17,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
   const remove = (id) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`https://zigzag.onrender.com/clients/${id}`)
+      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/clients/${id}`)
       .then(() => {
         setIsLoading(false);
         location.reload();
@@ -31,7 +31,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
   const updateClients = (id) => {
     setIsLoading(!isLoading);
     axios
-      .patch(`https://zigzag.onrender.com/clients/${id}`, watch())
+      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/clients/${id}`, watch())
       .then(() => {
         setIsLoading(false);
         location.reload();

@@ -14,7 +14,7 @@ const Client = () => {
   const [client, setClient] = useState("");
   useEffect(() => {
     axios
-      .get("https://zigzag.onrender.com/clients")
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/clients`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

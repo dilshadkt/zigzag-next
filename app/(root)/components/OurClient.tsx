@@ -9,7 +9,7 @@ interface ClinetLogo {
 }
 
 const OurClient = async () => {
-  const response = await fetch("https://zigzag.onrender.com/clients", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/clients`, {
     next: { revalidate: 10 },
   });
   const clientLogo: ClinetLogo[] = await response.json();

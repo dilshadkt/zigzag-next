@@ -13,7 +13,7 @@ const Portfolio = () => {
   const type = searchParams.get("type");
   const [works, setWorks] = useState<Work[]>([]);
   useEffect(() => {
-    fetch("https://zigzag.onrender.com/work")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work`)
       .then((res) => res.json())
       .then((data) => setWorks(data))
       .catch((err) => console.log(err));

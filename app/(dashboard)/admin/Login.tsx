@@ -11,7 +11,7 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
   const { register, watch } = useForm();
   const verifyLogin = () => {
     axios
-      .post("https://zigzag.onrender.com/verifyLogin", watch())
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/verifyLogin`, watch())
       .then((res) => {
         localStorage.setItem("admin", "true");
         setIsLogin(false);
@@ -39,7 +39,7 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
             <input
               type="text"
               {...register("username", { required: true })}
-              className="pl-3 ml-2"
+              className="pl-3 ml-2 bg-white"
             />
           </div>
           <div className="my-5 border rounded-xl p-3   ">
@@ -47,7 +47,7 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
             <input
               type="password"
               {...register("password", { required: true })}
-              className="pl-3 ml-2"
+              className="pl-3 ml-2 bg-white"
             />
           </div>
         </div>

@@ -28,7 +28,7 @@ const Page = () => {
     datas.append("category", watch().category);
     datas.append("star", watch().star);
     axios
-      .post("https://zigzag.onrender.com/work", datas)
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/work`, datas)
       .then(() => {
         router.back();
         setLoading(false);

@@ -12,7 +12,7 @@ interface Experts {
 const OurExpert = () => {
   const [data, setData] = useState<Experts[]>([]);
   useEffect(() => {
-    fetch("https://zigzag.onrender.com/experts")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/experts`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

@@ -20,7 +20,7 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
     data.append("name", watch().name);
     data.append("role", watch().role);
     axios
-      .post("https://zigzag.onrender.com/experts", data)
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/experts`, data)
       .then((res) => {
         setImage(res.data);
         setIsAddExpertOpen(!isAddExpertOpen);

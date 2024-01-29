@@ -21,7 +21,7 @@ const Page = ({ params: { blogId } }) => {
   const { register, watch } = useForm();
   useEffect(() => {
     axios
-      .get(`https://zigzag.onrender.com/blogs?blogId=${blogId}`)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${blogId}`)
       .then((res) => {
         setBlog(res.data);
         setContent(res.data.test);
@@ -33,7 +33,7 @@ const Page = ({ params: { blogId } }) => {
   const deleteBlog = (id) => {
     setIsLoading(!isLoading);
     axios
-      .delete(`https://zigzag.onrender.com/blogs?blogId=${id}`)
+      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${id}`)
       .then(() => {
         setIsLoading(false);
         router.back();
@@ -54,7 +54,7 @@ const Page = ({ params: { blogId } }) => {
     watch().metaDescription &&
       blog.append("metaDescription", watch().metaDescription);
     axios
-      .patch(`https://zigzag.onrender.com/blogs?blogId=${id}`, blog)
+      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${id}`, blog)
       .then(() => {
         setIsLoading(false);
         toast.success("successfully updated");

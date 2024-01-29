@@ -40,7 +40,7 @@ const Addblog = () => {
     blog.append("photos", image);
 
     axios
-      .post("https://zigzag.onrender.com", blog)
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}`, blog)
       .then(() => {
         setLoader(false);
         navigator.back();

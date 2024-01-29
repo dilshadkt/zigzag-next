@@ -19,7 +19,7 @@ const Experts = () => {
   const [expert, setExprt] = useState<Data | undefined>(undefined);
   useEffect(() => {
     axios
-      .get("https://zigzag.onrender.com/experts")
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/experts`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);

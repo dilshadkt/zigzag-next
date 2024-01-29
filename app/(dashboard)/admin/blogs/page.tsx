@@ -17,7 +17,7 @@ const Blog = () => {
   const [data, setData] = useState<Data[]>([]);
   useEffect(() => {
     axios
-      .get("https://zigzag.onrender.com/blogs")
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
