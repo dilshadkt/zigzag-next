@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
   const currentPath = usePathname();
   return (
-    <div className="h-20 bg-[#DB002F] sticky top-0 z-20  ">
+    <div className="h-20 bg-[#DB002F] sticky top-0 z-20   ">
       <div className="px-14 flex justify-between">
         <div className="flex-1 h-full">
           <Image src={logo} alt="logo" width={80} />

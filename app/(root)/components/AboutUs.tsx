@@ -39,7 +39,7 @@ const AboutUs = () => {
             </div>
             <div className="flex sm:justify-center sm:my-[5%]">
               <Link href={"/about"}>
-                <div className="py-3 px-5 border w-fit text-lg rounded-xl hover:border-orange-500 cursor-pointer">
+                <div className="py-3 px-5 border-gray-500  border-[1px] w-fit text-lg rounded-xl hover:border-orange-500 cursor-pointer">
                   Read Our Story
                 </div>
               </Link>
