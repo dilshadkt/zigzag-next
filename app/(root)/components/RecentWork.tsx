@@ -7,7 +7,9 @@ interface Latest {
 }
 
 const RecentWork = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work/latest`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/work/latest`
+  );
   const latestWork: Latest[] = await response.json();
 
   return (
@@ -17,7 +19,7 @@ const RecentWork = async () => {
         {latestWork.slice(0, 4).map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="mx-1 sm:h-[100px] lg:h-[180px]  h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-4"
+            className="mx-1 sm:h-[80px] lg:h-[180px]  h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-4"
           >
             <Image
               className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"
