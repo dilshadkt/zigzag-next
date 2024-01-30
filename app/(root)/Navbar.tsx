@@ -10,6 +10,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
   const currentPath = usePathname();
+  
   return (
     <div className="h-20 bg-[#DB002F] sticky top-0 z-20   ">
       <div className="px-14 flex justify-between">
@@ -121,7 +122,7 @@ const Navbar = () => {
           <PersonOutlineOutlinedIcon />
         </div>
       </div>
-      <MobileNav />
+      <MobileNav currentPath = {currentPath}/>
       <div className="bg-green-500 w-[45px] h-[45px] rounded-full fixed bottom-5 md:bottom-[13%] right-5  text-white cursor-pointer flex items-center justify-center">
         <a href="https://wa.me/9946443551?text=Hello ZigZag">
           <WhatsAppIcon />

@@ -6,7 +6,10 @@ import home from "@/public/moblie-nav/home Digital-Marketing-Malappuram.png";
 import portfolio from "@/public/moblie-nav/works Digital-Marketing-Malappuram.png";
 import contact from "@/public/moblie-nav/contact Digital-Marketing-Malappuram.png";
 import Link from "next/link";
-const MobileNav = () => {
+interface Props {
+  currentPath: string;
+}
+const MobileNav = ({ currentPath }: Props) => {
   return (
     <div className=" hidden fixed md:flex left-0 right-0 m-auto mx-5 bottom-4 py-3 px-2 bg-white shadow-2xl z-50 rounded-2xl ">
       <div className="flex-1 flex flex-col items-center justify-center">
@@ -15,10 +18,20 @@ const MobileNav = () => {
             <Image
               src={about}
               alt="digital marketing agency in malappuram"
-              className="w-[22px] opacity-60"
+              className={`w-[22px] ${
+                currentPath === "/about" ? `opacity-100` : `opacity-60`
+              } `}
             />
           </div>
-          <h5 className="text-red-500 text-sm ">About</h5>
+          <h5
+            className={`${
+              currentPath === "/about"
+                ? `text-black font-semibold`
+                : `text-red-500`
+            } text-sm `}
+          >
+            About
+          </h5>
         </Link>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center">
@@ -27,10 +40,20 @@ const MobileNav = () => {
             <Image
               src={service}
               alt="digital marketing agency in malappuram"
-              className="w-[22px] opacity-60"
+              className={`w-[22px]  ${
+                currentPath === "/services" ? `opacity-100` : `opacity-60`
+              }`}
             />
           </div>
-          <h5 className="text-red-500 text-sm">Service</h5>
+          <h5
+            className={` ${
+              currentPath === "/services"
+                ? `text-black font-semibold`
+                : `text-red-500`
+            } text-sm`}
+          >
+            Service
+          </h5>
         </Link>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center">
@@ -39,10 +62,18 @@ const MobileNav = () => {
             <Image
               src={home}
               alt="digital marketing agency in malappuram"
-              className="w-[22px] opacity-60"
+              className={`w-[22px]  ${
+                currentPath === "/" ? `opacity-100` : `opacity-60`
+              }`}
             />
           </div>
-          <h5 className="text-red-500 text-sm">Home</h5>
+          <h5
+            className={` text-sm ${
+              currentPath === "/" ? `text-black font-semibold` : `text-red-500`
+            }`}
+          >
+            Home
+          </h5>
         </Link>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center">
@@ -51,10 +82,20 @@ const MobileNav = () => {
             <Image
               src={portfolio}
               alt="digital marketing agency in malappuram"
-              className="w-[22px] opacity-60"
+              className={`w-[22px] ${
+                currentPath === "/portfolio" ? `opacity-100` : `opacity-60`
+              }`}
             />
           </div>
-          <h5 className="text-red-500 text-sm">Portfolio</h5>
+          <h5
+            className={`${
+              currentPath === "/portfolio"
+                ? `text-black font-semibold`
+                : `text-red-500`
+            }  text-sm`}
+          >
+            Portfolio
+          </h5>
         </Link>
       </div>
       <div className="flex-1 flex flex-col items-center justify-center ">
@@ -63,10 +104,20 @@ const MobileNav = () => {
             <Image
               src={contact}
               alt="digital marketing agency in malappuram"
-              className="w-[22px] opacity-60"
+              className={`w-[22px]  ${
+                currentPath === "/contact" ? `opacity-100` : `opacity-60`
+              }`}
             />
           </div>
-          <h5 className="text-red-500 text-sm">Contact</h5>
+          <h5
+            className={`${
+              currentPath === "/contact"
+                ? `text-black font-semibold`
+                : `text-red-500`
+            } text-sm`}
+          >
+            Contact
+          </h5>
         </Link>
       </div>
     </div>
