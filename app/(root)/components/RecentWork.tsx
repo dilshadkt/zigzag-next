@@ -22,7 +22,7 @@ const RecentWork = async () => {
             className="mx-1 sm:h-[80px] lg:h-[180px]  h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-4"
           >
             <Image
-              className="object-cover    w-full h-full hover:scale-105 transition-all duration-700"
+              className="object-cover   w-full h-full hover:scale-105 transition-all duration-700"
               src={item.image}
               alt={item.image.split("/")[item.image.split("/").length - 1]}
               width={400}
