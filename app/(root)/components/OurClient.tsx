@@ -33,7 +33,7 @@ const OurClient = async () => {
               width={400}
               height={300}
               quality={100}
-              className="w-[50%] object-cover h-[80px]"
+              className="w-[50%] object-cover md:object-contain h-[80px]"
             />
           </div>
         ))}

@@ -14,7 +14,7 @@ const Navabar = () => {
     }
   };
   return (
-    <div className="py-5 px-[5%] border flex items-center justify-between">
+    <div className="py-5 px-[5%] shadow-xl border-b-[1px]  flex items-center justify-between">
       <div className="h-[40px] flex items-center">
         <Image
           src={logo}

@@ -32,11 +32,12 @@ const Blog = () => {
           </div>
         </Link>
       </div>
+      
       <div className="p-5 border w-full rounded-xl ">
         <div className="grid grid-cols-3">
           {data.map((item, index) => (
             <Link key={`${index}`} href={`/admin/blogs/${item._id}`}>
-              <div className="border p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
+              <div className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
                 <div className="w-full border h-[220px] rounded-xl overflow-hidden">
                   <Image
                     src={item.photos}

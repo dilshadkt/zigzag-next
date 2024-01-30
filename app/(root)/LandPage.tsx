@@ -8,13 +8,19 @@ const LandPage = () => {
       <div className=" md:px-5 px-20 md:h-[91vh] flex sm:flex-col-reverse  items-center bg-[#DB002F]  sticky top-20 -z-10">
         <div className="flex-1   flex items-center sm:items-start  ">
           <div className=" w-fit   pl-[10%] sm:pl-0 text-white ">
-            <h1 className="text-5xl sm:leading-10 sm:text-3xl md:text-4xl text-left font-thin font-sans ">
+            <h1 className="text-5xl sm:leading-10 sm:text-3xl md:text-4xl text-left font-thin font-sans  ">
               A Comprehensive Branding & Digital Marketing Agency in&nbsp;
               <span className="font-bold">Malappuram!</span>
             </h1>
-            <h2 className="text-lg sm:text-base mt-8 font-extralight">
+            <h2
+              className={`text-lg sm:text-base md:hidden flex mt-8 font-extralight`}
+            >
               Digital Marketing Company in Malappuram providing <br />
               result-oriented marketing solutions for brands since 2020.
+            </h2>
+            <h2 className="text-lg sm:text-base hidden md:flex mt-8 md:mt-2 font-extralight text-justify ">
+              Digital Marketing Company in Malappuram providing result-oriented
+              marketing solutions for brands since 2020.
             </h2>
           </div>
         </div>
