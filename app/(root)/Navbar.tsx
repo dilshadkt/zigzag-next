@@ -44,6 +44,7 @@ const Navbar = () => {
               className={
                 currentPath === "/" ? `underline underline-offset-8 ` : ``
               }
+              onClick={() => setisOpen(0)}
             >
               <li>Home</li>
             </Link>
@@ -52,6 +53,7 @@ const Navbar = () => {
               className={
                 currentPath === "/about" ? `underline underline-offset-8 ` : ``
               }
+              onClick={() => setisOpen(0)}
             >
               <li>About</li>
             </Link>
@@ -64,7 +66,12 @@ const Navbar = () => {
                     : ``
                 }
               >
-                <li onMouseEnter={() => setisOpen(1)}>Service</li>
+                <li
+                  onMouseEnter={() => setisOpen(1)}
+                  onClick={() => setisOpen(0)}
+                >
+                  Service
+                </li>
               </Link>
               <div
                 onMouseLeave={() => setisOpen(0)}
@@ -114,6 +121,7 @@ const Navbar = () => {
                   ? `underline underline-offset-8 `
                   : ``
               }
+              onClick={() => setisOpen(0)}
             >
               {" "}
               <li>Portfolio</li>
@@ -123,6 +131,7 @@ const Navbar = () => {
                 currentPath === "/blogs" ? `underline underline-offset-8 ` : ``
               }
               href={"/blogs"}
+              onClick={() => setisOpen(0)}
             >
               <li>Blogs</li>
             </Link>
@@ -133,6 +142,7 @@ const Navbar = () => {
                   : ``
               }
               href={"/contact"}
+              onClick={() => setisOpen(0)}
             >
               <li>Contact</li>
             </Link>
