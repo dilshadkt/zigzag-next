@@ -22,6 +22,11 @@ const LandPage = () => {
               Digital Marketing Company in Malappuram providing result-oriented
               marketing solutions for brands since 2020.
             </h2>
+            <div className="absolute md:hidden bottom-6 left-0 right-0  m-auto flex items-center justify-center w-[20px] opacity-50 h-55">
+              <div className="w-2 py-4 px-3 h-[20px] border-2 border-white rounded-full opacity-75 box-content">
+                <div className="w-[4px] h-[14px] rounded-full bg-white animate-bounce"></div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex-initial w-[60%] md:w-[55%]   sm:w-full sm:justify-center  flex items-center justify-end">

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "@/public/logo.png";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -9,18 +9,35 @@ import MobileNav from "./components/MobileNav";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
+  const [changeTheme, setChangeTheme] = useState(false);
   const currentPath = usePathname();
+  const handleScroll = () => {
+    window.scrollY > 720 ? setChangeTheme(true) : setChangeTheme(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   return (
     <div
-      className="h-20 bg-[#DB002F] sticky top-0 z-20   "
+      className={`h-20 ${
+        changeTheme
+          ? ` bg-transparent`
+          : `bg-[#DB002F] transition-all ease-out duration-75 `
+      } sticky top-0 z-20   `}
       onMouseLeave={() => setisOpen(0)}
     >
       <div className="px-14 flex justify-between">
         <div className="flex-1 h-full">
           <Image src={logo} alt="logo" width={80} />
+            
         </div>
-        <div className="flex-initial w-[40%] md:hidden text-rose-200">
+        <div
+          className={`flex-initial w-[40%] md:hidden  rounded-xl ${
+            changeTheme ? `bg-white text-black shadow-2xl ` : `text-rose-200 `
+          } `}
+        >
           <ul className="flex  items-center h-full font-medium justify-around">
             <Link
               href={"/"}
