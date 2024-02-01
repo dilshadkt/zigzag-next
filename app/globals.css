@@ -20,8 +20,9 @@ body {
   color: rgb(var(--foreground-rgb));
   color: black;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }

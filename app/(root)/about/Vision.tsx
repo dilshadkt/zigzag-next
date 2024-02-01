@@ -8,7 +8,7 @@ const Vision = () => {
       <div className="flex md:flex-col">
         <div className="flex-1  flex items-center   justify-center">
           <Image
-            className="w-[250px] sm:animate-bounce "
+            className="w-[250px] sm:animate-bounce  hover:scale-110 transform  transition-all"
             src={mission}
             alt="mission digital marketing agency malappuram "
           />
@@ -35,9 +35,9 @@ const Vision = () => {
         </div>
         <div className="flex-1  flex items-center   justify-center">
           <Image
-            className="w-[250px] "
+            className="w-[250px]  hover:scale-110 transform  transition-all "
             src={vision}
-            alt="mission digital marketing agency malappuram"
+            alt="mission digital marketing agency malappuram "
           />
         </div>
       </div>

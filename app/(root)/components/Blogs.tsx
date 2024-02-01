@@ -20,7 +20,7 @@ const Blogs = async () => {
         {blog.map((item, index) => (
           <div
             key={`${index}-${item._id}`}
-            className=" flex flex-col bg-box  m-2 rounded-xl overflow-hidden hover:shadow-lg pb-3 transition-all  duration-700 cursor-pointer"
+            className=" flex flex-col shadow-xl border-[1px] border-gray-300 hover:bg-box  m-2 rounded-xl overflow-hidden hover:shadow-lg pb-3 transition-all  duration-700 cursor-pointer"
           >
             <Link href={`/blogs/${item._id}`}>
               <div className="w-full flex-initial h-[200px] overflow-hidden ">

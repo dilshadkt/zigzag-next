@@ -8,6 +8,7 @@ import Whychoose from "@/app/(root)/components/Whychoose";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
+import OurExpert from "../components/OurExpert";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
@@ -74,6 +75,7 @@ const AboutUs = () => {
       <div className="bg-white py-[3%]">
         <Whychoose />
       </div>
+      <OurExpert />
       <OurClient />
       <RecentWork />
     </div>

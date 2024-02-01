@@ -25,7 +25,7 @@ const OurClient = async () => {
         {clientLogo.map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="flex-1  bg-white   hover:shadow-md transition-all duration-600 flex justify-center m-3 rounded-xl "
+            className="flex-1  bg-white hover:shadow-md transition-all duration-600 hover:scale-105    flex justify-center m-3 rounded-xl "
           >
             <Image
               src={item.image}
@@ -33,7 +33,7 @@ const OurClient = async () => {
               width={400}
               height={300}
               quality={100}
-              className="w-[50%] object-cover md:object-contain h-[80px]"
+              className="w-[50%] object-contain   md:object-contain h-[80px]"
             />
           </div>
         ))}

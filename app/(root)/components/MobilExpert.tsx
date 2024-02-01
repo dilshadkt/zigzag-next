@@ -59,7 +59,7 @@ const MobilExpert = ({ experts }: Expert) => {
               } `,
             }}
           >
-            <div className="w-[150px] mb-3  rounded-full border-4 overflow-hidden h-[150px]">
+            <div className="w-[150px] mb-3  rounded-full border-4 border-primary overflow-hidden h-[150px]">
               <Image
                 className=" h-full w-full  object-cover  shadow-lg"
                 src={image}

@@ -13,7 +13,7 @@ const Whychoose = () => {
         {data.map((item, index) => (
           <div
             key={`${index} - 0${item.title}`}
-            className=" bg-box m-2 rounded-xl flex flex-col items-center px-4 py-5 hover:shadow-lg transition-all duration-500 cursor-pointer"
+            className=" bg-box m-2 rounded-xl  hover:scale-105 shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] flex flex-col items-center px-4 py-5  transition-all duration-500 cursor-pointer"
           >
             <Image
               src={item.image}

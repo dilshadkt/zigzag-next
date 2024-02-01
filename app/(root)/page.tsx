@@ -19,11 +19,11 @@ export default async function Home() {
       <LandPage />
       <AboutUs />
       <Whychoose />
-      <OurClient />
       <Blogs />
-      <Portfolio />
-      <OurExpert />
       <Services />
+      <Portfolio />
+      <OurClient />
+      <OurExpert />
       <Testimonial data={testimonia} />
     </div>
   );

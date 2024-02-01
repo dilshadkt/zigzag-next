@@ -39,7 +39,7 @@ const OurExpert = () => {
         <div className="flex justify-center">
           <h2 className="text-3xl text-secondary font-medium">Our Experts</h2>
         </div>
-        <div className="flex md:hidden items-end  my-[5%]  overflow-hidden    max-w-[780px] ">
+        <div className="flex md:hidden items-start  my-[5%]  overflow-hidden    max-w-[780px] ">
           {data.map((person) => {
             const { _id, image, name, role } = person;
 
@@ -49,7 +49,7 @@ const OurExpert = () => {
                 style={{ transform: `translateX(-${index * 125}%)` }}
                 key={`${_id}-${name}`}
               >
-                <div className="w-[150px]   rounded-full border-4 overflow-hidden h-[150px]">
+                <div className="w-[150px]   rounded-full border-4 border-primary overflow-hidden h-[150px]">
                   <Image
                     className=" h-full w-full  object-cover  shadow-lg"
                     src={image}
