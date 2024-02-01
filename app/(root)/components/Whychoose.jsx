@@ -5,9 +5,9 @@ const Whychoose = () => {
   return (
     <div className="bg-white px-[12%] sm:px-5 md:px-6">
       <div className="text-center">
-        <h1 className="text-3xl md:text-2xl sm:py-[8%] text-secondary font-medium">
+        <h4 className="text-3xl md:text-2xl sm:py-[8%] text-secondary font-medium">
           Why Zig Zag As Your Trusted Digital Marketing Agency In Malappuram
-        </h1>
+        </h4>
       </div>
       <div className="py-[6%]  grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
         {data.map((item, index) => (

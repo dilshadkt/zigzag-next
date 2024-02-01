@@ -17,9 +17,9 @@ const OurClient = async () => {
   return (
     <div className="bg-white px-[12%] sm:px-5 md:px-6">
       <div className="text-center">
-        <h2 className="text-3xl sm:text-2xl sm:py-[8%] text-secondary font-medium">
+        <h4 className="text-3xl sm:text-2xl sm:py-[8%] text-secondary font-medium">
           Our Clientele
-        </h2>
+        </h4>
       </div>
       <div className="grid grid-cols-4 py-[6%] sm:justify-center md:grid-cols-3 sm:grid-cols-2 ">
         {clientLogo.map((item, index) => (

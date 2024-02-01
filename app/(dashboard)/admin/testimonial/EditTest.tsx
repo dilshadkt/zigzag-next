@@ -29,7 +29,7 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
       description: testimonial.description,
       designation: testimonial.designation,
       role: testimonial.role,
-      color: "",
+      color: testimonial.color,
     },
   });
   const remove = (id: any) => {

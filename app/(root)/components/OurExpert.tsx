@@ -37,7 +37,7 @@ const OurExpert = () => {
     <>
       <div className="bg-white  px-[12%] py-[2%] flex flex-col items-center">
         <div className="flex justify-center">
-          <h2 className="text-3xl text-secondary font-medium">Our Experts</h2>
+          <h4 className="text-3xl text-secondary font-medium">Our Experts</h4>
         </div>
         <div className="flex md:hidden items-start  my-[5%]  overflow-hidden    max-w-[780px] ">
           {data.map((person) => {

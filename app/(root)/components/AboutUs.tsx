@@ -8,7 +8,7 @@ const AboutUs = () => {
     <div className="bg-white px-[12%] py-[2%] sm:px-5 md:px-6 relative overflow-hidden z-0">
       <div className="">
         <div className="flex justify-center">
-          <h1 className="text-3xl text-gray-500 sm:my-[5% ]">About Us</h1>
+          <h4 className="text-3xl text-gray-500 sm:my-[5% ]">About Us</h4>
         </div>
         <div className="flex sm:flex-col sm:items-center   my-9">
           <div className="flex-1 sm:w-[60%]  sm:mb-7">

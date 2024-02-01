@@ -83,9 +83,9 @@ const Testimonial = ({ data }) => {
   return (
     <div className="bg-white pb-[10%]">
       <div className="text-center lg:mb-10 md:mt-0 mb-4 ">
-        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+        <h4 className="text-3xl sm:text-2xl text-secondary font-medium">
           Testimonial
-        </h2>
+        </h4>
       </div>
       <div className="px-[12%] mb-0 ">
         <Slider {...settings}>
@@ -100,7 +100,7 @@ const Testimonial = ({ data }) => {
               >
                 <div>
                   <div className="text-end ">
-                    <h2 className="text-lg font-semibold">{item?.name}</h2>
+                    <h4 className="text-lg font-semibold">{item?.name}</h4>
                   </div>
                   <div className="mt-6 font-medium text-justify">
                     {item?.description}

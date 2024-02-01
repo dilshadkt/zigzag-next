@@ -47,10 +47,10 @@ const Client = () => {
                   <Image
                     src={item.image}
                     alt="experts"
-                    width={500}
-                    height={500}
+                    width={700}
+                    height={700}
                     quality={100}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <h4 className="text-2xl font-semibold my-2">{item.name}</h4>

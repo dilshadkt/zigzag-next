@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileNav from "./components/MobileNav";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import changeLogo from "@/public/digital-market-agency-in-malappuram.png";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
   const [changeTheme, setChangeTheme] = useState(false);
@@ -30,15 +31,14 @@ const Navbar = () => {
     >
       <div className="px-14 flex justify-between">
         <div className="flex-1 h-full">
-          <Image src={logo} alt="logo" width={80} />
-            
+          <Image src={changeTheme ? changeLogo : logo} alt="logo" width={80} />
         </div>
         <div
           className={`flex-initial w-[40%] md:hidden  rounded-xl ${
             changeTheme ? `bg-white text-black shadow-2xl ` : `text-rose-200 `
           } `}
         >
-          <ul className="flex  items-center h-full font-medium justify-around">
+          <ul className="flex  items-center h-full font-semibold  justify-around">
             <Link
               href={"/"}
               className={

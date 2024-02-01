@@ -12,9 +12,9 @@ const Blogs = async () => {
   return (
     <div className="bg-white px-[12%] py-6 sm:px-5 md:px-6">
       <div className="text-center">
-        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+        <h4 className="text-3xl sm:text-2xl text-secondary font-medium">
           Blogs
-        </h2>
+        </h4>
       </div>
       <div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 py-[6%]">
         {blog.map((item, index) => (

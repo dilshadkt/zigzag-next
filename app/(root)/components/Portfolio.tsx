@@ -15,9 +15,9 @@ const Portfolio = async () => {
   return (
     <div className="bg-white px-[12%] py-[5%] sm:px-5 md:px-6">
       <div className="text-center pt-6">
-        <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+        <h4 className="text-3xl sm:text-2xl text-secondary font-medium">
           Portfolio
-        </h2>
+        </h4>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 py-[5%] sm:mt-4">
         {staredWork.slice(0, 8).map((item, index) => (
