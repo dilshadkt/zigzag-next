@@ -11,7 +11,9 @@ interface Blog {
   _id: string;
 }
 const Footer = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/latest`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/latest`
+  );
   const latestArticle: Blog[] = await response.json();
   return (
     <>
@@ -184,7 +186,7 @@ const Footer = async () => {
       </div>
       <div className="bg-[#FCFAFA]">
         <h4 className="p-2 text-center md:pb-[15%] sm:pb-[10%]">
-          © 2023 Zig Zag Digital Marketing Agency Manjeri. All rights reserved.
+          © 2023 Zig Zag Digital Marketing Agency Manjeri. All rights reserved
         </h4>
       </div>
     </>
