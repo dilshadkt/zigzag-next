@@ -7,6 +7,7 @@ import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -35,6 +36,9 @@ const Contact = () => {
   };
   return (
     <div className="px-[17%] sm:px-5 md:px-6 bg-white py-[3%] ">
+      <Head>
+        <link rel="canonical" />
+      </Head>
       <div className="w-full flex items-center flex-col">
         <h1 className="text-[#DB002F] text-3xl">Contact</h1>
         <h3 className="text-gray-500 my-8 text-xl md:text-center">

@@ -3,6 +3,7 @@ import React from "react";
 import LatesBlog from "./LatesBlog";
 import { Metadata } from "next";
 import parse from "html-react-parser";
+import Head from "next/head";
 
 interface Props {
   params: { blog: string };
@@ -23,6 +24,12 @@ const BlogPage = async ({ params: { blog } }: Props) => {
 
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://www.zigzagdigitalsolutions.com/blogs/${blog}`}
+        />
+      </Head>
       <div className="bg-white px-[14%]  md:px-4  py-[4%]">
         <div className="w-full h-[300px] md:h-[240px] sm:h-[200px] overflow-hidden flex rounded-xl">
           <Image

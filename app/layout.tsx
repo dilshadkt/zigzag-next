@@ -23,6 +23,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <GoogleTagManger />
+        <meta
+          property="og:title"
+          content="Leading Digital Marketing Agency in Malappuram | Branding Services"
+        />
+        <meta
+          property="og:description"
+          content="Best digital marketing agency in Malappuram, offering comprehensive digital marketing and branding solutions for brands worldwide. "
+        />
+
+        <meta
+          name="keywords"
+          content="Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising
+"
+        />
       </head>
 
       <body className={rajdhani.className}>

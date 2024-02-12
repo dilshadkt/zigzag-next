@@ -4,10 +4,31 @@ import webdev from "@/public/services/webdev/Content Integration.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/webdev/data";
 import { Metadata } from "next";
+import Head from "next/head";
 
 const Websites = () => {
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/services/Website"
+        />
+        <meta
+          property="og:title"
+          content="Web Development Agency in Malappuram for High Converting Websites"
+        />
+        <meta
+          property="og:description"
+          content="Discover excellence in web development with our agency in Malappuram. We specialize in custom website development, responsive web design, e-commerce solutions, and professional web maintenance services. Trust our web development experts to bring your online business to success."
+        />
+
+        <meta
+          name="keywords"
+          content="Web development agency, Malappuram, Website development, Web design, Custom web development, Web development services, Responsive web design, E-commerce development, Website maintenance, Web development experts
+"
+        />
+      </Head>
       <div className="bg-white">
         <div className="mx-[13%] pt-9 sm:mx-5 md:mx-6">
           <div className="flex flex-col w-full">

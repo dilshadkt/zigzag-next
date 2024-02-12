@@ -6,10 +6,30 @@ import { benifits } from "@/public/services/social/data";
 import social from "@/public/services/social/Strategy Planning.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { Metadata } from "next";
+import Head from "next/head";
 
 const Socials = () => {
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/services/Social"
+        />
+        <meta
+          property="og:title"
+          content="Leading Social Media Marketing Agency in Malappuram"
+        />
+        <meta
+          property="og:description"
+          content="Boost your brand's online presence with the top social media marketing agency in Malappuram. Our experts specialize in social media management, advertising, and strategic campaigns to promote your brand effectively. Partner with us for exceptional digital marketing results."
+        />
+
+        <meta
+          name="keywords"
+          content=" Social media marketing, Social media agency, Malappuram, Digital marketing, Social media management, Social media advertising, Online presence, Brand promotion, Social media strategy, Social media campaigns, Social media experts"
+        />
+      </Head>
       <div className="bg-white">
         <div className="mx-[13%] pt-9 sm:mx-5 md:mx-6">
           <div className="flex flex-col w-full">

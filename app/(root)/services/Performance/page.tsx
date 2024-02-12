@@ -4,10 +4,30 @@ import performance from "@/public/services/performance/A,B Testing.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/performance/data";
 import { Metadata } from "next";
+import Head from "next/head";
 
 const Perfomances = () => {
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/services/Performance"
+        />
+        <meta
+          property="og:title"
+          content="Grow Your Brand with Performance Marketing Expertise"
+        />
+        <meta
+          property="og:description"
+          content="Maximize your online success with our performance marketing strategies. We specialize in ROI-focused digital advertising, conversion optimization, and data-driven marketing campaigns. Experience the power of results-driven marketing today."
+        />
+
+        <meta
+          name="keywords"
+          content="Performance marketing, Online advertising, ROI-focused marketing, Digital advertising, Conversion optimization, Ad campaign management, Pay-per-click (PPC), Marketing analytics, Data-driven marketing, Results-driven marketing"
+        />
+      </Head>
       <div className="bg-white">
         <div className="mx-[13%] pt-9 sm:mx-5 md:mx-6 ">
           <div className="flex flex-col w-full">

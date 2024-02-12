@@ -9,10 +9,31 @@ import RecentWork from "@/app/(root)/components/RecentWork";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import OurExpert from "../components/OurExpert";
+import Head from "next/head";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
     <div>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/about"
+        />
+        <meta
+          property="og:title"
+          content="Zig Zag - Creative Digital Marketing Agency in Malappuram"
+        />
+        <meta
+          property="og:description"
+          content="Choose Zig Za as your dedicated digital marketing partner for transforming ideas into successful brands. We offer innovative digital marketing solutions that go beyond conventional methods.
+          "
+        />
+        <meta
+          name="keywords"
+          content="Digital Marketing, Malappuram, Creative Solutions, Business Growth, Brand Transformation, Global Services, Client-Centric Approach.
+          "
+        />
+      </Head>
       <div className="bg-white px-[12%] sm:px-5 md:px-6 py-[2%] relative overflow-hidden z-0">
         <div>
           <div className="flex justify-center">

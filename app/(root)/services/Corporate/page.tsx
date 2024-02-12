@@ -6,10 +6,30 @@ import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/corperate/data";
 import { benifits } from "@/public/services/corperate/data";
 import { Metadata } from "next";
+import Head from "next/head";
 
 const Corperates = () => {
   return (
     <>
+      <Head>
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/services/Corporate"
+        />
+        <meta
+          property="og:title"
+          content="Elevate Your Business with Expert Corporate Branding Services"
+        />
+        <meta
+          property="og:description"
+          content="Transform your business with our comprehensive corporate branding solutions. Our branding agency in malappuram specializes in creating a unique brand identity, logo design, and brand strategy that will set your company apart. Build a strong corporate image and brand recognition with our professional expertise."
+        />
+
+        <meta
+          name="keywords"
+          content="Corporate branding, Brand identity, Brand strategy, Logo design, Visual identity, Branding agency, Brand guidelines, Brand image, Corporate image, Brand messaging, Brand recognition"
+        />
+      </Head>
       <div className="bg-white">
         <div className=" mx-[13%] pt-9 sm:mx-5 md:mx-6">
           <div className="flex flex-col w-full">
