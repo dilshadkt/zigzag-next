@@ -40,7 +40,7 @@ const Addblog = () => {
     blog.append("photos", image);
 
     axios
-      .post(`${process.env.NEXT_PUBLIC_BASE_URL}`, blog)
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`, blog)
       .then(() => {
         setLoader(false);
         navigator.back();
@@ -52,7 +52,7 @@ const Addblog = () => {
         console.log(err);
       });
   };
-  console.log(watch().metaDescription);
+
   return (
     <div>
       <div>
