@@ -8,7 +8,11 @@ interface Blog {
   description: String;
   photos: string;
 }
-
+export const allBlogData = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`);
+  const blogs = await response.json();
+  return blogs;
+};
 const Blogs = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`, {
     next: { revalidate: 0 },
