@@ -96,7 +96,7 @@ const Testimonial = ({ data }) => {
             >
               <div
                 style={{ background: `${item.color}` }}
-                className="rounded-xl flex flex-col shadow-xl justify-between min-h-[280px] p-5 border mx-5"
+                className="rounded-xl flex flex-col shadow-xl justify-between min-h-[280px] p-5 border mx-[2.5%] "
               >
                 <div>
                   <div className="text-end ">
