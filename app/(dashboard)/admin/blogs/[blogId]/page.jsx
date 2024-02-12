@@ -114,7 +114,7 @@ const Page = ({ params: { blogId } }) => {
         <div className="w-full h-[300px] overflow-hidden flex rounded-xl relative">
           <Image
             src={blog.photos}
-            alt=" "
+            alt={blog.photos}
             width={200}
             height={200}
             className="w-full object-cover "

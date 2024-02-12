@@ -36,7 +36,9 @@ const Blogs = async () => {
                 />
               </div>
               <div className="flex items-center flex-1 w-full p-3 ">
-                <h3 className="text-center text-secondary">{item.heading}</h3>
+                <h3 className="text-center text-secondary font-medium">
+                  {item.heading}
+                </h3>
               </div>
             </Link>
           </div>

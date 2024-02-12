@@ -40,7 +40,7 @@ const Services = () => {
               </ul>
               <div className="text-center mt-3 ">
                 <Link href={`services/${item.title.split(" ")[0]}`}>
-                  <span className="text-red-500 cursor-pointer hover:underline">
+                  <span className="text-red-500 cursor-pointer hover:underline font-medium">
                     Learn More
                   </span>
                 </Link>

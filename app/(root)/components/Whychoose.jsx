@@ -22,7 +22,9 @@ const Whychoose = () => {
               className="opacity-70 sm:w-[20%]"
             />
             <h3 className="my-3 font-semibold text-black">{item.title}</h3>
-            <p className="text-center text-secondary">{item.desc}</p>
+            <p className="text-center text-secondary font-medium">
+              {item.desc}
+            </p>
           </div>
         ))}
       </div>
