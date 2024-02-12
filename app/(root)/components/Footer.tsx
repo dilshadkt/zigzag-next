@@ -48,6 +48,7 @@ const Footer = async () => {
                 <a
                   href="https://instagram.com/zig_zag_digital_solutions/"
                   target="blank"
+                  title="Instagram"
                   style={{ color: "inherit", textDecoration: "none" }}
                 >
                   <InstagramIcon />
@@ -57,6 +58,7 @@ const Footer = async () => {
                 <a
                   href="https://www.facebook.com/ZIGZAGDigitalSolutions/"
                   target="blank"
+                  title="facebook"
                   style={{ color: "inherit", textDecoration: "none" }}
                 >
                   <FacebookIcon />
@@ -66,6 +68,7 @@ const Footer = async () => {
                 <a
                   href="https://www.linkedin.com/company/zig-zag-digital-solution-s"
                   target="blank"
+                  title="linkedIn"
                   style={{ color: "inherit", textDecoration: "none" }}
                 >
                   <LinkedInIcon />
@@ -80,32 +83,32 @@ const Footer = async () => {
 
             <ul className="list-disc pl-4">
               <Link href={"/"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Home
                 </li>
               </Link>
               <Link href={"/services"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Service
                 </li>
               </Link>
               <Link href={"/portfolio"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Portfolio
                 </li>
               </Link>
               <Link href={"/blogs"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Blog
                 </li>
               </Link>
               <Link href={"/contact"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Contact Us
                 </li>
               </Link>
               <Link href={"about"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   About
                 </li>
               </Link>
@@ -116,33 +119,33 @@ const Footer = async () => {
 
             <ul className="list-disc pl-4">
               <Link href={"/services/Corporate"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Corporate identity
                 </li>
               </Link>
               <Link href={"/services/Social"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Social Media Marketing
                 </li>
               </Link>
               <Link href={"/services/SEO"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   SEO
                 </li>
               </Link>
               <Link href={"/services/Website"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Website Development
                 </li>
               </Link>
               <Link href="/services/Performance">
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   {" "}
                   Performance Marketing
                 </li>
               </Link>
               <Link href={"/services/Media"}>
-                <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   Media Production
                 </li>
               </Link>
@@ -154,7 +157,7 @@ const Footer = async () => {
             <ul className="list-disc pl-4">
               {latestArticle.map((item) => (
                 <Link key={item._id} href={`/blogs/${item._id}`}>
-                  <li className="my-2 cursor-pointer hover:text-[#15181e]">
+                  <li className="my-2 cursor-pointer font-medium hover:text-[#15181e]">
                     {item.heading}
                   </li>
                 </Link>

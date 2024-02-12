@@ -7,9 +7,12 @@ interface Work {
 }
 
 const Portfolio = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work?type=true`, {
-    next: { revalidate: 100 },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/work?type=true`,
+    {
+      next: { revalidate: 100 },
+    }
+  );
   const staredWork: Work[] = await response.json();
 
   return (
@@ -37,7 +40,7 @@ const Portfolio = async () => {
       </div>
       <div className="text-center">
         <Link href={"/portfolio?type=all"}>
-          <h4 className="text-red-500 hover:underline cursor-pointer">
+          <h4 className="text-red-500 font-medium hover:underline cursor-pointer">
             Explore more
           </h4>
         </Link>

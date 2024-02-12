@@ -81,32 +81,32 @@ const Navbar = () => {
               >
                 <ul className="text-black font-medium whitespace-nowrap">
                   <Link href={"/services/Corporate"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       Corporate Branding
                     </li>
                   </Link>
                   <Link href={"/services/Social"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       Social media marketing
                     </li>
                   </Link>
                   <Link href={"/services/SEO"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       SEO
                     </li>
                   </Link>{" "}
                   <Link href={"/services/Website"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       Website Development{" "}
                     </li>
                   </Link>
                   <Link href={"/services/Performance"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       Performance Marketing{" "}
                     </li>
                   </Link>
                   <Link href={"/services/Media"}>
-                    <li className="my-3 hover:text-red-500 cursor-pointer">
+                    <li className="my-3 font-medium hover:text-red-500 cursor-pointer">
                       Media Production{" "}
                     </li>
                   </Link>

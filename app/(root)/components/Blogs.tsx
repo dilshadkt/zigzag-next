@@ -46,7 +46,7 @@ const Blogs = async () => {
       </div>
       <div className="text-center">
         <Link href={"/blogs"}>
-          <h4 className="text-red-500 hover:underline cursor-pointer">
+          <h4 className="text-red-500 font-medium hover:underline cursor-pointer">
             Explore more
           </h4>
         </Link>
