@@ -25,6 +25,7 @@ const Footer = async () => {
                 src={footer}
                 alt={"digital marketing solution in malappuram"}
                 className="w-[200px] md:w-[120px] "
+                loading="eager"
               />
             </div>
 

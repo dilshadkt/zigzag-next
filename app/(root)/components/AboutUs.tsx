@@ -16,6 +16,7 @@ const AboutUs = () => {
               src={aboutus}
               className="md:w-[90%]"
               alt={"digital marketing agency in malappuram"}
+              loading="eager"
             />
           </div>
           <div className="text-[22px] md:text-lg flex-1 text-black   flex flex-col justify-center text-justify">
@@ -51,6 +52,7 @@ const AboutUs = () => {
         <Image
           src={aboutbg}
           alt={"best digital marketing agency in malappuram"}
+          loading="eager"
         />
       </div>
     </div>

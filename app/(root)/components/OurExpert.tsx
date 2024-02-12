@@ -56,6 +56,8 @@ const OurExpert = () => {
                     width={100}
                     height={100}
                     alt={role}
+                    quality={70}
+                    loading="eager"
                   />
                 </div>
 

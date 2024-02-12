@@ -114,6 +114,7 @@ const Testimonial = ({ data }) => {
                       alt="testimonial logo"
                       width={200}
                       height={200}
+                      quality={50}
                     />
                   </div>
                 </div>

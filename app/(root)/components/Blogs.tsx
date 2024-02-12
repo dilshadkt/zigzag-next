@@ -28,6 +28,7 @@ const Blogs = async () => {
                   src={item.photos}
                   width={400}
                   height={400}
+                  loading="eager"
                   alt={
                     item.photos.split("/")[item.photos.split("/").length - 1]
                   }

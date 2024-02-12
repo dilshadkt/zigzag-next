@@ -14,6 +14,7 @@ const Card = ({ img }: Props) => {
         width={400}
         height={400}
         quality={90}
+        loading="eager"
         className="object-cover sm:object-fill  w-full h-full hover:scale-105 transition-all duration-700"
       />
     </div>
