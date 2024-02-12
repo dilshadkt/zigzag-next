@@ -82,7 +82,7 @@ const Contact = () => {
               />
               <select
                 required
-                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="find-us"
               >
                 <option>How did you find us?</option>
@@ -96,7 +96,7 @@ const Contact = () => {
               </select>
               <select
                 required
-                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="enquiry"
               >
                 <option>Enquiry on</option>
@@ -109,7 +109,7 @@ const Contact = () => {
                 <option>Other</option>
               </select>
               <select
-                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"
+                className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="budget"
               >
                 <option>Select Your Budget</option>
