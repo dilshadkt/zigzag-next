@@ -14,10 +14,7 @@ export const allBlogData = async () => {
   return blogs;
 };
 const Blogs = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`, {
-    next: { revalidate: 0 },
-  });
-  const blogs: Blog[] = await res.json();
+  const blogs: Blog[] = await allBlogData();
 
   return (
     <>
