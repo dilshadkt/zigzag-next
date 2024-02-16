@@ -12,7 +12,9 @@ interface Blog {
 
 const Blogs = async () => {
   const allBlogData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`, {
+      next: { revalidate: 10 },
+    });
     const blogs = await response.json();
     return blogs;
   };
