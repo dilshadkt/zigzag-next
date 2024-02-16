@@ -45,7 +45,7 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
         onClick={() => setIsAddExpertOpen(!isAddExpertOpen)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] bg-white h-fit rounded-xl p-3">
+      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%] bg-white h-fit rounded-xl p-3">
         <div
           onClick={() => setIsAddExpertOpen(!isAddExpertOpen)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"

@@ -14,6 +14,6 @@ export default Service;
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services`,
   },
 };

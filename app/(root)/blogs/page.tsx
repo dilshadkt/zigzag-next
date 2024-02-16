@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "./BlogCard";
 import RecentWork from "../components/RecentWork";
+import { Metadata } from "next";
 
 interface Blog {
   _id: String;
@@ -48,3 +49,9 @@ const Blogs = async () => {
 };
 
 export default Blogs;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.zigzagdigitalsolutions.com/blogs",
+  },
+};

@@ -107,7 +107,7 @@ const Footer = async () => {
                   Contact Us
                 </li>
               </Link>
-              <Link href={"about"}>
+              <Link href={"/about"}>
                 <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
                   About
                 </li>

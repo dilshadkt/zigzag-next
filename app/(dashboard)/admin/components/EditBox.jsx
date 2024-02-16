@@ -54,7 +54,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
       <div
         className={`${
           isEditOpen ? `` : `hidden`
-        } bg-white fixed top-0 right-0 left-0 bottom-0 m-auto w-[30%] h-fit  rounded-xl`}
+        } bg-white fixed top-0 right-0 left-0 bottom-0 m-auto w-[30%] md:w-[95%] h-fit  rounded-xl`}
       >
         <div className="p-5">
           <div
