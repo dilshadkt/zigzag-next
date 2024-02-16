@@ -25,7 +25,7 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
   return (
     <>
       <div className="fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50 "></div>
-      <div className=" fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] bg-white h-fit rounded-xl p-3">
+      <div className=" fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[90%] bg-white h-fit rounded-xl p-3">
         <div className="flex justify-center items-start ">
           <Image
             src={logo}
@@ -33,8 +33,8 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
             className="w-[180px] h-[100px] object-cover"
           />
         </div>
-        <div className=" p-3 py-2 my-3">
-          <div className="my-5 border rounded-xl p-3">
+        <div className=" p-3 py-2 my-3 md:p-0">
+          <div className="my-5 border rounded-xl p-3 flex">
             <label className="font-semibold">User name :</label>
             <input
               type="text"
