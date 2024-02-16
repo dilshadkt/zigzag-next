@@ -1,4 +1,8 @@
-import { allBlogData } from "../app/(root)/blogs/page";
+const allBlogData = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`);
+  const blogs = await response.json();
+  return blogs;
+};
 
 const URL = "https://www.zigzagdigitalsolutions.com/";
 
