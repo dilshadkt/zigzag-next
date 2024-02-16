@@ -30,7 +30,7 @@ const Testimonials = () => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-end my-[2%]">
+        <div className="flex items-center justify-end my-[2%] md:mx-3">
           <div
             onClick={() => setIsOpen(!isOpen)}
             className="cursor-pointer hover:text-red-400"
@@ -39,7 +39,7 @@ const Testimonials = () => {
             <AddIcon />
           </div>
         </div>
-        <div className="px-5 pt-10 border rounded-xl grid grid-cols-4 ">
+        <div className="px-5 pt-10 border rounded-xl grid grid-cols-4 md:grid-cols-1">
           {data.map((item) => (
             <div
               onClick={() => {

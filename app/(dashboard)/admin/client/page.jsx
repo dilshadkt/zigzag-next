@@ -23,7 +23,7 @@ const Client = () => {
   ) : (
     <>
       <div>
-        <div className="flex items-center justify-end my-[2%]">
+        <div className="flex items-center justify-end my-[2%] md:mx-3">
           <div
             onClick={() => setIsOpen(!isOpen)}
             className="cursor-pointer hover:text-red-400"
@@ -32,7 +32,7 @@ const Client = () => {
             <AddIcon />
           </div>
         </div>
-        <div className="p-5 border rounded-xl grid grid-cols-4">
+        <div className="p-5 border rounded-xl grid grid-cols-4 md:grid-cols-2">
           {data.map((item, index) => (
             <div
               onClick={() => {
@@ -43,7 +43,7 @@ const Client = () => {
               className="m-2 border cursor-pointer  hover:bg-gray-100 p-3 rounded-xl"
             >
               <div className="flex flex-col items-center justify-center ">
-                <div className=" h-[150px] w-full rounded-lg border flex items-center justify-center overflow-hidden">
+                <div className=" h-[150px] md:h-[70px] w-full rounded-lg border flex items-center justify-center overflow-hidden">
                   <Image
                     src={item.image}
                     alt="experts"
@@ -53,7 +53,9 @@ const Client = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h4 className="text-2xl font-semibold my-2">{item.name}</h4>
+                <h4 className="text-2xl md:text-lg font-semibold my-2 md:my-1">
+                  {item.name}
+                </h4>
               </div>
             </div>
           ))}

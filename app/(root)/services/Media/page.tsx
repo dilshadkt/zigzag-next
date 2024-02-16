@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   description:
     " As your trusted digital marketing agency in malappuram, we provide  Comprehensive media production services services for your brand",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/Media`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services/Media`,
   },
   openGraph: {
     title: "Your Trusted Media Production Agency in Malappuram",

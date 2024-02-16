@@ -24,7 +24,7 @@ const Work = () => {
   ) : (
     <>
       <div>
-        <div className="flex items-center justify-end my-[2%]">
+        <div className="flex items-center justify-end my-[2%] md:mx-3">
           <Link href={"/admin/works/addwork"}>
             <div
               className="cursor-pointer hover:text-red-400"
@@ -35,7 +35,7 @@ const Work = () => {
           </Link>
         </div>
 
-        <div className="p-5 border rounded-lg grid grid-cols-4">
+        <div className="p-5 border rounded-lg grid grid-cols-4 md:grid-cols-2">
           {data.map((item, index) => (
             <div
               key={index}
@@ -43,7 +43,7 @@ const Work = () => {
                 setIsEditOpen(!isEditOpen);
                 setDataToEdit(item);
               }}
-              className="h-[280px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
+              className="h-[280px] md:h-[150px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
             >
               <Image
                 width={300}

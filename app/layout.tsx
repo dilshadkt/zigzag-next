@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     " As your trusted digital marketing agency in malappuram, we provide corporate branding, seo, social media, paid ads, website development services for your brand.   ",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+    canonical: `https://www.zigzagdigitalsolutions.com`,
   },
   openGraph: {
     title: "Leading Digital Marketing Agency in Malappuram | Branding Services",

@@ -58,7 +58,7 @@ export async function generateMetadata({
     title: blogs.metaTitle,
     description: blogs.metaDescription,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog}`,
+      canonical: `https://www.zigzagdigitalsolutions.com/blogs/${blog}`,
     },
   };
 }

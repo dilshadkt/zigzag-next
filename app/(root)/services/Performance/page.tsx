@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   description:
     "As your trusted performance marketing agency in malappuram, we provide paid ads, google ads and other performance marketing services for your brand",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/Performance`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services/Performance`,
   },
   openGraph: {
     title: "Grow Your Brand with Performance Marketing Expertise",

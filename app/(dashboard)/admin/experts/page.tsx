@@ -27,7 +27,7 @@ const Experts = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="flex items-center justify-end my-[2%]">
+      <div className="flex items-center justify-end my-[2%] ">
         <div
           onClick={() => setIsAddExpertOpen(!isAddExpertOpen)}
           className="cursor-pointer hover:text-red-400"
@@ -36,7 +36,7 @@ const Experts = () => {
           <AddIcon />
         </div>
       </div>
-      <div className="p-5 border rounded-xl grid grid-cols-4">
+      <div className="p-5 md:p-2  border rounded-xl grid grid-cols-4 md:grid-cols-2">
         {data.map((item, index) => (
           <div
             key={index}
@@ -44,10 +44,10 @@ const Experts = () => {
               setExprt(item);
               setIsEdit(!isEdit);
             }}
-            className="m-2 border cursor-pointer  hover:bg-gray-100 p-3 rounded-xl"
+            className="m-2 border cursor-pointer md:bg-gray-100  hover:bg-gray-100 p-3 md:p-2 rounded-xl"
           >
             <div className="flex flex-col items-center justify-center">
-              <div className=" w-[150px] h-[150px] rounded-full border flex items-center justify-center overflow-hidden">
+              <div className=" w-[150px] h-[150px] md:w-[100px] md:h-[100px] rounded-full border flex items-center justify-center overflow-hidden">
                 <Image
                   src={item.image}
                   alt="experts"
@@ -56,8 +56,10 @@ const Experts = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="text-2xl font-semibold my-2">{item.name}</h4>
-              <h6>{item.role}</h6>
+              <h4 className="text-2xl md:text-xl font-semibold my-2 md:my-[4px]">
+                {item.name}
+              </h4>
+              <h6 className="md:text-sm text-center px-2 ">{item.role}</h6>
             </div>
           </div>
         ))}

@@ -25,16 +25,16 @@ const Blog = () => {
     <Shimmer />
   ) : (
     <div className=" my-[2%]">
-      <div className="flex items-center justify-end my-[2%]">
+      <div className="flex items-center justify-end my-[2%] md:mx-3">
         <Link href={"/admin/blogs/add-blog"}>
           <div className="cursor-pointer hover:text-red-400" title="add image">
             <AddIcon />
           </div>
         </Link>
       </div>
-      
+
       <div className="p-5 border w-full rounded-xl ">
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 md:grid-cols-1">
           {data.map((item, index) => (
             <Link key={`${index}`} href={`/admin/blogs/${item._id}`}>
               <div className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">

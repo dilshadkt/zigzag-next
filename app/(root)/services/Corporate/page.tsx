@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   description:
     " As your trusted corporate branding agency in malappuram, we provide corporate branding services for your brand",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/Corporate`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services/Corporate`,
   },
   openGraph: {
     title: "Elevate Your Business with Expert Corporate Branding Services",

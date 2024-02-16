@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   description:
     " As your trusted website development agency in malappuram, we provide complete website development and maintenance services for your brand",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/Website`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services/Website`,
   },
   openGraph: {
     title: "Web Development Agency in Malappuram for High Converting Websites",

@@ -73,7 +73,7 @@ const Page = ({ params: { blogId } }) => {
     }
   };
   return blog ? (
-    <div className=" px-[10%] py-[4%]">
+    <div className=" px-[10%] py-[4%] md:px-[5px]">
       {isEdit ? (
         <div className="w-full h-[250px] border relative">
           <label

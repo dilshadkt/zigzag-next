@@ -48,14 +48,14 @@ const Page = () => {
   };
   return (
     <div>
-      <div className="flex items-center justify-start my-[2%]">
+      <div className="flex items-center justify-start my-[2%] md:hidden">
         <Link href={"/admin/works"}>
           <div className="cursor-pointer hover:text-red-500">
             <ArrowBackIcon />
           </div>
         </Link>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center md:mt-5">
         <div className="p-5 border  rounded-lg flex flex-col items-center flex-wrap">
           <form
             className="flex flex-col"
@@ -63,7 +63,7 @@ const Page = () => {
               addWorks();
             })}
           >
-            <div className="w-[500px] h-[200px] flex items-center mb-[5%] justify-center">
+            <div className="w-[500px] md:w-full h-[200px] flex items-center mb-[5%] justify-center">
               <label
                 className={` ${
                   image.length === 0 ? `flex` : `hidden`

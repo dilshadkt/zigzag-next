@@ -91,7 +91,7 @@ export const metadata: Metadata = {
   description:
     " As your trusted SEO agency in malappuram, we provide corporate SEo marketing services for your brand.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/SEO`,
+    canonical: `https://www.zigzagdigitalsolutions.com/services/SEO`,
   },
   openGraph: {
     title: "Leading SEO Agency in Malappuram for Ranking On Top Of Google",
