@@ -6,30 +6,10 @@ import seo from "@/public/services/seo/seo.jpg";
 import ServiceBox from "@/app/(root)/components/ServiceBox";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { Metadata } from "next";
-import Head from "next/head";
+
 const Seo = () => {
   return (
     <>
-      <Head>
-        <link
-          rel="canonical"
-          href="https://www.zigzagdigitalsolutions.com/services/SEO"
-        />
-        <meta
-          property="og:title"
-          content="Leading SEO Agency in Malappuram for Ranking On Top Of Google"
-        />
-        <meta
-          property="og:description"
-          content="Improve your search engine ranking with the top SEO agency in Malappuram. Our SEO experts specialize in local SEO, website optimization, and proven SEO strategies to help your business rank higher on search engines and attract more online visitors."
-        />
-
-        <meta
-          name="keywords"
-          content="SEO agency, Malappuram, Search engine optimization, SEO services, Local SEO, Website optimization, SEO experts, Digital marketing, Online visibility, SEO strategies
-"
-        />
-      </Head>
       <div className="bg-white">
         <div className="mx-[13%] pt-9  sm:mx-5 md:mx-6">
           <div className="flex flex-col w-full">
@@ -110,4 +90,14 @@ export const metadata: Metadata = {
   title: "Best SEO Agency in Malappuram",
   description:
     " As your trusted SEO agency in malappuram, we provide corporate SEo marketing services for your brand.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/SEO`,
+  },
+  openGraph: {
+    title: "Leading SEO Agency in Malappuram for Ranking On Top Of Google",
+    description:
+      "Improve your search engine ranking with the top SEO agency in Malappuram. Our SEO experts specialize in local SEO, website optimization, and proven SEO strategies to help your business rank higher on search engines and attract more online visitors.",
+  },
+  keywords:
+    "SEO agency, Malappuram, Search engine optimization, SEO services, Local SEO, Website optimization, SEO experts, Digital marketing, Online visibility, SEO strategies",
 };

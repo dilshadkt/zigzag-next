@@ -4,29 +4,10 @@ import media from "@/public/services/media/Diverse Content Formats.jpg";
 import RecentWork from "@/app/(root)/components/RecentWork";
 import { data } from "@/public/services/media/data";
 import { Metadata } from "next";
-import Head from "next/head";
+
 const Medias = () => {
   return (
     <>
-      <Head>
-        <link
-          rel="canonical"
-          href="https://www.zigzagdigitalsolutions.com/services/Media"
-        />
-        <meta
-          property="og:title"
-          content="Your Trusted Media Production Agency in Malappuram"
-        />
-        <meta
-          property="og:description"
-          content="Build your brand authority with our media production agency in Malappuram. We specialise in video production, creative content, and multimedia services. Whether it's film production or commercial projects, rely on our experienced media experts for top-quality results."
-        />
-
-        <meta
-          name="keywords"
-          content="Media production agency, Malappuram, Video production, Creative content, Film production, Commercial production, Multimedia production, Production services, Content creation, Media experts"
-        />
-      </Head>
       <div className="bg-white">
         <div className="mx-[13%] pt-9 sm:mx-5 md:mx-6">
           <div className="flex flex-col w-full">
@@ -106,4 +87,14 @@ export const metadata: Metadata = {
   title: " Best Media Production Service Agency in Malappuram.",
   description:
     " As your trusted digital marketing agency in malappuram, we provide  Comprehensive media production services services for your brand",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services/Media`,
+  },
+  openGraph: {
+    title: "Your Trusted Media Production Agency in Malappuram",
+    description:
+      "Build your brand authority with our media production agency in Malappuram. We specialise in video production, creative content, and multimedia services. Whether it's film production or commercial projects, rely on our experienced media experts for top-quality results.",
+  },
+  keywords:
+    "Media production agency, Malappuram, Video production, Creative content, Film production, Commercial production, Multimedia production, Production services, Content creation, Media experts",
 };

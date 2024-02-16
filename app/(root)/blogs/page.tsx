@@ -1,7 +1,7 @@
 import React from "react";
 import BlogCard from "./BlogCard";
 import RecentWork from "../components/RecentWork";
-import Head from "next/head";
+import { Metadata } from "next";
 interface Blog {
   _id: String;
   heading: String;
@@ -18,12 +18,6 @@ const Blogs = async () => {
 
   return (
     <>
-      <Head>
-        <link
-          rel="canonical"
-          href="https://www.zigzagdigitalsolutions.com/blogs"
-        />
-      </Head>
       <div className=" px-[12%] py-[4%] bg-white pb-[10%] sm:px-5">
         <div className="text-center">
           <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
@@ -53,3 +47,9 @@ const Blogs = async () => {
 };
 
 export default Blogs;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs`,
+  },
+};

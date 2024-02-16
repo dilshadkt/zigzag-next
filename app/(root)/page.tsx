@@ -7,7 +7,6 @@ import OurExpert from "@/app/(root)/components/OurExpert";
 import Portfolio from "@/app/(root)/components/Portfolio";
 import Services from "@/app/(root)/components/Services";
 import Testimonial from "./components/Testimonial";
-import Head from "next/head";
 
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial`, {
@@ -17,9 +16,6 @@ export default async function Home() {
 
   return (
     <div>
-      <Head>
-        <link rel="canonical" href="https://www.zigzagdigitalsolutions.com" />
-      </Head>
       <LandPage />
       <AboutUs />
       <Whychoose />

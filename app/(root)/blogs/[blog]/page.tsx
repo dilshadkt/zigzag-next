@@ -64,5 +64,8 @@ export async function generateMetadata({
   return {
     title: blogs.metaTitle,
     description: blogs.metaDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${blog}`,
+    },
   };
 }

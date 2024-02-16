@@ -37,7 +37,11 @@ const Contact = () => {
   return (
     <div className="px-[17%] sm:px-5 md:px-6 bg-white py-[3%] ">
       <Head>
-        <link rel="canonical" />
+        <link
+          rel="canonical"
+          href="https://www.zigzagdigitalsolutions.com/contact"
+          key="canonical"
+        />
       </Head>
       <div className="w-full flex items-center flex-col">
         <h1 className="text-[#DB002F] text-3xl">Contact</h1>

@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   title: " Best Digital Marketing Agency in Malappuram",
   description:
     " As your trusted digital marketing agency in malappuram, we provide corporate branding, seo, social media, paid ads, website development services for your brand.   ",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+  },
+  openGraph: {
+    title: "Leading Digital Marketing Agency in Malappuram | Branding Services",
+    description:
+      "Best digital marketing agency in Malappuram, offering comprehensive digital marketing and branding solutions for brands worldwide.",
+  },
+  keywords:
+    "Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising",
 };
 
 export default function RootLayout({
@@ -23,20 +33,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <GoogleTagManger />
-        <meta
-          property="og:title"
-          content="Leading Digital Marketing Agency in Malappuram | Branding Services"
-        />
-        <meta
-          property="og:description"
-          content="Best digital marketing agency in Malappuram, offering comprehensive digital marketing and branding solutions for brands worldwide. "
-        />
-
-        <meta
-          name="keywords"
-          content="Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising
-"
-        />
       </head>
 
       <body className={rajdhani.className}>
