@@ -1,7 +1,7 @@
 import React from "react";
 import BlogCard from "./BlogCard";
 import RecentWork from "../components/RecentWork";
-import { Metadata } from "next";
+
 interface Blog {
   _id: String;
   heading: String;
@@ -47,9 +47,3 @@ const Blogs = async () => {
 };
 
 export default Blogs;
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs`,
-  },
-};
