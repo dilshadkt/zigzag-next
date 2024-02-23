@@ -84,9 +84,10 @@ const Medias = () => {
 export default Medias;
 
 export const metadata: Metadata = {
-  title: " Best Media Production Service Agency in Malappuram.",
+  title:
+    " Tell Your Brand Story with Zig Zag's Media Production Services in Malappuram  ",
   description:
-    " As your trusted digital marketing agency in malappuram, we provide  Comprehensive media production services services for your brand",
+    "  Engage your audience with compelling video & creative content from Zig Zag, a Malappuram media production agency. We offer expert services for film, commercials, and multimedia projects    ",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/Media`,
   },

@@ -85,9 +85,10 @@ const AboutUs = () => {
 export default AboutUs;
 
 export const metadata: Metadata = {
-  title: "Creative Digital Marketing Solutions in Malappuram",
+  title:
+    "Zig Zag - Transforming Brands with Creative Digital Marketing Solutions in Malappuram  ",
   description:
-    "Join our top digital marketing agency in Malappuram. Discover our passion and client-centric approach that turns visions into success. ",
+    "Join our extraordinary journey as the top digital marketing agency in Malappuram. Discover our passion and client-centric approach that turns visions into success.    ",
   alternates: {
     canonical: "https://www.zigzagdigitalsolutions.com/about",
   },
@@ -97,5 +98,5 @@ export const metadata: Metadata = {
       "Choose Zig Za as your dedicated digital marketing partner for transforming ideas into successful brands. We offer innovative digital marketing solutions that go beyond conventional methods.",
   },
   keywords:
-    "Digital Marketing, Malappuram, Creative Solutions, Business Growth, Brand Transformation, Global Services, Client-Centric Approach",
+    "Digital Marketing, Malappuram, Creative Solutions, Business Growth, Brand Transformation, Global Services, Client-Centric Approach.    ",
 };

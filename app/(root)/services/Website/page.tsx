@@ -83,9 +83,10 @@ const Websites = () => {
 
 export default Websites;
 export const metadata: Metadata = {
-  title: "Best Website Development Agency in Malappuram ",
+  title:
+    "Create a High-Converting Website with Zig Zag's Web Development in Malappuram  ",
   description:
-    " As your trusted website development agency in malappuram, we provide complete website development and maintenance services for your brand",
+    "Get a stunning & functional website built by Zig Zag, a leading Malappuram web development agency. We specialize in custom design, responsive websites, and e-commerce solutions.    ",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/Website`,
   },

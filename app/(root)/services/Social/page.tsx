@@ -84,9 +84,10 @@ const Socials = () => {
 export default Socials;
 
 export const metadata: Metadata = {
-  title: "Best Social Media Marketing in Malappuram",
+  title:
+    "Engage Your Audience & Grow Your Brand with Zig Zag's Social Media Marketing in Malappuram  ",
   description:
-    "As your trusted social media marketing agency in malappuram, we provide social media marketing services for your brand",
+    " Let Zig Zag Malappuram manage your social media. We create engaging content, manage ads, and develop effective social media strategies for growth.",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/Social`,
   },
@@ -96,5 +97,5 @@ export const metadata: Metadata = {
       "Boost your brand's online presence with the top social media marketing agency in Malappuram. Our experts specialize in social media management, advertising, and strategic campaigns to promote your brand effectively. Partner with us for exceptional digital marketing results.",
   },
   keywords:
-    "Social media marketing, Social media agency, Malappuram, Digital marketing, Social media management, Social media advertising, Online presence, Brand promotion, Social media strategy, Social media campaigns, Social media experts",
+    " Social media marketing, Social media agency, Malappuram, Digital marketing, Social media management, Social media advertising, Online presence, Brand promotion, Social media strategy, Social media campaigns, Social media experts    ",
 };

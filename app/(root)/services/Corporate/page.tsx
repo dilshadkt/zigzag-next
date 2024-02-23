@@ -85,9 +85,10 @@ const Corperates = () => {
 export default Corperates;
 
 export const metadata: Metadata = {
-  title: "Best Corporate Branding Service in Malappuram",
+  title:
+    " Craft Your Unique Brand Identity with Zig Zag's Corporate Branding Services in Malappuram  ",
   description:
-    " As your trusted corporate branding agency in malappuram, we provide corporate branding services for your brand",
+    "  Build a strong brand with Zig Zag's Malappuram branding agency. We offer logo design, brand strategy, and more to distinguish your business.    ",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/Corporate`,
   },
@@ -97,5 +98,5 @@ export const metadata: Metadata = {
       "Transform your business with our comprehensive corporate branding solutions. Our branding agency in malappuram specializes in creating a unique brand identity, logo design, and brand strategy that will set your company apart. Build a strong corporate image and brand recognition with our professional expertise.",
   },
   keywords:
-    "Corporate branding, Brand identity, Brand strategy, Logo design, Visual identity, Branding agency, Brand guidelines, Brand image, Corporate image, Brand messaging, Brand recognition",
+    "Corporate branding, Brand identity, Brand strategy, Logo design, Visual identity, Branding agency, Brand guidelines, Brand image, Corporate image, Brand messaging, Brand recognition    ",
 };

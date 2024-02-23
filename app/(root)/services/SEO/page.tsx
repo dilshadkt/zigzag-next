@@ -87,9 +87,10 @@ const Seo = () => {
 
 export default Seo;
 export const metadata: Metadata = {
-  title: "Best SEO Agency in Malappuram",
+  title:
+    " Reach the Top of Search Engines with Zig Zag's Proven SEO Services in Malappuram  ",
   description:
-    " As your trusted SEO agency in malappuram, we provide corporate SEo marketing services for your brand.",
+    " Improve your website ranking with Zig Zag's Malappuram SEO experts. We offer local SEO, website optimization, and data-driven strategies for higher visibility.    ",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/SEO`,
   },

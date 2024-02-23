@@ -9,19 +9,20 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: " Best Digital Marketing Agency in Malappuram",
+  title:
+    " Zig Zag: Malappuram's Leading Digital Marketing & Branding Agency | Branding & Digital Marketing Services",
   description:
-    " As your trusted digital marketing agency in malappuram, we provide corporate branding, seo, social media, paid ads, website development services for your brand.   ",
+    " Elevate your brand with Zig Zag, a trusted Malappuram digital marketing agency. We offer comprehensive branding & digital marketing services to help you succeed globally    ",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com`,
   },
   openGraph: {
     title: "Leading Digital Marketing Agency in Malappuram | Branding Services",
     description:
-      "Best digital marketing agency in Malappuram, offering comprehensive digital marketing and branding solutions for brands worldwide.",
+      "Find your brand's potential with Zig Zag, Malappuram's leading digital marketing agency. We offer everything you need to succeed: branding, SEO, social media, websites, and more!",
   },
   keywords:
-    "Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising",
+    "Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising    ",
 };
 
 export default function RootLayout({

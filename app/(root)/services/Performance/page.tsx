@@ -85,9 +85,10 @@ const Perfomances = () => {
 export default Perfomances;
 
 export const metadata: Metadata = {
-  title: "Best Performance Marketing Agency in Malappuram",
+  title:
+    " Maximize Your ROI with Zig Zag's Performance Marketing Expertise in Malappuram  ",
   description:
-    "As your trusted performance marketing agency in malappuram, we provide paid ads, google ads and other performance marketing services for your brand",
+    "Drive results with Zig Zag's Malappuram performance marketing services. We focus on ROI-driven campaigns, conversion optimization, and measurable marketing efforts.",
   alternates: {
     canonical: `https://www.zigzagdigitalsolutions.com/services/Performance`,
   },
