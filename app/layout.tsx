@@ -9,6 +9,7 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.zigzagdigitalsolutions.com"),
   title:
     " Zig Zag: Malappuram's Leading Digital Marketing & Branding Agency | Branding & Digital Marketing Services",
   description:
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     description:
       "Find your brand's potential with Zig Zag, Malappuram's leading digital marketing agency. We offer everything you need to succeed: branding, SEO, social media, websites, and more!",
   },
+
   keywords:
     "Digital Marketing Agency, Malappuram, Digital Marketing Services, Branding Services, Online Marketing, Online Advertising, Brand Promotion, Digital Advertising    ",
 };

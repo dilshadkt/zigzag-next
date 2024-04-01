@@ -44,7 +44,7 @@ const Experts = () => {
               setExprt(item);
               setIsEdit(!isEdit);
             }}
-            className="m-2 border cursor-pointer md:bg-gray-100  hover:bg-gray-100 p-3 md:p-2 rounded-xl"
+            className="m-2 border cursor-pointer md:bg-gray-100 shadow-lg hover:scale-105 transition-all duration-300 bg-gray-100 p-3 md:p-2 rounded-xl"
           >
             <div className="flex flex-col items-center justify-center">
               <div className=" w-[150px] h-[150px] md:w-[100px] md:h-[100px] rounded-full border flex items-center justify-center overflow-hidden">

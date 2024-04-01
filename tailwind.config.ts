@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -34,10 +33,15 @@ const config: Config = {
         secondary: "#808080",
         primary: "#7285A7",
         box: "#FCFAFA",
+        darkBlue: "#253662",
+        lightText: "#EAEFF4",
+        lightGray: "#7C8FAC",
       },
-
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    darkTheme: "light",
+  },
 };
 export default config;

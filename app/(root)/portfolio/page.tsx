@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { useSearchParams } from "next/navigation";
+import Loading from "./loading";
 interface Work {
   image: string;
   type: string;
@@ -19,15 +20,23 @@ const Portfolio = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="mx-[17%] pb-[10%]  sm:pb-[25%]  md:mx-5 md:pt-6 lg:pb-[15%] grid grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
-      {works.map((item, index) =>
-        type === "all" ? (
-          <Card img={item.image} key={`${index} -${item.image}`} />
-        ) : (
-          item.type === type && <Card img={item.image} key={index} />
-        )
+    <>
+      {works.length === 0 ? (
+        <Loading />
+      ) : (
+        <div className="mx-[17%] pb-[10%]  sm:pb-[25%]  md:mx-5 md:pt-6 lg:pb-[15%] grid grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+          {works.map((item, index) =>
+            type === "all" ? (
+              <Card img={item.image} key={`${index} -${item.image}`} />
+            ) : (
+              item.type.split(" ").join("") === type?.split(" ").join("") && (
+                <Card img={item.image} key={index} />
+              )
+            )
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
