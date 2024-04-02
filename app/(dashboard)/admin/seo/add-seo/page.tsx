@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { ChangeEvent } from "react";
 import RichText from "../../blogs/add-blog/RichText";
 import { useForm } from "react-hook-form";
@@ -16,7 +16,7 @@ const AddSeo = () => {
   const [content, setContent] = useState("");
   const [previewImg, setPreviewImg] = useState<string>("");
   const { register, watch } = useForm();
-  console.log(watch());
+
   const navigator = useRouter();
 
   ///// preview image 📸📸 /////////////////////////////////////
@@ -29,7 +29,8 @@ const AddSeo = () => {
   };
 
   ////// post blog ⚠️⚠️⚠️⚠️ /////////////////////////////////
-  const postBLog = () => {
+  const postBLog = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setLoader(!loader);
     const blog = new FormData();
     const data = {
@@ -48,8 +49,8 @@ const AddSeo = () => {
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/add-seo`, blog)
       .then(() => {
         setLoader(false);
-        navigator.back();
         toast.success("successfully added");
+        setTimeout(() => navigator.back(), 1000);
       })
       .catch((err) => {
         toast.warning("server is busy try later 🥸");
@@ -89,7 +90,7 @@ const AddSeo = () => {
         </div>
       </div>
       <RichText content={content} setContent={setContent} />
-      <form onSubmit={() => postBLog()}>
+      <form onSubmit={(e) => postBLog(e)}>
         <div className=" my-3 p-5 rounded-xl font-medium bg-gray-200  text-black border shadow-xl">
           <div className="grid grid-cols-5">
             <label>Meta Title :</label>
