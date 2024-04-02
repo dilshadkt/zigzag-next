@@ -15,12 +15,12 @@ const URL = "https://www.zigzagdigitalsolutions.com/";
 export default async function sitemap() {
   const getSortedPostsData = await allBlogData();
   const latesBlogsData = await allLatesBlogsData();
-  let posts = getSortedPostsData.map(({ _id, date }) => ({
+  const posts = getSortedPostsData.map(({ _id, date }) => ({
     url: `${URL}/blogs/${_id}`,
     lastModified: new Date().toISOString(),
   }));
-  posts = latesBlogsData.map(({ path }) => ({
-    url: `${URL}/${path}`,
+  const pages = latesBlogsData.map(({ path }) => ({
+    url: `${URL}${path}`,
     lastModified: new Date().toISOString(),
   }));
 
@@ -45,5 +45,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString(),
   }));
 
-  return [...routes, ...posts];
+  return [...routes, ...posts, ...pages];
 }
