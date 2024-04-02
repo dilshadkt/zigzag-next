@@ -37,6 +37,15 @@ const SideBar = () => {
             Blogs
           </li>
         </Link>
+        <Link href={"/admin/seo"}>
+          <li
+            className={`${
+              currentPath == "seo" && `text-blue-600 bg-gray-300`
+            }  py-5 cursor-pointer text-lg font-semibold hover:text-white hover:bg-[#5D87FF] rounded-lg flex items-center justify-center`}
+          >
+            Pages
+          </li>
+        </Link>
         <Link href={"/admin/experts"}>
           <li
             className={` ${
@@ -62,15 +71,6 @@ const SideBar = () => {
             }  py-5 cursor-pointer text-lg font-semibold hover:text-white hover:bg-[#5D87FF] rounded-lg flex items-center justify-center`}
           >
             Testimonials
-          </li>
-        </Link>
-        <Link href={"/admin/seo"}>
-          <li
-            className={`${
-              currentPath == "seo" && `text-blue-600 bg-gray-300`
-            }  py-5 cursor-pointer text-lg font-semibold hover:text-white hover:bg-[#5D87FF] rounded-lg flex items-center justify-center`}
-          >
-            SEO
           </li>
         </Link>
       </ul>

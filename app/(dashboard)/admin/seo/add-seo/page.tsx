@@ -89,68 +89,68 @@ const AddSeo = () => {
         </div>
       </div>
       <RichText content={content} setContent={setContent} />
-      <div className=" my-3 p-5 rounded-xl font-medium bg-gray-200  text-black border shadow-xl">
-        <div className="grid grid-cols-5">
-          <label>Meta Title :</label>
-          <input
-            type="text"
-            {...register("metaTitle")}
-            className="bg-white  col-span-3 p-2 rounded-xl outline-none"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>Meta Description :</label>
-          <textarea
-            {...register("metaDescription")}
-            className="bg-white  col-span-3 p-2 rounded-xl outline-none"
-          />
-        </div>
-        <div className="grid grid-cols-5">
-          <label>Meta KeyWord :</label>
-          <input
-            type="text"
-            {...register("metaKeyWord")}
-            className="bg-white  col-span-3 p-2 rounded-xl outline-none"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>OG Title :</label>
-          <input
-            type="text"
-            {...register("ogTitle")}
-            className="bg-white col-span-3 p-2 rounded-xl outline-none"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>OG Description :</label>
-          <textarea
-            {...register("ogDescription")}
-            className="bg-white col-span-3 p-2 rounded-xl outline-none"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>Path :</label>
-          <div className="col-span-3   ">
+      <form onSubmit={() => postBLog()}>
+        <div className=" my-3 p-5 rounded-xl font-medium bg-gray-200  text-black border shadow-xl">
+          <div className="grid grid-cols-5">
+            <label>Meta Title :</label>
             <input
               type="text"
-              {...register("path")}
-              className="bg-white w-full p-2 rounded-xl outline-none"
+              {...register("metaTitle")}
+              className="bg-white  col-span-3 p-2 rounded-xl outline-none"
             />
-            <p className="text-sm text-gray-500 my-2">
-              😊 This will be the path to this page ⬆️
-            </p>
+          </div>
+          <div className="grid grid-cols-5 my-2">
+            <label>Meta Description :</label>
+            <textarea
+              {...register("metaDescription")}
+              className="bg-white  col-span-3 p-2 rounded-xl outline-none"
+            />
+          </div>
+          <div className="grid grid-cols-5">
+            <label>Meta KeyWord :</label>
+            <input
+              type="text"
+              {...register("metaKeyWord")}
+              className="bg-white  col-span-3 p-2 rounded-xl outline-none"
+            />
+          </div>
+          <div className="grid grid-cols-5 my-2">
+            <label>OG Title :</label>
+            <input
+              type="text"
+              {...register("ogTitle")}
+              className="bg-white col-span-3 p-2 rounded-xl outline-none"
+            />
+          </div>
+          <div className="grid grid-cols-5 my-2">
+            <label>OG Description :</label>
+            <textarea
+              {...register("ogDescription")}
+              className="bg-white col-span-3 p-2 rounded-xl outline-none"
+            />
+          </div>
+          <div className="grid grid-cols-5 my-2">
+            <label>Path :</label>
+            <div className="col-span-3   ">
+              <input
+                type="text"
+                {...register("path")}
+                className="bg-white w-full p-2 rounded-xl outline-none"
+                required
+              />
+              <p className="text-sm text-gray-500 my-2">
+                😊 This will be the path to this page ⬆️
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="my-3">
-        <button
-          onClick={() => postBLog()}
-          className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl"
-        >
-          Post this Blog
-        </button>
-      </div>
+        <div className="my-3">
+          <button className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl">
+            Post this Blog
+          </button>
+        </div>
+      </form>
       {loader && <Loading />}
       <ToastContainer
         position="top-center"
