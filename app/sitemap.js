@@ -4,25 +4,25 @@ const allBlogData = async () => {
   return blogs;
 };
 
-// const allLatesBlogsData = async () => {
-//   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/seo`);
-//   const blogs = await response.json();
+const allLatesBlogsData = async () => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/seo`);
+  const blogs = await response.json();
 
-//   return blogs.content;
-// };
+  return blogs.content;
+};
 const URL = "https://www.zigzagdigitalsolutions.com/";
 
 export default async function sitemap() {
   const getSortedPostsData = await allBlogData();
-  // const latesBlogsData = await allLatesBlogsData();
+  const latesBlogsData = await allLatesBlogsData();
   let posts = getSortedPostsData.map(({ _id, date }) => ({
     url: `${URL}/blogs/${_id}`,
     lastModified: new Date().toISOString(),
   }));
-  // posts = latesBlogsData.map(({ path }) => ({
-  //   url: `${URL}/blogs/latest/${path}`,
-  //   lastModified: new Date().toISOString(),
-  // }));
+  posts = latesBlogsData.map(({ path }) => ({
+    url: `${URL}/${path}`,
+    lastModified: new Date().toISOString(),
+  }));
 
   const routes = [
     "",

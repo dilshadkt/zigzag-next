@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import LatesBlog from "../../[blog]/LatesBlog";
+import LatesBlog from "../blogs/[blog]/LatesBlog";
 import { Metadata } from "next";
 import parse from "html-react-parser";
 
