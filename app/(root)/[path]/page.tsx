@@ -24,7 +24,7 @@ const page = async ({ params: { path } }: Props) => {
   const Blog: Blog = await res.json();
 
   return (
-    <div className="bg-white px-[14%]  md:px-4  py-[4%]">
+    <div className="bg-white overflow-hidden px-[14%]  md:px-4  py-[4%]">
       <div className="w-full h-[300px] md:h-[240px] sm:h-[200px] overflow-hidden flex rounded-xl">
         <Image
           src={Blog?.photos}

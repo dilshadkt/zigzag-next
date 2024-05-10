@@ -26,16 +26,18 @@ const Navbar = () => {
         changeTheme
           ? ` bg-transparent`
           : `bg-[#DB002F] transition-all ease-out duration-75 `
-      } sticky top-0 z-20   `}
+      } sticky top-0 z-20    `}
       onMouseLeave={() => setisOpen(0)}
     >
-      <div className="px-14 flex justify-between">
+      <div className="2xl:px-14 px-12  flex justify-between">
         <div className="flex-1 h-full">
           <Image src={changeTheme ? changeLogo : logo} alt="logo" width={80} />
         </div>
         <div
           className={`flex-initial w-[40%] md:hidden  rounded-xl ${
-            changeTheme ? `bg-white text-black shadow-2xl ` : `text-rose-200 `
+            changeTheme
+              ? `bg-white text-black shadow-2xl px-5 `
+              : `text-rose-200 `
           } `}
         >
           <ul className="flex  items-center h-full font-semibold  justify-around">
@@ -149,7 +151,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex-1 flex items-center justify-end text-white ">
-          <PersonOutlineOutlinedIcon />
+          <Link href={"/auth/login"}>
+            <PersonOutlineOutlinedIcon />
+          </Link>
         </div>
       </div>
       <MobileNav currentPath={currentPath} />
