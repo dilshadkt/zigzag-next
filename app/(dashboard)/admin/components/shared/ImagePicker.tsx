@@ -42,7 +42,7 @@ const ImagePicker = ({
           />
           <div
             onClick={resetPrevieImage}
-            className="absolute z-30 w-10 h-10 bg-blue-400 top-2 right-2 cursor-pointer flex-center rounded-full"
+            className="absolute z-20 w-10 h-10 bg-blue-400 top-2 right-2 cursor-pointer flex-center rounded-full"
           >
             <EditIcon />
           </div>
