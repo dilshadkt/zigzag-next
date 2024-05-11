@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
   const [loading, setLoading] = useState(false);
   const { register, watch } = useForm();
-  console.log(dataToEdit.type === "Social Media   ");
+
   ///////// remove data 👨‍🔧👨‍🔧👨‍🔧///////
   const removeWorks = (id) => {
     setLoading(!loading);

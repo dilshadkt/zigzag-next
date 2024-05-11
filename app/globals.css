@@ -26,3 +26,16 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.FormInput {
+  @apply p-3 border rounded-lg my-2;
+}
+.flex-center {
+  @apply flex items-center justify-center;
+}
+.form-btn {
+  @apply flex-center bg-blue-500 text-white my-2 font-medium hover:bg-blue-600 px-4 py-2 rounded-lg;
+}
+.full {
+  @apply w-full h-full;
+}

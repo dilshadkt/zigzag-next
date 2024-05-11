@@ -28,7 +28,7 @@ const SeoPage = () => {
   return (
     <div className="my-[2%]">
       <div className="flex items-center justify-end my-[2%] md:mx-3">
-        <Link href={"/admin/seo/add-seo"}>
+        <Link href={"/admin/seo/add-page"}>
           <div className="cursor-pointer hover:text-red-400" title="add image">
             <AddIcon />
           </div>
