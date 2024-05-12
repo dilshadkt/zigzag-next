@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import Image from "next/image";
 import SchoolIcon from "@mui/icons-material/School";
+import { nanoid } from "nanoid";
 const PreviewPage = ({
   setIsOpen,
   data,
@@ -17,7 +18,7 @@ const PreviewPage = ({
       ></div>
       <div className="fixed top-0 bottom-0 right-0 left-0 m-auto bg-white z-50 w-[70%] my-4  overflow-scroll">
         {data?.page?.map((item: any) => (
-          <div className="mb-4">
+          <div key={nanoid()} className="mb-4">
             <div className="bg-blue-200 h-[80px] text-blue-950 font-bold text-xl flex items-center justify-start px-5">
               <SchoolIcon /> <span className="mx-2">{item?.heading}?</span>
             </div>

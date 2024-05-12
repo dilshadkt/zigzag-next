@@ -7,6 +7,7 @@ import { useState } from "react";
 import MetaData from "./MetaData";
 import { metaData } from "@/constant";
 import PreviewPage from "./PreviewPage";
+import axios from "axios";
 
 const AddPage = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
@@ -21,6 +22,24 @@ const AddPage = () => {
     name: "page",
     control,
   });
+
+  const uploadPage = () => {
+    const dataToPass = watch();
+    // console.log(dataToPass);
+    const dataTopass: any = new FormData();
+    dataTopass.append("data", dataToPass);
+    axios
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/add-seo`, dataToPass)
+      .then((res) => {
+        console.log(res);
+        // setTimeout(() => navigator.back(), 1000);
+      })
+      .catch((err) => {
+        // toast.warning("server is busy try later 🥸");
+        // setLoader(false);
+        console.log(err);
+      });
+  };
 
   return (
     <div className=" mt-5 h-full    w-full border rounded-t-lg">
@@ -73,6 +92,12 @@ const AddPage = () => {
       </div>
       <div className="border-t  my-2 p-5">
         <MetaData register={register} />
+        <button
+          onClick={uploadPage}
+          className="w-full p-3 bg-gray-700 flex-center rounded-lg mt-6  text-gray-400 font-semibold  "
+        >
+          Upload
+        </button>
       </div>
       {isPreviewOpen && (
         <PreviewPage setIsOpen={setIsPreviewOpen} data={watch()} />
