@@ -11,7 +11,7 @@ import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 const AddPage = () => {
   const navigator = useRouter();
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
@@ -27,8 +27,7 @@ const AddPage = () => {
     control,
   });
 
-  const uploadPage = async (e: any) => {
-    e.preventDefault();
+  const uploadPage = async () => {
     const dataToPass = watch();
     const formData: any = new FormData();
 
@@ -37,9 +36,10 @@ const AddPage = () => {
       page: dataToPass.page.map(({ image, ...rest }) => rest),
       metaData: dataToPass.metaData,
     };
-
-    for (const file of images) {
-      formData.append("images", file[0]);
+    if (images[0]) {
+      for (const file of images) {
+        formData.append("images", file[0]);
+      }
     }
     formData.append("data", JSON.stringify(dataWithoutImage));
 
@@ -65,12 +65,15 @@ const AddPage = () => {
   return (
     <div className=" mt-5 h-full    w-full border rounded-t-lg">
       <div className=" border-b p-2 sticky top-0 z-30 bg-gray-200 rounded-t-lg flex justify-end">
-        <div onClick={() => setIsPreviewOpen(true)}>
+        <div onClick={uploadPage} className="mx-3 " title="upload">
+          <CloudUploadIcon className="cursor-pointer hover:text-blue-500" />
+        </div>
+        <div onClick={() => setIsPreviewOpen(true)} title="preview">
           <RemoveRedEyeIcon className="cursor-pointer hover:text-blue-500" />
         </div>
       </div>
       <div className="p-5 w-full bg-white">
-        <form encType="multipart/form-data" onSubmit={uploadPage}>
+        <form encType="multipart/form-data">
           {fields.map((field, index) => {
             return (
               <div key={field.id} className="mb-5">
@@ -100,9 +103,6 @@ const AddPage = () => {
               </div>
             );
           })}
-          <button className="w-full p-3 bg-gray-700 flex-center rounded-lg mt-6  text-gray-400 font-semibold  ">
-            Upload
-          </button>
         </form>
         <button
           type="button"

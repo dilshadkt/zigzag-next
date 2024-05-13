@@ -45,13 +45,17 @@ const SeoPage = () => {
               className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
             >
               <div className="w-full border h-[220px] rounded-xl overflow-hidden">
-                <Image
-                  src={item.page[0].image}
-                  width={400}
-                  height={400}
-                  alt="blog"
-                  className="w-full h-full object-cover"
-                />
+                {item.page[0].image ? (
+                  <Image
+                    src={item.page[0].image}
+                    width={400}
+                    height={400}
+                    alt="blog"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-300"></div>
+                )}
               </div>
 
               <div className="flex justify-center my-3">

@@ -27,7 +27,7 @@ const page = async ({ params: { path } }: Props) => {
   const Blog: Blog = await res.json();
   return (
     <>
-      <div className="bg-white overflow-hidden  flex  md:px-4  pb-[4%]">
+      <div className="bg-white overflow-hidden px-[10%] flex  md:px-4  pb-[4%]">
         <div className="flex-initial md:hidden lg:flex bg-red-300"></div>
         <div className="flex-1 bg-white   my-4  overflow-scroll">
           {Blog.page?.map((item: any) => (

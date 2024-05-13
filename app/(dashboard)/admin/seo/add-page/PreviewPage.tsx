@@ -10,6 +10,7 @@ const PreviewPage = ({
   setIsOpen: React.Dispatch<boolean>;
   data: any;
 }) => {
+  console.log(data);
   return (
     <>
       <div
@@ -25,7 +26,11 @@ const PreviewPage = ({
             {item?.image && (
               <div className="h-[300px] w-full overflow-hidden flex-center my-3">
                 <Image
-                  src={URL.createObjectURL(item?.image[0])}
+                  src={
+                    typeof item?.image === "string"
+                      ? item.image
+                      : URL.createObjectURL(item?.image[0])
+                  }
                   alt={item?.heading}
                   width={400}
                   height={280}
