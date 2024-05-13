@@ -149,7 +149,6 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
                   <TextEditor
                     setvalue={setValue}
                     getValues={getValues}
-                    setIsEdit={setIsEdit}
                     index={index}
                   />
                   <div>

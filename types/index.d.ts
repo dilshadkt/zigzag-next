@@ -18,5 +18,4 @@ declare type TextEditor = {
   setvalue: any;
   getValues: any;
   index: number;
-  setIsEdit: any;
 };

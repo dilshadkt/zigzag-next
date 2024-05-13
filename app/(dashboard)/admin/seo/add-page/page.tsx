@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 const AddPage = () => {
   const navigator = useRouter();
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
-  const { register, control, watch, setValue } = useForm<FormValue>({
+  const { register, control, watch, setValue, getValues } = useForm<FormValue>({
     defaultValues: {
       page: [{ heading: "Heading", image: null, description: "Description" }],
       metaData: metaData,
@@ -86,7 +86,11 @@ const AddPage = () => {
                     required
                   />
                   <ImagePicker setvalue={setValue} index={index} />
-                  <TextEditor setvalue={setValue} index={index} />
+                  <TextEditor
+                    getValues={getValues}
+                    setvalue={setValue}
+                    index={index}
+                  />
                   <div>
                     <button className="form-btn" onClick={() => remove(index)}>
                       Remove
