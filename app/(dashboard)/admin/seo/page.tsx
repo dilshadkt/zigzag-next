@@ -6,15 +6,17 @@ import axios from "axios";
 import Image from "next/image";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+
 interface Content {
-  photos: string;
+  page: any;
+  image: string;
   path: string;
   ogDescription: string;
   ogTitle: string;
   metaKeyWord: string;
   metaDescription: string;
   metaTitle: string;
-  test: string;
+
   _id: string;
 }
 const SeoPage = () => {
@@ -25,6 +27,7 @@ const SeoPage = () => {
       .then((res) => setContent(res.data.content))
       .catch((err) => console.log(err));
   }, []);
+  console.log(content);
   return (
     <div className="my-[2%]">
       <div className="flex items-center justify-end my-[2%] md:mx-3">
@@ -43,7 +46,7 @@ const SeoPage = () => {
             >
               <div className="w-full border h-[220px] rounded-xl overflow-hidden">
                 <Image
-                  src={item.photos}
+                  src={item.page[0].image}
                   width={400}
                   height={400}
                   alt="blog"
@@ -63,7 +66,7 @@ const SeoPage = () => {
                 <button
                   onClick={() =>
                     window.open(
-                      `https://www.zigzagdigitalsolutions.com/${item.path}`
+                      `${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`
                     )
                   }
                   className="bg-blue-500 hover:bg-blue-300 py-2 px-4 text-white rounded-lg font-semibold"

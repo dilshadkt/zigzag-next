@@ -8,8 +8,12 @@ import MetaData from "./MetaData";
 import { metaData } from "@/constant";
 import PreviewPage from "./PreviewPage";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const AddPage = () => {
+  const navigator = useRouter();
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
   const { register, control, watch, setValue } = useForm<FormValue>({
     defaultValues: {
@@ -23,22 +27,39 @@ const AddPage = () => {
     control,
   });
 
-  const uploadPage = () => {
+  const uploadPage = async (e: any) => {
+    e.preventDefault();
     const dataToPass = watch();
-    // console.log(dataToPass);
-    const dataTopass: any = new FormData();
-    dataTopass.append("data", dataToPass);
-    axios
-      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/add-seo`, dataToPass)
-      .then((res) => {
-        console.log(res);
-        // setTimeout(() => navigator.back(), 1000);
-      })
-      .catch((err) => {
-        // toast.warning("server is busy try later 🥸");
-        // setLoader(false);
-        console.log(err);
-      });
+    const formData: any = new FormData();
+
+    const images: any = dataToPass.page.map((item) => item.image);
+    const dataWithoutImage = {
+      page: dataToPass.page.map(({ image, ...rest }) => rest),
+      metaData: dataToPass.metaData,
+    };
+
+    for (const file of images) {
+      formData.append("images", file[0]);
+    }
+    formData.append("data", JSON.stringify(dataWithoutImage));
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/seo/add-seo`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      toast.success("successfully added");
+      setTimeout(() => navigator.replace("/admin/seo"), 1000);
+    } catch (error) {
+      toast.warning("server is busy try later 🥸");
+
+      console.log(error);
+    }
   };
 
   return (
@@ -49,7 +70,7 @@ const AddPage = () => {
         </div>
       </div>
       <div className="p-5 w-full bg-white">
-        <form>
+        <form encType="multipart/form-data" onSubmit={uploadPage}>
           {fields.map((field, index) => {
             return (
               <div key={field.id} className="mb-5">
@@ -75,6 +96,9 @@ const AddPage = () => {
               </div>
             );
           })}
+          <button className="w-full p-3 bg-gray-700 flex-center rounded-lg mt-6  text-gray-400 font-semibold  ">
+            Upload
+          </button>
         </form>
         <button
           type="button"
@@ -92,13 +116,19 @@ const AddPage = () => {
       </div>
       <div className="border-t  my-2 p-5">
         <MetaData register={register} />
-        <button
-          onClick={uploadPage}
-          className="w-full p-3 bg-gray-700 flex-center rounded-lg mt-6  text-gray-400 font-semibold  "
-        >
-          Upload
-        </button>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       {isPreviewOpen && (
         <PreviewPage setIsOpen={setIsPreviewOpen} data={watch()} />
       )}

@@ -5,20 +5,23 @@ import Image from "next/image";
 import EditIcon from "@mui/icons-material/Edit";
 const ImagePicker = ({
   setvalue,
-
   index,
+  image,
 }: {
   setvalue: any;
   index: number;
+  image?: any;
 }) => {
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [previewImage, setPreviewImage] = useState<string | null>(
+    image ? image : null
+  );
 
   const handlePreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setPreviewImage(URL.createObjectURL(e.target.files[0]));
     }
 
-    setvalue(`page.${index}.image`, e.target.files);
+    setvalue(`page[${index}][image]`, e.target.files);
   };
 
   const resetPrevieImage = () => {
@@ -29,7 +32,12 @@ const ImagePicker = ({
       {!previewImage ? (
         <label>
           <AddPhotoAlternateIcon className="text-gray-500  scale-[2.3] cursor-pointer" />
-          <input type="file" className="hidden" onChange={handlePreviewImage} />
+          <input
+            type="file"
+            name={`page[${index}][image]`}
+            className="hidden"
+            onChange={handlePreviewImage}
+          />
         </label>
       ) : (
         <div className="full relative">

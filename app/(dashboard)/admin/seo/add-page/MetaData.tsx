@@ -7,14 +7,14 @@ const MetaData = ({ register }: any) => {
         <label>Meta Title :</label>
         <input
           type="text"
-          {...register("metaData.title")}
+          {...register("metaData.metaTitle")}
           className="bg-white  col-span-3 p-2 rounded-xl outline-none"
         />
       </div>
       <div className="grid grid-cols-5 my-2">
         <label>Meta Description :</label>
         <textarea
-          {...register("metaData.description")}
+          {...register("metaData.metaDescription")}
           className="bg-white  col-span-3 p-2 rounded-xl outline-none"
         />
       </div>
@@ -22,7 +22,7 @@ const MetaData = ({ register }: any) => {
         <label>Meta KeyWord :</label>
         <input
           type="text"
-          {...register("metaData.keyword")}
+          {...register("metaData.metaKeyWord")}
           className="bg-white  col-span-3 p-2 rounded-xl outline-none"
         />
       </div>
@@ -37,7 +37,7 @@ const MetaData = ({ register }: any) => {
       <div className="grid grid-cols-5 my-2">
         <label>OG Description :</label>
         <textarea
-          {...register("metaData.ogDescritpion")}
+          {...register("metaData.ogDescription")}
           className="bg-white col-span-3 p-2 rounded-xl outline-none"
         />
       </div>
