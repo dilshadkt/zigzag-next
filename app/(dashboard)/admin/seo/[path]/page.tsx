@@ -133,11 +133,13 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
                     defaultValue={field.heading}
                     required
                   />
-                  <ImagePicker
-                    image={field.image}
-                    setvalue={setValue}
-                    index={index}
-                  />
+                  <div className="w-[400px] my-2 h-[300px]">
+                    <ImagePicker
+                      image={field.image}
+                      setvalue={setValue}
+                      index={index}
+                    />
+                  </div>
                   <TextEditor
                     setvalue={setValue}
                     getValues={getValues}

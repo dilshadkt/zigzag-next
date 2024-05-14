@@ -90,7 +90,9 @@ const AddPage = () => {
                     defaultValue={field.heading}
                     required
                   />
-                  <ImagePicker setvalue={setValue} index={index} />
+                  <div className="w-[400px] my-2 h-[300px]">
+                    <ImagePicker setvalue={setValue} index={index} />
+                  </div>
                   <TextEditor
                     getValues={getValues}
                     setvalue={setValue}

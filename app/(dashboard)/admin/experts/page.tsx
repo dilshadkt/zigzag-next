@@ -51,8 +51,8 @@ const Experts = () => {
                 <Image
                   src={item.image}
                   alt="experts"
-                  width={100}
-                  height={100}
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -1,34 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import Loading from "@/app/(dashboard)/admin/components/Loading";
 import CloseIcon from "@mui/icons-material/Close";
-import Image from "next/image";
-import { useForm } from "react-hook-form";
 import axios from "axios";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Loading from "@/app/(dashboard)/admin/components/Loading";
-interface EditExpertProps {
-  expert: Experts | undefined;
-  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
-  isEdit: boolean;
-}
-interface Experts {
-  _id: string;
-  image: string;
-  name: string;
-  role: string;
-}
+import ImagePicker from "../components/shared/ImagePicker";
 
 const EditExpert: React.FC<EditExpertProps> = ({
   expert,
   setIsEdit,
   isEdit,
 }) => {
+  console.log(expert);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentImage, setCurrentImage] = useState<string | File>(
+    expert?.image as string
+  );
   const { register, watch } = useForm({
     defaultValues: {
       name: expert?.name ?? "",
       role: expert?.role ?? "",
+      image: "",
     },
   });
   const remove = (id: string | undefined) => {
@@ -47,10 +41,17 @@ const EditExpert: React.FC<EditExpertProps> = ({
   };
 
   const updateExperts = (id: string | undefined) => {
+    const formData = new FormData();
+    if (typeof currentImage === "object") {
+      formData.append("photos", currentImage);
+      console.log("object");
+    }
+    formData.append("name", watch().name);
+    formData.append("role", watch().role);
     setIsLoading(!isLoading);
     axios
-      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`, watch())
-      .catch(() => {
+      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`, formData)
+      .then(() => {
         setIsLoading(false);
         location.reload();
         toast.success("successfully updated");
@@ -74,7 +75,7 @@ const EditExpert: React.FC<EditExpertProps> = ({
           <CloseIcon />
         </div>
         <div className="p-2 border h-[220px] rounded-xl my-2">
-          <div className="w-full h-full">
+          {/* <div className="w-full h-full">
             <Image
               src={expert?.image || ""}
               alt="added image"
@@ -82,7 +83,11 @@ const EditExpert: React.FC<EditExpertProps> = ({
               height={200}
               className="w-full h-full object-cover rounded-xl"
             />
-          </div>
+          </div> */}
+          <ImagePicker
+            image={expert?.image}
+            setCurrentImage={setCurrentImage}
+          />
         </div>
         <div className="my-3">
           <input

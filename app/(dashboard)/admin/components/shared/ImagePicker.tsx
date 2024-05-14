@@ -7,10 +7,12 @@ const ImagePicker = ({
   setvalue,
   index,
   image,
+  setCurrentImage,
 }: {
-  setvalue: any;
-  index: number;
+  setvalue?: any;
+  index?: number;
   image?: any;
+  setCurrentImage?: React.Dispatch<string | File>;
 }) => {
   const [previewImage, setPreviewImage] = useState<string | null>(
     image ? image : null
@@ -19,16 +21,17 @@ const ImagePicker = ({
   const handlePreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setPreviewImage(URL.createObjectURL(e.target.files[0]));
+      setCurrentImage && setCurrentImage(e.target.files[0]);
     }
 
-    setvalue(`page[${index}][image]`, e.target.files);
+    setvalue && setvalue(`page[${index}][image]`, e.target.files);
   };
 
   const resetPrevieImage = () => {
     setPreviewImage(null);
   };
   return (
-    <div className="border w-[400px] h-[300px] rounded-lg my-2 flex-center overflow-hidden">
+    <div className="border w-full h-full rounded-lg  flex-center overflow-hidden">
       {!previewImage ? (
         <label>
           <AddPhotoAlternateIcon className="text-gray-500  scale-[2.3] cursor-pointer" />

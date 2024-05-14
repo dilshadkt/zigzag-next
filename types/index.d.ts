@@ -36,3 +36,16 @@ declare interface ContentPageProps {
     path: string;
   };
 }
+
+declare interface Experts {
+  _id: string;
+  image: string;
+  name: string;
+  role: string;
+}
+
+declare interface EditExpertProps {
+  expert: Experts | undefined;
+  setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
+  isEdit: boolean;
+}
