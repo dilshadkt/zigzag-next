@@ -9,13 +9,21 @@ import { useRouter } from "next/navigation";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MetaData from "../../seo/add-page/MetaData";
+import { metaData } from "@/constant";
 const Addblog = () => {
   const [image, setImage] = useState([]);
   const [loader, setLoader] = useState(false);
   const [content, setContent] = useState("");
   const [previewImg, setPreviewImg] = useState(null);
-  const { register, watch } = useForm();
+  const { register, watch } = useForm({
+    defaultValues: {
+      blog: "",
+      metaData: metaData,
+    },
+  });
   const navigator = useRouter();
+  console.log(watch());
 
   ///// preview image 📸📸 /////////////////////////////////////
 
@@ -33,9 +41,9 @@ const Addblog = () => {
     const blog = new FormData();
     const data = {
       test: content,
-      metaTitle: watch().metaTitle,
-      metaDescription: watch().metaDescription,
+      metaData: watch().metaData,
     };
+    console.log(data);
     blog.append("blog", JSON.stringify(data));
     blog.append("photos", image);
 
@@ -85,7 +93,7 @@ const Addblog = () => {
         </div>
       </div>
       <RichText content={content} setContent={setContent} />
-      <div className="border my-3 p-5 rounded-xl bg-gray-200">
+      {/* <div className="border my-3 p-5 rounded-xl bg-gray-200">
         <div className="grid grid-cols-5">
           <label>meta title :</label>
           <input
@@ -102,7 +110,8 @@ const Addblog = () => {
             className="bg-white border col-span-3 p-2"
           />
         </div>
-      </div>
+      </div> */}
+      <MetaData register={register} />
       <div className="my-3">
         <button
           onClick={() => postBLog()}

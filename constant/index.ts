@@ -6,3 +6,7 @@ export const metaData = {
   ogDescription: "Og Description",
   path: "path to your page",
 };
+
+export const page = [
+  { heading: "Heading", image: null, description: "Description" },
+];

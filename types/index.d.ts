@@ -19,3 +19,20 @@ declare type TextEditor = {
   getValues: any;
   index: number;
 };
+
+declare interface Content {
+  photos: string;
+  path: string;
+  ogDescription: string;
+  ogTitle: string;
+  metaKeyWord: string;
+  metaDescription: string;
+  metaTitle: string;
+  test: string;
+  _id: string;
+}
+declare interface ContentPageProps {
+  params: {
+    path: string;
+  };
+}

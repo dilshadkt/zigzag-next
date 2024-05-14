@@ -12,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Modal from "@/app/components/shared/Modal";
+
 const AddPage = () => {
   const navigator = useRouter();
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);

@@ -10,6 +10,8 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { ToastContainer, toast } from "react-toastify";
 import RichText from "@/app/(dashboard)/admin/blogs/add-blog/RichText";
 import "react-toastify/dist/ReactToastify.css";
+import MetaData from "../../seo/add-page/MetaData";
+import { metaData } from "@/constant";
 
 const Page = ({ params: { blogId } }) => {
   const [content, setContent] = useState("");
@@ -18,12 +20,22 @@ const Page = ({ params: { blogId } }) => {
   const [image, setImage] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [previewImg, setPreviewImg] = useState(null);
-  const { register, watch } = useForm();
+  const { register, watch, setValue } = useForm({
+    defaultValues: {
+      test: "",
+      photos: null,
+      metaData: metaData,
+    },
+  });
+
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${blogId}`)
       .then((res) => {
         setBlog(res.data);
+        setValue("metaData", res.data);
+        setValue("photos", res.data.photos);
+        setValue("test", res.data.test);
         setContent(res.data.test);
       })
       .catch((err) => console.log(err));
@@ -48,11 +60,14 @@ const Page = ({ params: { blogId } }) => {
   const updateBlog = (id) => {
     setIsLoading(!isLoading);
     const blog = new FormData();
+    const { photos, test, ...MetaData } = watch().metaData;
     image.length !== 0 && blog.append("photos", image);
     blog.append("test", content);
-    watch().metaTitle && blog.append("metaTitle", watch().metaTitle);
-    watch().metaDescription &&
-      blog.append("metaDescription", watch().metaDescription);
+
+    Object.keys(MetaData).forEach((key) => {
+      blog.append(`${key}`, MetaData[`${key}`]);
+    });
+
     axios
       .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs?blogId=${id}`, blog)
       .then(() => {
@@ -132,7 +147,7 @@ const Page = ({ params: { blogId } }) => {
       <div className="my-4">
         <RichText content={content} setContent={setContent} />
       </div>
-
+      {/* 
       <div className="border mt-[5%] p-5 rounded-xl bg-gray-200">
         <div className="grid grid-cols-5">
           <label>meta title :</label>
@@ -152,7 +167,8 @@ const Page = ({ params: { blogId } }) => {
             className="border bg-white col-span-4 p-2"
           />
         </div>
-      </div>
+      </div> */}
+      <MetaData register={register} />
       <div className="my-3">
         <button
           onClick={() => deleteBlog(blogId)}

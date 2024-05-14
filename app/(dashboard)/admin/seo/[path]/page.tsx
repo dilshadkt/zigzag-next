@@ -1,45 +1,27 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Shimmer from "../../components/Shimmer";
 import { useFieldArray, useForm } from "react-hook-form";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { ToastContainer, toast } from "react-toastify";
-import RichText from "@/app/(dashboard)/admin/blogs/add-blog/RichText";
-import Loading from "../../components/Loading";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import MetaData from "../add-page/MetaData";
 import PreviewPage from "../add-page/PreviewPage";
 import ImagePicker from "../../components/shared/ImagePicker";
 import TextEditor from "../../components/shared/TextEditor";
-import { metaData } from "@/constant";
+import { metaData, page } from "@/constant";
+import Modal from "@/app/components/shared/Modal";
 
-interface ContentPageProps {
-  params: {
-    path: string;
-  };
-}
-interface Content {
-  photos: string;
-  path: string;
-  ogDescription: string;
-  ogTitle: string;
-  metaKeyWord: string;
-  metaDescription: string;
-  metaTitle: string;
-  test: string;
-  _id: string;
-}
 const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
   const [blog, setBlog] = useState<Content>();
   const [isEdit, setIsEdit] = useState<Boolean>(false);
   const { register, control, watch, setValue, getValues } = useForm<FormValue>({
     defaultValues: {
-      page: [{ heading: "Heading", image: null, description: "Description" }],
+      page: page,
       metaData: metaData,
     },
     mode: "onBlur",
@@ -48,7 +30,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
     name: "page",
     control,
   });
-  const [content, setContent] = useState("");
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -60,31 +42,29 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
         console.log(page);
         setValue("page", page);
         setValue("metaData", metaData);
-        setContent(res.data.test);
       })
       .catch((err) => console.log(err));
   }, [path]);
 
   const router = useRouter();
 
-  // const CaptureChange = () => {
-  //   setIsEdit(true);
-  // };
-
-  // const deleteBlog = (id: string) => {
-  //   setIsLoading(!isLoading);
-  //   axios
-  //     .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/seo?contentId=${id}`)
-  //     .then(() => {
-  //       setIsLoading(false);
-  //       router.back();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setIsLoading(false);
-  //       toast.warning("server is busy try later");
-  //     });
-  // };
+  const deleteBlog = () => {
+    setIsLoading(!isLoading);
+    const id = blog?._id;
+    axios
+      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/seo?contentId=${id}`)
+      .then(() => {
+        toast.success("page removed successfully");
+        setIsLoading(false);
+        setTimeout(() => {
+          router.back();
+        }, 1000);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        toast.warning("server is busy try later");
+      });
+  };
 
   const updateBlog = (id: string) => {
     const blog: any = new FormData();
@@ -115,6 +95,15 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
       });
   };
 
+  const ShowDeleteAlert = () => {
+    const deleleAlertModal = document.getElementById(
+      "my_modal_5"
+    ) as HTMLDialogElement;
+    if (deleleAlertModal) {
+      deleleAlertModal.showModal();
+    }
+  };
+
   return blog ? (
     <div
       onChange={() => setIsEdit(true)}
@@ -123,6 +112,9 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
       <div className=" border-b p-2 sticky top-0 z-30 bg-gray-200 rounded-t-lg flex justify-end">
         <div onClick={() => setIsPreviewOpen(true)}>
           <RemoveRedEyeIcon className="cursor-pointer hover:text-blue-500" />
+        </div>
+        <div onClick={() => ShowDeleteAlert()} title="preview">
+          <DeleteIcon className="cursor-pointer hover:text-red-500 ml-2" />
         </div>
       </div>
       <div className="p-5 w-full bg-white">
@@ -204,6 +196,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
       {isPreviewOpen && (
         <PreviewPage setIsOpen={setIsPreviewOpen} data={watch()} />
       )}
+      <Modal operation={deleteBlog} />
     </div>
   ) : (
     <>

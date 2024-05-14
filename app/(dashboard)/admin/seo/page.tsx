@@ -38,49 +38,61 @@ const SeoPage = () => {
         </Link>
       </div>
       <div className="p-5 border w-full rounded-xl ">
-        <div className="grid grid-cols-3 md:grid-cols-1">
-          {content.map((item, index) => (
-            <div
-              key={`${index}`}
-              className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
-            >
-              <div className="w-full border h-[220px] rounded-xl overflow-hidden">
-                {item.page[0].image ? (
-                  <Image
-                    src={item.page[0].image}
-                    width={400}
-                    height={400}
-                    alt="blog"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gray-300"></div>
-                )}
-              </div>
-
-              <div className="flex justify-center my-3">
-                <span className="font-medium text-red-500">{item.path}</span>
-              </div>
-              <div className="flex items-center justify-between ">
-                <Link href={`/admin/seo/${item.path}`}>
-                  <div className="bg-blue-500  hover:bg-blue-600 py-2 px-4 cursor-pointer  text-white rounded-lg font-semibold">
-                    <EditIcon />
-                  </div>
-                </Link>
-                <button
-                  onClick={() =>
-                    window.open(
-                      `${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`
-                    )
-                  }
-                  className="bg-blue-500 hover:bg-blue-300 py-2 px-4 text-white rounded-lg font-semibold"
+        {content.length === 0 ? (
+          <div className="h-[400px] w-full text-xl font-medium bg-gray-100 flex items-center justify-center ">
+            <Link href={"/admin/seo/add-page"}>
+              <h5>Create Your First Page</h5>
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-3 md:grid-cols-1">
+              {content.map((item, index) => (
+                <div
+                  key={`${index}`}
+                  className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
                 >
-                  <VisibilityIcon />
-                </button>
-              </div>
+                  <div className="w-full border h-[220px] rounded-xl overflow-hidden">
+                    {item.page[0].image ? (
+                      <Image
+                        src={item.page[0].image}
+                        width={400}
+                        height={400}
+                        alt="blog"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-300"></div>
+                    )}
+                  </div>
+
+                  <div className="flex justify-center my-3">
+                    <span className="font-medium text-red-500">
+                      {item.path}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between ">
+                    <Link href={`/admin/seo/${item.path}`}>
+                      <div className="bg-blue-500  hover:bg-blue-600 py-2 px-4 cursor-pointer  text-white rounded-lg font-semibold">
+                        <EditIcon />
+                      </div>
+                    </Link>
+                    <button
+                      onClick={() =>
+                        window.open(
+                          `${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`
+                        )
+                      }
+                      className="bg-blue-500 hover:bg-blue-300 py-2 px-4 text-white rounded-lg font-semibold"
+                    >
+                      <VisibilityIcon />
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
