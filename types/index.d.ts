@@ -48,4 +48,12 @@ declare interface EditExpertProps {
   expert: Experts | undefined;
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
   isEdit: boolean;
+  setData: React.Dispatch<Data[]>;
+}
+
+declare interface Data {
+  _id: string;
+  image: string;
+  name: string;
+  role: string;
 }

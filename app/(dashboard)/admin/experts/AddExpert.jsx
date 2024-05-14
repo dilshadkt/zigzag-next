@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
-const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
+const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen, setData }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,9 +22,8 @@ const AddExpert = ({ setIsAddExpertOpen, isAddExpertOpen }) => {
     axios
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/experts`, data)
       .then((res) => {
-        setImage(res.data);
+        setData(res.data.experts);
         setIsAddExpertOpen(!isAddExpertOpen);
-        location.reload();
         setIsLoading(false);
         toast.success("successfully added");
       })

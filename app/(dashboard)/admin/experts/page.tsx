@@ -6,12 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import EditExpert from "./EditExpert";
 import Shimmer from "../components/Shimmer";
-interface Data {
-  _id: string;
-  image: string;
-  name: string;
-  role: string;
-}
+
 const Experts = () => {
   const [data, setData] = useState<Data[]>([]);
   const [isAddExpertOpen, setIsAddExpertOpen] = useState(false);
@@ -68,10 +63,16 @@ const Experts = () => {
         <AddExpert
           setIsAddExpertOpen={setIsAddExpertOpen}
           isAddExpertOpen={isAddExpertOpen}
+          setData={setData}
         />
       )}
       {isEdit && (
-        <EditExpert expert={expert} setIsEdit={setIsEdit} isEdit={isEdit} />
+        <EditExpert
+          setData={setData}
+          expert={expert}
+          setIsEdit={setIsEdit}
+          isEdit={isEdit}
+        />
       )}
     </div>
   );

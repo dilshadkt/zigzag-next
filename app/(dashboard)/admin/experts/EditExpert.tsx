@@ -12,8 +12,8 @@ const EditExpert: React.FC<EditExpertProps> = ({
   expert,
   setIsEdit,
   isEdit,
+  setData,
 }) => {
-  console.log(expert);
   const [isLoading, setIsLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState<string | File>(
     expert?.image as string
@@ -29,9 +29,12 @@ const EditExpert: React.FC<EditExpertProps> = ({
     setIsLoading(!isLoading);
     axios
       .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`)
-      .then(() => {
+      .then((res) => {
         setIsLoading(false);
-        location.reload();
+        setTimeout(() => {
+          setIsEdit(false);
+        }, 700);
+        setData(res.data.experts);
         toast.success("successfully deleted");
       })
       .catch((err) => {
@@ -44,16 +47,18 @@ const EditExpert: React.FC<EditExpertProps> = ({
     const formData = new FormData();
     if (typeof currentImage === "object") {
       formData.append("photos", currentImage);
-      console.log("object");
     }
     formData.append("name", watch().name);
     formData.append("role", watch().role);
     setIsLoading(!isLoading);
     axios
       .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`, formData)
-      .then(() => {
+      .then((res) => {
         setIsLoading(false);
-        location.reload();
+        setData(res.data.experts);
+        setTimeout(() => {
+          setIsEdit(false);
+        }, 1000);
         toast.success("successfully updated");
       })
       .catch((err) => {

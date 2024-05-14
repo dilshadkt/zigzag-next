@@ -13,9 +13,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import Modal from "@/app/components/shared/Modal";
+import Loading from "../../components/Loading";
 
 const AddPage = () => {
   const navigator = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
   const { register, control, watch, setValue, getValues } = useForm<FormValue>({
     defaultValues: {
@@ -30,6 +32,7 @@ const AddPage = () => {
   });
 
   const uploadPage = async () => {
+    setIsLoading(true);
     const dataToPass = watch();
     const formData: any = new FormData();
 
@@ -55,12 +58,12 @@ const AddPage = () => {
           },
         }
       );
+      setIsLoading(false);
       toast.success("successfully added");
       setTimeout(() => navigator.replace("/admin/seo"), 1000);
     } catch (error) {
+      setIsLoading(false);
       toast.warning("server is busy try later 🥸");
-
-      console.log(error);
     }
   };
 
@@ -140,6 +143,7 @@ const AddPage = () => {
       {isPreviewOpen && (
         <PreviewPage setIsOpen={setIsPreviewOpen} data={watch()} />
       )}
+      {isLoading && <Loading />}
     </div>
   );
 };

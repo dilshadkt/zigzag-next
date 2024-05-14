@@ -14,11 +14,11 @@ import ImagePicker from "../../components/shared/ImagePicker";
 import TextEditor from "../../components/shared/TextEditor";
 import { metaData, page } from "@/constant";
 import Modal from "@/app/components/shared/Modal";
+import Loading from "../../components/Loading";
 
 const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
   const [blog, setBlog] = useState<Content>();
-  const [isEdit, setIsEdit] = useState<Boolean>(false);
   const { register, control, watch, setValue, getValues } = useForm<FormValue>({
     defaultValues: {
       page: page,
@@ -38,8 +38,9 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/${path}`)
       .then((res) => {
         setBlog(res.data);
+
         const { page, ...metaData } = res.data;
-        console.log(page);
+        console.log(res.data);
         setValue("page", page);
         setValue("metaData", metaData);
       })
@@ -67,6 +68,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
   };
 
   const updateBlog = (id: string) => {
+    setIsLoading(true);
     const blog: any = new FormData();
     const datatoUpdate = watch();
     const result: any = datatoUpdate.page
@@ -91,7 +93,6 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
       .catch((err) => {
         setIsLoading(false);
         toast.warning("server is busy try later");
-        console.log(err);
       });
   };
 
@@ -105,10 +106,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
   };
 
   return blog ? (
-    <div
-      onChange={() => setIsEdit(true)}
-      className=" mt-5 h-full    w-full border rounded-t-lg"
-    >
+    <div className=" mt-5 h-full    w-full border rounded-t-lg">
       <div className=" border-b p-2 sticky top-0 z-30 bg-gray-200 rounded-t-lg flex justify-end">
         <div onClick={() => setIsPreviewOpen(true)}>
           <RemoveRedEyeIcon className="cursor-pointer hover:text-blue-500" />
@@ -154,9 +152,6 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
               </div>
             );
           })}
-          <button className="w-full p-3 bg-gray-700 hover:bg-gray-800 flex-center rounded-lg mt-6  text-gray-400 font-semibold  ">
-            Upload
-          </button>
         </form>
         <button
           type="button"
@@ -171,14 +166,13 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
         >
           ADD NEW FIELD
         </button>
-        {isEdit && (
-          <button
-            onClick={() => updateBlog(blog._id)}
-            className="w-full p-3 bg-red-500 hover:bg-red-600 flex-center rounded-lg mt-2  text-white font-semibold  "
-          >
-            Update
-          </button>
-        )}
+
+        <button
+          onClick={() => updateBlog(blog._id)}
+          className="w-full p-3 bg-red-500 hover:bg-red-600 flex-center rounded-lg mt-2  text-white font-semibold  "
+        >
+          Update
+        </button>
       </div>
       <div className="border-t  my-2 p-5">
         <MetaData register={register} />
@@ -199,6 +193,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
         <PreviewPage setIsOpen={setIsPreviewOpen} data={watch()} />
       )}
       <Modal operation={deleteBlog} />
+      {isLoading && <Loading />}
     </div>
   ) : (
     <>
