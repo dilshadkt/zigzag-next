@@ -7,10 +7,22 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
+import ImagePicker from "../components/shared/ImagePicker";
 interface Props {
   isEdit: boolean;
   setIsEdit: React.Dispatch<React.SetStateAction<boolean>>;
   testimonial: Client;
+  setData: React.Dispatch<Data[]>;
+}
+
+interface Data {
+  photos: string;
+  name: string;
+  description: string;
+  designation: string;
+  _id: string;
+  color: string;
+  role: string;
 }
 interface Client {
   photos: string;
@@ -21,8 +33,11 @@ interface Client {
   color: string;
   role: string;
 }
-const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
+const EditTest = ({ isEdit, setIsEdit, testimonial, setData }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [currentImage, setCurrentImage] = useState<string | File>(
+    testimonial.photos
+  );
   const { register, watch } = useForm({
     defaultValues: {
       name: testimonial?.name,
@@ -36,19 +51,26 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
     setIsLoading(!isLoading);
     axios
       .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial/${id}`)
-      .then(() => {
+      .then((res) => {
         setIsLoading(false);
-        location.reload();
+        setData(res.data.testimonials);
+        setIsEdit(false);
       })
       .catch((err) => console.log(err));
   };
   const updateClients = (id: any) => {
     setIsLoading(!isLoading);
+    const formData = new FormData();
+    if (typeof currentImage === "object") {
+      formData.append("photos", currentImage);
+    }
+    formData.append("updation", JSON.stringify(watch()));
     axios
-      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial/${id}`, watch())
-      .then(() => {
+      .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial/${id}`, formData)
+      .then((res) => {
         setIsLoading(false);
-        location.reload();
+        setData(res.data.testimonials);
+        setIsEdit(false);
         toast.success("successfully updated");
       })
       .catch((err) => {
@@ -69,15 +91,10 @@ const EditTest = ({ isEdit, setIsEdit, testimonial }: Props) => {
           <CloseIcon />
         </div>
         <div className="p-2 border h-[220px] rounded-xl my-2">
-          <div className="w-full h-full">
-            <Image
-              src={testimonial?.photos}
-              alt="added image"
-              width={150}
-              height={150}
-              className="w-full h-full object-cover rounded-xl"
-            />
-          </div>
+          <ImagePicker
+            image={testimonial.photos}
+            setCurrentImage={setCurrentImage}
+          />
         </div>
         <div className="my-3">
           <input

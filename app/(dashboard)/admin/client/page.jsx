@@ -49,7 +49,6 @@ const Client = () => {
                     alt="experts"
                     width={700}
                     height={700}
-                    quality={100}
                     className="w-full h-full object-contain"
                   />
                 </div>

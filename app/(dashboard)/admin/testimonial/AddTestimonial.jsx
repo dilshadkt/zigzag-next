@@ -8,7 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
-const AddTestimonial = ({ isOpoen, setIsOpen }) => {
+const AddTestimonial = ({ isOpoen, setIsOpen, setData }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
   const [previewImg, setPreviewImg] = useState(null);
@@ -27,7 +27,8 @@ const AddTestimonial = ({ isOpoen, setIsOpen }) => {
 
     axios
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial`, data)
-      .then(() => {
+      .then((res) => {
+        setData(res.data.testimonials);
         setIsOpen(!isOpoen);
         setIsLoading(false);
         toast.success("successfully added");

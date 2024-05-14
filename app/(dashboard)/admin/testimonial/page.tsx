@@ -78,12 +78,19 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-      {isOpen && <AddTestimonial isOpoen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <AddTestimonial
+          isOpoen={isOpen}
+          setIsOpen={setIsOpen}
+          setData={setData}
+        />
+      )}
       {isEdit && (
         <EditTest
           isEdit={isEdit}
           setIsEdit={setIsEdit}
           testimonial={testimonial}
+          setData={setData}
         />
       )}
     </>
