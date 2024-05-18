@@ -6,6 +6,9 @@ import axios from "axios";
 import Image from "next/image";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Content {
   page: any;
@@ -27,6 +30,25 @@ const SeoPage = () => {
       .then((res) => setContent(res.data.content))
       .catch((err) => console.log(err));
   }, []);
+
+  const DublicateBlog = (index: number) => {
+    const formData: any = new FormData();
+    const { _id, page, ...metaData } = content[index];
+    const dataToPass = { page, metaData };
+
+    formData.append("data", JSON.stringify(dataToPass));
+    axios
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/add-seo`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        setContent(res.data.pages);
+        toast.success("successfully dublicated");
+      })
+      .catch((err) => toast.warning("server is busy try later 🥸"));
+  };
 
   return (
     <div className="my-[2%]">
@@ -50,7 +72,7 @@ const SeoPage = () => {
               {content.map((item, index) => (
                 <div
                   key={`${index}`}
-                  className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
+                  className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2  "
                 >
                   <div className="w-full border h-[220px] rounded-xl overflow-hidden">
                     {item.page[0].image ? (
@@ -71,26 +93,53 @@ const SeoPage = () => {
                       {item.path}
                     </span>
                   </div>
-                  <div className="flex items-center justify-between ">
-                    <Link href={`/admin/seo/${item.path}`}>
-                      <div className="bg-blue-500  hover:bg-blue-600 py-2 px-4 cursor-pointer  text-white rounded-lg font-semibold">
-                        <EditIcon />
-                      </div>
-                    </Link>
-                    <button
-                      onClick={() =>
-                        window.open(
-                          `${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`
-                        )
-                      }
-                      className="bg-blue-500 hover:bg-blue-300 py-2 px-4 text-white rounded-lg font-semibold"
-                    >
-                      <VisibilityIcon />
-                    </button>
+                  <div className="flex justify-center w-full">
+                    <ul className="menu menu-horizontal bg-base-200 rounded-box mt-6">
+                      <li>
+                        <div
+                          onClick={() => DublicateBlog(index)}
+                          className="tooltip"
+                          data-tip="Dublicate"
+                        >
+                          <ContentCopyIcon className="opacity-60 hover:opacity-90" />
+                        </div>
+                      </li>
+                      <li>
+                        <Link
+                          href={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`}
+                          target="_blank"
+                          className="tooltip"
+                          data-tip="Preview"
+                        >
+                          <VisibilityIcon className="opacity-60 hover:opacity-90" />
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href={`/admin/seo/${item.path}`}
+                          className="tooltip"
+                          data-tip="Edit"
+                        >
+                          <EditIcon className="opacity-60 hover:opacity-90" />
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               ))}
             </div>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
           </>
         )}
       </div>

@@ -33,7 +33,7 @@ const page = async ({ params: { path } }: Props) => {
     <>
       <div className="bg-white overflow-hidden px-[10%] flex  md:px-4  pb-[4%]">
         <div className="flex-initial md:hidden lg:flex bg-red-300"></div>
-        <div className="flex-1 bg-white   my-4  overflow-scroll">
+        <div className="flex-1 bg-white   my-4  overflow-scroll max-w-screen-xl mx-auto">
           {Blog.page?.map((item: any) => (
             <div key={nanoid()} className="mb-4">
               <div className="bg-blue-200 h-[80px] text-blue-950 font-bold text-xl flex items-center justify-start px-5">

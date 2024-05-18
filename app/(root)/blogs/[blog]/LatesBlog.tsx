@@ -10,13 +10,13 @@ const LatesBlog = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs/latest`);
   const blog: Blog[] = await res.json();
   return (
-    <div className="mt-5 pb-[10%]">
+    <div className="mt-5 pb-[10%] max-w-screen-xl mx-auto">
       <div>
         <h2 className="text-primary text-lg font-semibold py-4">
           Latest Articles
         </h2>
       </div>
-      <div className="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2  ">
+      <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2  ">
         {blog.map((item, index) => (
           <div
             key={`${index}-${item._id}`}

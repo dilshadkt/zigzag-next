@@ -24,17 +24,19 @@ const BlogPage = async ({ params: { blog } }: Props) => {
   return (
     <>
       <div className="bg-white px-[14%]  md:px-4  py-[4%]">
-        <div className="w-full h-[300px] md:h-[240px] sm:h-[200px] overflow-hidden flex rounded-xl">
-          <Image
-            src={Blog.photos}
-            alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
-            width={600}
-            height={400}
-            className="w-full object-cover "
-            quality={100}
-          />
+        <div className="max-w-screen-xl mx-auto">
+          <div className="w-full h-[300px] md:h-[240px] sm:h-[200px] overflow-hidden flex rounded-xl">
+            <Image
+              src={Blog.photos}
+              alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
+              width={600}
+              height={400}
+              className="w-full object-cover "
+              quality={100}
+            />
+          </div>
+          <div className="my-3 ">{parse(Blog.test)}</div>
         </div>
-        <div className="my-3 ">{parse(Blog.test)}</div>
 
         <LatesBlog />
       </div>
