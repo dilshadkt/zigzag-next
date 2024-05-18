@@ -108,9 +108,9 @@ const EditExpert: React.FC<EditExpertProps> = ({
           </button>
           <button
             onClick={() => updateExperts(expert?._id)}
-            className="bg-red-500 text-white px-4 py-3 rounded-xl font-medium my-2"
+            className="bg-blue-500 text-white px-4 py-3 rounded-xl font-medium my-2"
           >
-            Edit
+            Save
           </button>
         </div>
       </div>

@@ -7,9 +7,17 @@ import { useForm } from "react-hook-form";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { categories } from "@/constant";
+import { nanoid } from "nanoid";
 const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
+  const [isOpenNewField, setIsOpenNewField] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { register, watch } = useForm();
+  const { register, watch, setValue } = useForm({
+    defaultValues: {
+      type: dataToEdit.type.trim(),
+      stared: dataToEdit.stared.trim(),
+    },
+  });
 
   ///////// remove data 👨‍🔧👨‍🔧👨‍🔧///////
   const removeWorks = (id) => {
@@ -30,7 +38,9 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
 
   ////// edit works 🤡🤡🤡///////
 
-  const editWork = (id) => {
+  const editWork = (e) => {
+    e.preventDefault();
+    const id = dataToEdit._id;
     setLoading(!loading);
     axios
       .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/work/${id}`, watch())
@@ -45,6 +55,14 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
         toast.warning(err);
       });
   };
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    if (value === "custom") {
+      setValue("type", null);
+      setIsOpenNewField(true);
+    }
+  };
+  console.log(watch());
   return (
     <>
       <div
@@ -75,28 +93,39 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
             }
           </div>
           <div className="p-2">
-            <form
-              onSubmit={() => editWork(dataToEdit._id)}
-              className="my-2  w-full"
-            >
+            <form onSubmit={(e) => editWork(e)} className="my-2  w-full">
               <div className="w-full flex flex-col items-center justify-center">
-                <select
-                  defaultValue={
-                    dataToEdit.type === "Brand Identity"
-                      ? "Brand Identity"
-                      : "Social Media"
-                  }
-                  {...register("type", {
-                    required: "you to specify the category",
-                  })}
-                  className="bg-white border p-3 rounded-lg w-full"
-                >
-                  <option value="Brand Identity">Brand Identity</option>
-                  <option value="Social Media">Social Media</option>
-                </select>
+                {!isOpenNewField && (
+                  <select
+                    {...register("type", {
+                      required: "you to specify the category",
+                    })}
+                    onChange={handleSelectChange}
+                    className="bg-white border p-3 rounded-lg w-full"
+                  >
+                    {categories.map((item) => (
+                      <option key={nanoid()} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                    <option value="custom">add new category</option>
+                  </select>
+                )}
 
+                {isOpenNewField && (
+                  <>
+                    <label className="ml-2 text-left w-full text-sm font-semibold text-gray-600">
+                      Add new category :
+                    </label>
+                    <input
+                      className="bg-white border p-3 mt-2 rounded-lg w-full"
+                      placeholder="Add new category"
+                      type="text"
+                      {...register("type")}
+                    />
+                  </>
+                )}
                 <select
-                  defaultValue={dataToEdit.stared === "true" ? "true" : "false"}
                   {...register("stared", {
                     required: "you have to whether it is stared or not",
                   })}

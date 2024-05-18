@@ -497,3 +497,5 @@ export const services: any = {
     },
   },
 };
+
+export const categories = ["Brand Identity", "Social Media"];

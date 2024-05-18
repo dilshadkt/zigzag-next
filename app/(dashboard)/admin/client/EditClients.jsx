@@ -89,9 +89,9 @@ const EditClients = ({ isEdit, setIsEdit, clients, setData }) => {
           </button>
           <button
             onClick={() => updateClients(clients._id)}
-            className="bg-red-500 text-white px-4 py-3 rounded-xl font-medium my-2"
+            className="bg-blue-500 text-white px-4 py-3 rounded-xl font-medium my-2"
           >
-            Edit
+            Save
           </button>
         </div>
       </div>
