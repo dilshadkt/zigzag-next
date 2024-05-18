@@ -62,7 +62,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
       setIsOpenNewField(true);
     }
   };
-  console.log(watch());
+
   return (
     <>
       <div
