@@ -8,6 +8,8 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import { contact } from "@/constant";
+import { nanoid } from "nanoid";
 
 const Contact = () => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -26,7 +28,6 @@ const Contact = () => {
           (result) => {
             form.current?.reset();
             toast.success("succefully filled");
-            console.log(result.text);
           },
           (error) => {
             console.log(error.text);
@@ -49,8 +50,8 @@ const Contact = () => {
           Please fill in the below form and wait for one of our experts to get
           back you
         </h3>
-        <div className="flex md:flex-col w-full">
-          <div className="flex-1 sm:my-[7%]  flex items-center justify-center  overflow-hidden">
+        <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto w-full">
+          <div className="flex-1 my-[7%]  flex items-center justify-center  overflow-hidden">
             <Image
               src={contactUs}
               alt="contact us icon"
@@ -89,39 +90,26 @@ const Contact = () => {
                 className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="find-us"
               >
-                <option>How did you find us?</option>
-                <option>Instagram</option>
-                <option>Linkedin</option>
-                <option>Twitter</option>
-                <option>Youtube</option>
-                <option>Google Search</option>
-                <option>Recommendatio</option>
-                <option>Other</option>
+                {contact.findUs.map((item) => (
+                  <option key={nanoid()}>{item}</option>
+                ))}
               </select>
               <select
                 required
                 className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="enquiry"
               >
-                <option>Enquiry on</option>
-                <option>Full Digital Market Activity</option>
-                <option>SEO</option>
-                <option>Social Media Management</option>
-                <option>Influencer Marketing</option>
-                <option>Paid Ads</option>
-                <option>Website Development </option>
-                <option>Other</option>
+                {contact.enquiry.map((item) => (
+                  <option key={nanoid()}>{item}</option>
+                ))}
               </select>
               <select
                 className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl appearance-none"
                 name="budget"
               >
-                <option>Select Your Budget</option>
-                <option>Below 20,000 INR</option>
-                <option>20,000-50,000 INR</option>
-                <option>50,000-100,000 INR</option>
-                <option>Above 1Lakh INR</option>
-                <option>Other</option>
+                {contact.budget.map((item) => (
+                  <option key={nanoid()}>{item}</option>
+                ))}
               </select>
               <textarea
                 className="border my-2 w-full p-3 bg-white border-red-300 rounded-xl"

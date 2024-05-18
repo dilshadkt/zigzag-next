@@ -31,7 +31,7 @@ const Experts = () => {
           <AddIcon />
         </div>
       </div>
-      <div className="p-5 md:p-2  border rounded-xl grid grid-cols-4 md:grid-cols-2">
+      <div className="p-5 md:p-2  border rounded-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
         {data.map((item, index) => (
           <div
             key={index}

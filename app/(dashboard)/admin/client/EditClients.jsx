@@ -7,7 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
-const EditClients = ({ isEdit, setIsEdit, clients }) => {
+const EditClients = ({ isEdit, setIsEdit, clients, setData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, watch } = useForm({
     defaultValues: {
@@ -18,28 +18,34 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
     setIsLoading(!isLoading);
     axios
       .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/clients/${id}`)
-      .then(() => {
+      .then((res) => {
+        setData(res?.data?.clients);
         setIsLoading(false);
-        location.reload();
+        setTimeout(() => {
+          setIsEdit(false);
+        }, 800);
         toast.success("successfully removed");
       })
       .catch((err) => {
         setIsLoading(false);
-        toast.warning(err);
+        toast.warning("failed to remove ");
       });
   };
   const updateClients = (id) => {
     setIsLoading(!isLoading);
     axios
       .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/clients/${id}`, watch())
-      .then(() => {
+      .then((res) => {
         setIsLoading(false);
-        location.reload();
+        setData(res?.data?.clients);
+        setTimeout(() => {
+          setIsEdit(false);
+        }, 800);
         toast.success("successfully updated");
       })
       .catch((err) => {
         setIsLoading(false);
-        toast.warning(err);
+        toast.warning("failed to update");
       });
   };
   return (
@@ -48,7 +54,7 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
         onClick={() => setIsEdit(!isEdit)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%] bg-white h-fit rounded-xl p-3">
+      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto md:w-[25%] w-[95%] bg-white h-fit rounded-xl p-3">
         <div
           onClick={() => setIsEdit(!isEdit)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"
@@ -60,8 +66,8 @@ const EditClients = ({ isEdit, setIsEdit, clients }) => {
             <Image
               src={clients.image}
               alt="added image"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>

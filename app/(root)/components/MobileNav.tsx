@@ -11,7 +11,7 @@ interface Props {
 }
 const MobileNav = ({ currentPath }: Props) => {
   return (
-    <div className=" hidden fixed md:flex left-0 right-0 m-auto mx-5 bottom-4 py-3 px-2 bg-white shadow-2xl z-50 rounded-2xl ">
+    <div className="  fixed md:hidden flex left-0 right-0 m-auto mx-5 bottom-4 py-3 px-2 bg-white shadow-2xl z-50 rounded-2xl ">
       <div className="flex-1 flex flex-col items-center justify-center">
         <Link href={"/about"}>
           <div className="mb-2 flex items-center justify-center">

@@ -31,10 +31,10 @@ const EditExpert: React.FC<EditExpertProps> = ({
       .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/experts/${id}`)
       .then((res) => {
         setIsLoading(false);
+        setData(res.data.experts);
         setTimeout(() => {
           setIsEdit(false);
-        }, 700);
-        setData(res.data.experts);
+        }, 800);
         toast.success("successfully deleted");
       })
       .catch((err) => {
@@ -58,7 +58,7 @@ const EditExpert: React.FC<EditExpertProps> = ({
         setData(res.data.experts);
         setTimeout(() => {
           setIsEdit(false);
-        }, 1000);
+        }, 800);
         toast.success("successfully updated");
       })
       .catch((err) => {
@@ -72,7 +72,7 @@ const EditExpert: React.FC<EditExpertProps> = ({
         onClick={() => setIsEdit(!isEdit)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%] bg-white h-fit rounded-xl p-3">
+      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto  md:w-[25%] w-[95%] bg-white h-fit rounded-xl p-3">
         <div
           onClick={() => setIsEdit(!isEdit)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"
@@ -80,15 +80,6 @@ const EditExpert: React.FC<EditExpertProps> = ({
           <CloseIcon />
         </div>
         <div className="p-2 border h-[220px] rounded-xl my-2">
-          {/* <div className="w-full h-full">
-            <Image
-              src={expert?.image || ""}
-              alt="added image"
-              width={200}
-              height={200}
-              className="w-full h-full object-cover rounded-xl"
-            />
-          </div> */}
           <ImagePicker
             image={expert?.image}
             setCurrentImage={setCurrentImage}

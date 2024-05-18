@@ -8,11 +8,12 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
-const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
+const AddClinetLogo = ({ isOpoen, setIsOpen, setData }) => {
   const { register, watch } = useForm();
   const [image, setImage] = useState([]);
   const [previewImg, setPreviewImg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   const AddClient = () => {
     setIsLoading(!isLoading);
     const data = new FormData();
@@ -20,15 +21,17 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
     data.append("name", watch().name);
     axios
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/clients`, data)
-      .then(() => {
+      .then((res) => {
+        setData(res.data.clients);
         setIsLoading(false);
-        setIsOpen(!isOpoen);
+        setTimeout(() => {
+          setIsOpen(!isOpoen);
+        }, 800);
         toast.success("successfully added");
       })
       .catch((err) => {
         toast.warning("server is busy try later");
         setIsLoading(false);
-        console.log(err);
       });
   };
   const onImageChange = (event) => {
@@ -43,7 +46,7 @@ const AddClinetLogo = ({ isOpoen, setIsOpen }) => {
         onClick={() => setIsOpen(!isOpoen)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%] bg-white h-fit rounded-xl p-5">
+      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto md:w-[25%] w-[95%] bg-white h-fit rounded-xl p-5">
         <div
           onClick={() => setIsOpen(!isOpoen)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"

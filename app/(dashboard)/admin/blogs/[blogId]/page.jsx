@@ -51,7 +51,6 @@ const Page = ({ params: { blogId } }) => {
         router.back();
       })
       .catch((err) => {
-        console.log(err);
         setIsLoading(false);
         toast.warning("server is busy try later");
       });
@@ -77,7 +76,6 @@ const Page = ({ params: { blogId } }) => {
       .catch((err) => {
         setIsLoading(false);
         toast.warning("server is busy try later");
-        console.log(err);
       });
   };
 
@@ -147,27 +145,6 @@ const Page = ({ params: { blogId } }) => {
       <div className="my-4">
         <RichText content={content} setContent={setContent} />
       </div>
-      {/* 
-      <div className="border mt-[5%] p-5 rounded-xl bg-gray-200">
-        <div className="grid grid-cols-5">
-          <label>meta title :</label>
-          <input
-            type="text"
-            placeholder={blog.metaTitle}
-            {...register("metaTitle")}
-            className="border bg-white col-span-4 p-2"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>meta description :</label>
-          <textarea
-            {...register("metaDescription")}
-            type="text"
-            placeholder={blog.metaDescription}
-            className="border bg-white col-span-4 p-2"
-          />
-        </div>
-      </div> */}
       <MetaData register={register} />
       <div className="my-3">
         <button
@@ -180,7 +157,7 @@ const Page = ({ params: { blogId } }) => {
           onClick={() => updateBlog(blogId)}
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl"
         >
-          Edit
+          Save
         </button>
       </div>
       <ToastContainer

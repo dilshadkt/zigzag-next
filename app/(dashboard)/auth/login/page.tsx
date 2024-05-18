@@ -11,10 +11,8 @@ const Login = () => {
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/verifyLogin`, watch())
       .then((res) => {
         localStorage.setItem("admin", "true");
-        // setIsLogin(false);
       })
       .catch((err) => {
-        // setIsLogin(true);
         console.log(err);
       });
   };

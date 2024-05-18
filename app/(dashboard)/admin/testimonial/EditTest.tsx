@@ -55,8 +55,11 @@ const EditTest = ({ isEdit, setIsEdit, testimonial, setData }: Props) => {
         setIsLoading(false);
         setData(res.data.testimonials);
         setIsEdit(false);
+        setTimeout(() => {
+          toast.success("successfully removed");
+        }, 800);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.success("failed to remove"));
   };
   const updateClients = (id: any) => {
     setIsLoading(!isLoading);
@@ -70,11 +73,13 @@ const EditTest = ({ isEdit, setIsEdit, testimonial, setData }: Props) => {
       .then((res) => {
         setIsLoading(false);
         setData(res.data.testimonials);
-        setIsEdit(false);
+        setTimeout(() => {
+          setIsEdit(false);
+        }, 800);
         toast.success("successfully updated");
       })
       .catch((err) => {
-        console.log(err);
+        toast.success("failed to update");
       });
   };
   return (
@@ -83,7 +88,7 @@ const EditTest = ({ isEdit, setIsEdit, testimonial, setData }: Props) => {
         onClick={() => setIsEdit(!isEdit)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%] md:h-[90%] md:overflow-scroll bg-white h-fit rounded-xl p-3">
+      <div className="fixed top-0 right-0 left-0 bottom-0 m-auto md:w-[35%] w-[95%] md:h-[90%] md:overflow-scroll bg-white h-fit rounded-xl p-3">
         <div
           onClick={() => setIsEdit(!isEdit)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"

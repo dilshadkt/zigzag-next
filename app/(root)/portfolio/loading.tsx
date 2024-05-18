@@ -3,8 +3,8 @@ import React from "react";
 const Loading = () => {
   const boxes = new Array(9).fill("");
   return (
-    <div className="h-[100vh] mx-[17%] sm:mx-5">
-      <div className="grid grid-cols-3 animate-pulse md:grid-cols-2 ">
+    <div className="h-[100vh] max-w-screen-lg mx-auto">
+      <div className="grid md:grid-cols-3 animate-pulse grid-cols-2 ">
         {boxes.map((item, index) => (
           <div
             key={index}

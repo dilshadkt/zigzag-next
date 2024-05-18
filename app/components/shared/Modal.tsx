@@ -8,7 +8,7 @@ const Modal = ({ operation }: { operation?: any }) => {
         className="modal modal-bottom  flex items-center justify-center  "
       >
         <div className="modal-box w-[50%] rounded-lg">
-          <h3 className="font-bold text-lg">Hello!</h3>
+          <h3 className="font-bold text-lg">Alert!</h3>
           <p className="py-4 font-semibold  ">
             The selected file will be deleted, continue ?
           </p>

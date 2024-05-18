@@ -35,12 +35,12 @@ const Navabar = () => {
           </div>
         </div>
       </div>
-      <div className="h-[50px] w-full hidden md:flex p-2  sticky top-[15px] z-50">
+      <div className="h-[50px] w-full md:hidden flex p-2  sticky top-[15px] z-50">
         <details className="dropdown">
           <summary className="m-1 btn">
             <DensityMediumIcon />
           </summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 text-white">
+          <ul className=" text-gray-700 p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 ">
             <li>
               <Link href={"/admin/works"}>Works</Link>
             </li>

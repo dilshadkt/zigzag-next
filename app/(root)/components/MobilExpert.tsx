@@ -30,7 +30,7 @@ const MobilExpert = ({ experts }: Expert) => {
     return () => clearInterval(slider);
   }, [index]);
   return (
-    <div className="hidden md:flex  mt-[10%] relative w-[80vw] m-auto h-[300px] max-w-[800px] text-center  overflow-hidden   ">
+    <div className="flex md:hidden  mt-[10%] relative w-[80vw] m-auto h-[300px] max-w-[800px] text-center  overflow-hidden   ">
       {experts.map((person, personIndex) => {
         const { _id, image, name, role } = person;
         let position = "nextSlide";

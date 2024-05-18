@@ -29,18 +29,18 @@ const Navbar = () => {
       } sticky top-0 z-20    `}
       onMouseLeave={() => setisOpen(0)}
     >
-      <div className="2xl:px-14 px-12  flex justify-between">
+      <div className=" max-w-screen-2xl mx-auto  md:px-12 px-5 flex justify-between">
         <div className="flex-1 h-full">
           <Image src={changeTheme ? changeLogo : logo} alt="logo" width={80} />
         </div>
         <div
-          className={`flex-initial w-[40%] md:hidden  rounded-xl ${
+          className={`flex-initial lg:w-[45%]  md:w-[67%] md:mt-1 hidden md:flex   rounded-xl ${
             changeTheme
               ? `bg-white text-black shadow-2xl px-5 `
               : `text-rose-200 `
           } `}
         >
-          <ul className="flex  items-center h-full font-semibold  justify-around">
+          <ul className="flex  items-center h-full font-semibold w-full  justify-around">
             <Link
               href={"/"}
               className={

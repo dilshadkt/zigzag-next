@@ -54,7 +54,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
       <div
         className={`${
           isEditOpen ? `` : `hidden`
-        } bg-white fixed top-0 right-0 left-0 bottom-0 m-auto w-[30%] md:w-[95%] h-fit  rounded-xl`}
+        } bg-white fixed top-0 right-0 left-0 bottom-0 m-auto md:w-[30%] w-[95%] h-fit  rounded-xl`}
       >
         <div className="p-5">
           <div
@@ -68,14 +68,17 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
               <Image
                 src={dataToEdit.image}
                 alt="edit"
-                width={200}
-                height={200}
+                width={400}
+                height={400}
                 className="w-full h-full object-cover rounded-xl"
               />
             }
           </div>
           <div className="p-2">
-            <form onSubmit={() => editWork(dataToEdit._id)} className="my-2">
+            <form
+              onSubmit={() => editWork(dataToEdit._id)}
+              className="my-2  w-full"
+            >
               <div className="w-full flex flex-col items-center justify-center">
                 <select
                   defaultValue={
@@ -86,7 +89,7 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
                   {...register("type", {
                     required: "you to specify the category",
                   })}
-                  className="bg-white border p-3 rounded-lg w-[250px]"
+                  className="bg-white border p-3 rounded-lg w-full"
                 >
                   <option value="Brand Identity">Brand Identity</option>
                   <option value="Social Media">Social Media</option>
@@ -97,20 +100,20 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
                   {...register("stared", {
                     required: "you have to whether it is stared or not",
                   })}
-                  className="bg-white border p-3 rounded-lg w-[250px] my-[5%]"
+                  className="bg-white border p-3 rounded-lg w-full my-2"
                 >
                   <option value="false">Not stared ✖️</option>
                   <option value="true"> Stared ⭐</option>
                 </select>
-                <div className="flex justify-between w-full">
+                <div className="flex justify-between w-full mt-4">
                   <div
                     onClick={() => removeWorks(dataToEdit._id)}
                     className="px-5 flex items-center justify-center py-3 w-[150px] font-medium border  cursor-pointer hover:bg-blue-400 hover:text-white rounded-xl"
                   >
                     Remove
                   </div>
-                  <button className="px-5 py-3 w-[150px] font-medium bg-red-500 text-white rounded-xl">
-                    Edit
+                  <button className="px-5 py-3 w-[150px] font-medium bg-blue-500 text-white rounded-xl">
+                    Save
                   </button>
                 </div>
               </div>

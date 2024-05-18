@@ -13,13 +13,13 @@ const RecentWork = async () => {
   const latestWork: Latest[] = await response.json();
 
   return (
-    <div className="bg-white px-[12%] pb-[10%] md:pb-[20%] sm:pb-[25%] md:px-6">
+    <div className="bg- max-w-screen-xl mx-auto  mb-40 md:px-6 px-3">
       <h4 className="text-xl font-semibold">Our Recent Works</h4>
       <div className="grid grid-cols-4 my-6  ">
         {latestWork.slice(0, 4).map((item, index) => (
           <div
             key={`${item._id}-${index}`}
-            className="mx-1 sm:h-[80px] lg:h-[180px]  h-[250px] rounded-xl bg-gray-400 overflow-hidden mb-4"
+            className="mx-1 h-[80px] sm:h-[140px]  md:h-[180px] lg:h-[230px]  xl:h-[290px] rounded-xl bg-gray-400 overflow-hidden mb-4"
           >
             <Image
               className="object-cover   w-full h-full hover:scale-105 transition-all duration-700"
@@ -33,7 +33,7 @@ const RecentWork = async () => {
       </div>
       <div>
         <Link href={"/portfolio?type=all"}>
-          <h3 className="text-red-500 font-medium text-center cursor-pointer">
+          <h3 className="text-red-500 font-medium hover:underline text-center cursor-pointer">
             Explore More
           </h3>
         </Link>

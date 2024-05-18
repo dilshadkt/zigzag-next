@@ -18,7 +18,6 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
       })
       .catch((err) => {
         setIsLogin(true);
-        console.log(err);
       });
   };
 

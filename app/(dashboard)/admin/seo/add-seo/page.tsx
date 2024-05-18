@@ -55,7 +55,6 @@ const AddSeo = () => {
       .catch((err) => {
         toast.warning("server is busy try later 🥸");
         setLoader(false);
-        console.log(err);
       });
   };
   return (

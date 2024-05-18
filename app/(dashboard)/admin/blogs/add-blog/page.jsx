@@ -23,7 +23,6 @@ const Addblog = () => {
     },
   });
   const navigator = useRouter();
-  console.log(watch());
 
   ///// preview image 📸📸 /////////////////////////////////////
 
@@ -43,7 +42,7 @@ const Addblog = () => {
       test: content,
       metaData: watch().metaData,
     };
-    console.log(data);
+
     blog.append("blog", JSON.stringify(data));
     blog.append("photos", image);
 
@@ -57,7 +56,6 @@ const Addblog = () => {
       .catch((err) => {
         toast.warning("server is busy try later 🥸");
         setLoader(false);
-        console.log(err);
       });
   };
 

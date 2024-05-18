@@ -24,7 +24,7 @@ const Portfolio = () => {
       {works.length === 0 ? (
         <Loading />
       ) : (
-        <div className="mx-[17%] pb-[10%]  sm:pb-[25%]  md:mx-5 md:pt-6 lg:pb-[15%] grid grid-cols-3 lg:grid-cols-2 md:grid-cols-2 ">
+        <div className=" md:max-w-screen-md px-3 md:px-5   lg:max-w-screen-lg mx-auto   mb-40  grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 ">
           {works.map((item, index) =>
             type === "all" ? (
               <Card img={item.image} key={`${index} -${item.image}`} />

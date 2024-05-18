@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useEffect } from "react";
 import axios from "axios";
 import Shimmer from "../components/Shimmer";
-
+import EditIcon from "@mui/icons-material/Edit";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 interface Data {
   _id: string;
   photos: string;
@@ -34,34 +35,49 @@ const Blog = () => {
       </div>
 
       <div className="p-5 border w-full rounded-xl ">
-        <div className="grid grid-cols-3 md:grid-cols-1">
+        <div className="grid md:grid-cols-3 gap-y-4 grid-cols-1">
           {data.map((item, index) => (
-            <Link key={`${index}`} href={`/admin/blogs/${item._id}`}>
-              <div className="border-gray-300 shadow-lg border-[1px] p-2  rounded-xl flex-1 m-2 cursor-pointer hover:bg-gray-100">
-                <div className="w-full border h-[220px] rounded-xl overflow-hidden">
-                  <Image
-                    src={item.photos}
-                    width={400}
-                    height={400}
-                    alt="blog"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-center text-primary font-medium my-2">
-                    {`${item?.heading?.slice(0, 50)} ...`}
-                  </h3>
-                </div>
-                <div className="my-[3%]">
-                  <p className="text-justify">
-                    {`${item?.description?.slice(0, 150)}...`}
-                  </p>
-                </div>
-                <div className="flex justify-center my-3">
-                  <span className="underline text-red-500">Readmore</span>
-                </div>
+            <div
+              key={`${index}`}
+              className="border-gray-300 group relative shadow-lg h-full border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
+            >
+              <div className="w-full border h-[220px] rounded-xl overflow-hidden">
+                <Image
+                  src={item.photos}
+                  width={400}
+                  height={400}
+                  alt="blog"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </Link>
+              <div>
+                <h3 className="text-center text-primary font-medium my-2">
+                  {`${item?.heading?.slice(0, 50)} ...`}
+                </h3>
+              </div>
+              <div className="my-[3%]">
+                <p className="text-justify">
+                  {`${item?.description?.slice(0, 150)}...`}
+                </p>
+              </div>
+              <div className="flex justify-center my-3">
+                <span className="underline text-red-500 cursor-pointer">
+                  Readmore
+                </span>
+              </div>
+              <div className="absolute text-gray-600 p-5 flex items-center justify-between h-4  opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-b-lg  bottom-0 left-0 right-0 mx-auto">
+                <Link href={`/admin/blogs/${item._id}`}>
+                  <div className="hover:text-red-400 cursor-pointer">
+                    <EditIcon />
+                  </div>
+                </Link>
+                <Link href={`/blogs/${item._id}`} target="_blank">
+                  <div className="hover:text-red-400 cursor-pointer">
+                    <RemoveRedEyeIcon />
+                  </div>
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </div>

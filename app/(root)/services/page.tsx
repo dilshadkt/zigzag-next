@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 const Service = () => {
   return (
-    <div className="bg-white lg:pb-[10%]">
+    <div className="bg-white lg:pb-36">
       <Services />
     </div>
   );

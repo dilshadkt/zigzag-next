@@ -32,7 +32,7 @@ const Client = () => {
             <AddIcon />
           </div>
         </div>
-        <div className="p-5 border rounded-xl grid grid-cols-4 md:grid-cols-2">
+        <div className="p-5 border rounded-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {data.map((item, index) => (
             <div
               onClick={() => {
@@ -61,9 +61,20 @@ const Client = () => {
         </div>
       </div>
 
-      {isOpen && <AddClinetLogo isOpoen={isOpen} setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <AddClinetLogo
+          isOpoen={isOpen}
+          setIsOpen={setIsOpen}
+          setData={setData}
+        />
+      )}
       {isEdit && (
-        <EditClients clients={client} isEdit={isEdit} setIsEdit={setIsEdit} />
+        <EditClients
+          clients={client}
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          setData={setData}
+        />
       )}
     </>
   );

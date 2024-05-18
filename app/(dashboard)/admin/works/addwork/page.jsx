@@ -37,7 +37,6 @@ const Page = () => {
       .catch((err) => {
         toast.warning("server is busy , try later");
         setLoading(false);
-        console.log(err);
       });
   };
   const onImageChange = (event) => {
@@ -48,9 +47,9 @@ const Page = () => {
   };
   return (
     <div>
-      <div className="flex items-center justify-start my-[2%] md:hidden">
+      <div className="md:flex  items-center justify-start my-[2%] hidden">
         <Link href={"/admin/works"}>
-          <div className="cursor-pointer hover:text-red-500">
+          <div className="cursor-pointer hover:text-red-500 text-gray-500">
             <ArrowBackIcon />
           </div>
         </Link>
@@ -130,7 +129,7 @@ const Page = () => {
               <p className="text-red-500 font-medium ">
                 {errors.star?.message}
               </p>
-              <button className="px-5 py-3 w-[250px] font-medium bg-red-500 text-white rounded-xl">
+              <button className="px-5 py-3 w-[250px] font-medium bg-blue-500 text-white rounded-xl">
                 ADD
               </button>
             </div>

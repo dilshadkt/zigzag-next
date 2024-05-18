@@ -5,6 +5,7 @@ import React from "react";
 import LatesBlog from "../blogs/[blog]/LatesBlog";
 import { Metadata } from "next";
 import { nanoid } from "nanoid";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: { path: string };
@@ -24,6 +25,9 @@ interface Blog {
 
 const page = async ({ params: { path } }: Props) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/${path}`);
+  if (res.status === 404) {
+    return notFound();
+  }
   const Blog: Blog = await res.json();
   return (
     <>
@@ -66,6 +70,11 @@ export async function generateMetadata({
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/${path}`, {
     next: { revalidate: 2 },
   });
+  if (res.status === 404) {
+    return {
+      title: "page not found",
+    };
+  }
   const blogs: Blog = await res.json();
 
   return {

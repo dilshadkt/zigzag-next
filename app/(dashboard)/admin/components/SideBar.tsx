@@ -14,7 +14,7 @@ const SideBar = () => {
   const currentPath = path.split("/")[(path.split("/"), length)];
 
   return (
-    <div className="my-[100px] text-gray-800 ">
+    <div className="my-[100px] text-gray-800  w-full ">
       <ul>
         <Link href={"/admin"}>
           <li

@@ -57,3 +57,9 @@ declare interface Data {
   name: string;
   role: string;
 }
+
+declare interface ServiceParams {
+  params: {
+    service: string;
+  };
+}

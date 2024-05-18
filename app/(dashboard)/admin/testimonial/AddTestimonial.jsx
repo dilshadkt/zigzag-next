@@ -29,13 +29,16 @@ const AddTestimonial = ({ isOpoen, setIsOpen, setData }) => {
       .post(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial`, data)
       .then((res) => {
         setData(res.data.testimonials);
-        setIsOpen(!isOpoen);
+        setTimeout(() => {
+          setIsOpen(!isOpoen);
+        }, 800);
         setIsLoading(false);
         toast.success("successfully added");
       })
       .catch((err) => {
         toast.warning(err);
         setIsLoading(false);
+        toast.success("failed upload try later");
       });
   };
   const onImageChange = (event) => {
@@ -44,14 +47,14 @@ const AddTestimonial = ({ isOpoen, setIsOpen, setData }) => {
       setPreviewImg(URL.createObjectURL(event.target.files[0]));
     }
   };
-  console.log(watch());
+
   return (
     <>
       <div
         onClick={() => setIsOpen(!isOpoen)}
         className={` fixed top-0 right-0 left-0 bottom-0 m-auto bg-black opacity-50`}
       ></div>
-      <div className=" fixed top-0 right-0 left-0 bottom-0 m-auto w-[25%] md:w-[95%]   bg-white h-fit rounded-xl p-5">
+      <div className=" fixed top-0 right-0 left-0 bottom-0 m-auto md:w-[35%] w-[95%]   bg-white h-fit rounded-xl p-5">
         <div
           onClick={() => setIsOpen(!isOpoen)}
           className="opacity-50 p-1 cursor-pointer hover:bg-gray-300 rounded-full w-fit"
@@ -112,7 +115,11 @@ const AddTestimonial = ({ isOpoen, setIsOpen, setData }) => {
             className="border w-full p-3 rounded-xl my-2"
           />
           <div className="border p-2  rounded-xl flex justify-between">
-            <input type="color" {...register("color")} />
+            <input
+              type="color"
+              {...register("color")}
+              defaultValue={"#dfd7d7"}
+            />
             <h2>{watch().color}</h2>
           </div>
         </div>

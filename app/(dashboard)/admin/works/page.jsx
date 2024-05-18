@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import EditBox from "@/app/(dashboard)/admin/components/EditBox";
 import Shimmer from "../components/Shimmer";
+import Card from "@/app/(root)/components/Card";
 
 const Work = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -35,7 +36,7 @@ const Work = () => {
           </Link>
         </div>
 
-        <div className="p-5 border rounded-lg grid grid-cols-4 md:grid-cols-2">
+        <div className="p-5 border rounded-lg grid gap-0 md:grid-cols-3">
           {data.map((item, index) => (
             <div
               key={index}
@@ -43,15 +44,8 @@ const Work = () => {
                 setIsEditOpen(!isEditOpen);
                 setDataToEdit(item);
               }}
-              className="h-[280px] md:h-[150px] flex items-center justify-center   m-2  cursor-pointer overflow-hidden rounded-lg"
             >
-              <Image
-                width={300}
-                height={300}
-                src={item.image}
-                alt=""
-                className="hover:scale-105 transition-all duration-700 w-full h-full object-cover  "
-              />
+              <Card img={item.image} />
             </div>
           ))}
         </div>

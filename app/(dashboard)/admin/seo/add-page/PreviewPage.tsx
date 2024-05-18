@@ -10,7 +10,6 @@ const PreviewPage = ({
   setIsOpen: React.Dispatch<boolean>;
   data: any;
 }) => {
-  console.log(data);
   return (
     <>
       <div

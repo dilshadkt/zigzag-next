@@ -15,6 +15,7 @@ import TextEditor from "../../components/shared/TextEditor";
 import { metaData, page } from "@/constant";
 import Modal from "@/app/components/shared/Modal";
 import Loading from "../../components/Loading";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
         setBlog(res.data);
 
         const { page, ...metaData } = res.data;
-        console.log(res.data);
+
         setValue("page", page);
         setValue("metaData", metaData);
       })
@@ -111,6 +112,9 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
         <div onClick={() => setIsPreviewOpen(true)}>
           <RemoveRedEyeIcon className="cursor-pointer hover:text-blue-500" />
         </div>
+        <div onClick={() => updateBlog(blog._id)} className="ml-3">
+          <CloudUploadIcon className="cursor-pointer hover:text-blue-500" />
+        </div>
         <div onClick={() => ShowDeleteAlert()} title="preview">
           <DeleteIcon className="cursor-pointer hover:text-red-500 ml-2" />
         </div>
@@ -167,12 +171,12 @@ const ContentPage: React.FC<ContentPageProps> = ({ params: { path } }) => {
           ADD NEW FIELD
         </button>
 
-        <button
+        {/* <button
           onClick={() => updateBlog(blog._id)}
           className="w-full p-3 bg-red-500 hover:bg-red-600 flex-center rounded-lg mt-2  text-white font-semibold  "
         >
           Update
-        </button>
+        </button> */}
       </div>
       <div className="border-t  my-2 p-5">
         <MetaData register={register} />

@@ -81,52 +81,56 @@ const Testimonial = ({ data }) => {
     ],
   };
   return (
-    <div className="bg-white pb-[10%]">
-      <div className="text-center lg:mb-10 md:mt-0 mb-4 ">
-        <h4 className="text-3xl sm:text-2xl text-secondary font-medium">
-          Testimonial
-        </h4>
-      </div>
-      <div className="px-[12%] mb-0 ">
-        <Slider {...settings}>
-          {data.map((item) => (
-            <div
-              key={item._id}
-              className={` cursor-pointer mt-[25%] md:mt-[15%]    relative  mx-2  mb-[40%]`}
-            >
+    <div className="bg-white  pb-5 pt-10 md:pt-0 md:pb-24 overflow-hidden  ">
+      <div className="max-w-screen-xl mx-auto ">
+        <div className="text-center lg:mb-10 md:mt-0 mb-4 ">
+          <h4 className="md:text-3xl text-2xl  text-secondary font-medium">
+            Testimonial
+          </h4>
+        </div>
+        <div className=" mb-0 mx-[5px] md:mx-5  ">
+          <Slider {...settings}>
+            {data.map((item) => (
               <div
-                style={{ background: `${item.color}` }}
-                className="rounded-xl flex flex-col shadow-xl justify-between min-h-[280px] p-5 border mx-[2.5%] "
+                key={item._id}
+                className={` cursor-pointer mt-[25%] md:mt-[10%]    relative  mx-2  mb-[40%]`}
               >
-                <div>
-                  <div className="text-end ">
-                    <h4 className="text-lg font-semibold">{item?.name}</h4>
+                <div
+                  style={{ background: `${item.color}` }}
+                  className="rounded-xl flex flex-col shadow-xl justify-between min-h-[280px] p-5 border  mx-1"
+                >
+                  <div>
+                    <div className="text-end ">
+                      <h4 className="text-lg font-semibold">{item?.name}</h4>
+                    </div>
+                    <div className="mt-6 font-medium text-justify">
+                      {item?.description}
+                    </div>
                   </div>
-                  <div className="mt-6 font-medium text-justify">
-                    {item?.description}
-                  </div>
-                </div>
 
-                <div className="avatar absolute -top-[7%]">
-                  <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <Image
-                      src={item?.photos}
-                      alt="testimonial logo"
-                      width={200}
-                      height={200}
-                      quality={50}
-                    />
+                  <div className="avatar absolute -top-[7%]">
+                    <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                      <Image
+                        src={item?.photos}
+                        alt="testimonial logo"
+                        width={200}
+                        height={200}
+                        quality={50}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className=" flex flex-col my-2 items-end justify-end">
-                  <h3 className="text-lg font-semibold">{item?.designation}</h3>
-                  <h4>{item?.role}</h4>
+                  <div className=" flex flex-col my-2 items-end justify-end">
+                    <h3 className="text-lg font-semibold">
+                      {item?.designation}
+                    </h3>
+                    <h4 className="font-medium text-gray-600">{item?.role}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );

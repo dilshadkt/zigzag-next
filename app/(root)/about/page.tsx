@@ -12,23 +12,29 @@ import OurExpert from "../components/OurExpert";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
-    <div>
-      <div className="bg-white px-[12%] sm:px-5 md:px-6 py-[2%] relative overflow-hidden z-0">
+    <div className="bg-white relative">
+      <div className="absolute -top-28 right-0 w-full   left-2/4 opacity-50 ">
+        <Image
+          src={aboutbg}
+          alt={"best digital marketing agency in malappuram"}
+        />
+      </div>
+      <div className="max-w-screen-xl mx-auto px-3 md:px-5 py-[2%] relative overflow-hidden z-0">
         <div>
           <div className="flex justify-center">
             <h1 className="text-3xl text-gray-500">About Us</h1>
           </div>
-          <div className="flex my-9 md:flex-col">
+          <div className="flex my-9 flex-col md:flex-row">
             <div className="flex-1 flex md:justify-center md:mb-[8%] items-center">
               <Image
                 src={aboutus}
-                className="sm:w-[50%] md:w-[40%] h-fit"
+                className="md:w-[50%] w-[40%] h-fit"
                 alt={
                   "Digital Marketing Company in Malappuram providing result-oriented marketing solutions for brands since 2020."
                 }
               />
             </div>
-            <div className="text-[22px] flex-1  md:text-lg   flex flex-col justify-center text-justify">
+            <div className="md:text-[22px] flex-1  text-lg   flex flex-col justify-center text-justify leading-[35px]">
               <div>
                 <p className="">
                   The story that leads us on the extraordinary journey of
@@ -64,15 +70,9 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="absolute -top-1/4 right-0 w-full  -z-[2] left-2/4 opacity-50 ">
-          <Image
-            src={aboutbg}
-            alt={"best digital marketing agency in malappuram"}
-          />
-        </div>
       </div>
       <Vision />
-      <div className="bg-white py-[3%]">
+      <div>
         <Whychoose />
       </div>
       <OurExpert />
