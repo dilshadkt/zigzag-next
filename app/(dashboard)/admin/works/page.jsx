@@ -7,16 +7,21 @@ import axios from "axios";
 import EditBox from "@/app/(dashboard)/admin/components/EditBox";
 import Shimmer from "../components/Shimmer";
 import Card from "@/app/(root)/components/Card";
+import { categories } from "@/constant";
 
 const Work = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [data, setData] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(false);
+  const [category, setCategory] = useState(categories);
 
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/work`)
-      .then((res) => setData(res.data))
+      .then((res) => {
+        setData(res.data.allWorks);
+        setCategory(res.data.category);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -55,6 +60,8 @@ const Work = () => {
           isEditOpen={isEditOpen}
           setIsEditOpen={setIsEditOpen}
           dataToEdit={dataToEdit}
+          categories={category}
+          setData={setData}
         />
       )}
     </>

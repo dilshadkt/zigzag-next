@@ -7,9 +7,14 @@ import { useForm } from "react-hook-form";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { categories } from "@/constant";
 import { nanoid } from "nanoid";
-const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
+const EditBox = ({
+  setIsEditOpen,
+  isEditOpen,
+  dataToEdit,
+  categories,
+  setData,
+}) => {
   const [isOpenNewField, setIsOpenNewField] = useState(false);
   const [loading, setLoading] = useState(false);
   const { register, watch, setValue } = useForm({
@@ -24,15 +29,17 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
     setLoading(!loading);
     axios
       .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/work/${id}`)
-      .then(() => {
+      .then((res) => {
         setLoading(false);
-        setIsEditOpen(!isEditOpen);
-        location.reload();
+        setTimeout(() => {
+          setIsEditOpen(!isEditOpen);
+        }, 800);
+        setData(res.data.works);
         toast.success("successfully  removed");
       })
       .catch((err) => {
         setLoading(false);
-        toast.warning(err);
+        toast.warning("failed to remove");
       });
   };
 
@@ -44,15 +51,17 @@ const EditBox = ({ setIsEditOpen, isEditOpen, dataToEdit }) => {
     setLoading(!loading);
     axios
       .patch(`${process.env.NEXT_PUBLIC_BASE_URL}/work/${id}`, watch())
-      .then(() => {
-        setIsEditOpen(!isEditOpen);
-        location.reload();
+      .then((res) => {
+        setTimeout(() => {
+          setIsEditOpen(!isEditOpen);
+        }, 800);
+        setData(res.data.works);
         setLoading(false);
         toast.success("successfully updated");
       })
       .catch((err) => {
         setLoading(false);
-        toast.warning(err);
+        toast.warning("failed to update");
       });
   };
   const handleSelectChange = (event) => {

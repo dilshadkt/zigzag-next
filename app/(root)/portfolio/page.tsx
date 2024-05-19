@@ -16,7 +16,7 @@ const Portfolio = () => {
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/work`)
       .then((res) => res.json())
-      .then((data) => setWorks(data))
+      .then((data) => setWorks(data.allWorks))
       .catch((err) => console.log(err));
   }, []);
   return (

@@ -91,24 +91,6 @@ const Addblog = () => {
         </div>
       </div>
       <RichText content={content} setContent={setContent} />
-      {/* <div className="border my-3 p-5 rounded-xl bg-gray-200">
-        <div className="grid grid-cols-5">
-          <label>meta title :</label>
-          <input
-            type="text"
-            {...register("metaTitle")}
-            className="bg-white border col-span-3 p-2"
-          />
-        </div>
-        <div className="grid grid-cols-5 my-2">
-          <label>meta description :</label>
-          <textarea
-            {...register("metaDescription")}
-            type="text"
-            className="bg-white border col-span-3 p-2"
-          />
-        </div>
-      </div> */}
       <MetaData register={register} />
       <div className="my-3">
         <button

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import Link from "next/link";
@@ -10,17 +10,30 @@ import { useRouter } from "next/navigation";
 import Loading from "@/app/(dashboard)/admin/components/Loading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { categories } from "@/constant";
+import { nanoid } from "nanoid";
 const Page = () => {
+  const [category, setCategory] = useState(categories);
+
   const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
+    setValue,
   } = useForm();
   const [image, setImage] = useState([]);
   const [loading, setLoading] = useState(false);
   const [previewImg, setPreviewImg] = useState(null);
+  const [isOpenNewCategory, setIsOpenNewCategory] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/work`)
+      .then((res) => setCategory(res?.data?.category));
+  }, []);
+
   const addWorks = () => {
     setLoading(!loading);
     const datas = new FormData();
@@ -43,6 +56,14 @@ const Page = () => {
     if (event.target.files && event.target.files[0]) {
       setImage(event.target.files[0]);
       setPreviewImg(URL.createObjectURL(event.target.files[0]));
+    }
+  };
+
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    if (value === "costom") {
+      setIsOpenNewCategory(true);
+      setValue("category", null);
     }
   };
   return (
@@ -95,25 +116,38 @@ const Page = () => {
               {errors.photos?.message}
             </p>
             <div className="w-full flex flex-col items-center justify-center">
-              <select
-                {...register("category", {
-                  required: "you to specify the category",
-                })}
-                className="border bg-white p-3 rounded-lg w-[250px]"
-              >
-                <option
-                  value="Brand Identity
-"
+              {!isOpenNewCategory && (
+                <select
+                  {...register("category", {
+                    required: "must  specify the category",
+                  })}
+                  onChange={handleSelectChange}
+                  className="border bg-white p-3 rounded-lg w-[250px]"
                 >
-                  Brand Identity
-                </option>
-                <option
-                  value="Social Media
-"
-                >
-                  Social Media
-                </option>
-              </select>
+                  <option selected disabled value={"default"}>
+                    select category
+                  </option>
+                  {category.map((item) => (
+                    <option key={nanoid()} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                  <option value={"costom"}>Add new category</option>
+                </select>
+              )}
+              {isOpenNewCategory && (
+                <>
+                  <label className="text-sm font-semibold w-full my-2 pl-1 text-gray-700">
+                    Add new category :
+                  </label>
+                  <input
+                    {...register("category")}
+                    placeholder="Add new category"
+                    className="border bg-white p-3 rounded-lg w-[250px]"
+                  />
+                </>
+              )}
+
               <p className="text-red-500 font-medium">
                 {errors.category?.message}
               </p>

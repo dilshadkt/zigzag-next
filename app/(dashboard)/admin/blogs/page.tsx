@@ -7,21 +7,49 @@ import { useEffect } from "react";
 import axios from "axios";
 import Shimmer from "../components/Shimmer";
 import EditIcon from "@mui/icons-material/Edit";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import "react-toastify/dist/ReactToastify.css";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { toast, ToastContainer } from "react-toastify";
 interface Data {
   _id: string;
   photos: string;
   heading: string;
   description: String;
+  metaTitle: String;
+  metaDescription: String;
+  metaKeyWord: [String];
+  ogDescription: String;
+  ogTitle: String;
 }
 const Blog = () => {
   const [data, setData] = useState<Data[]>([]);
+  const [blog, setBlog] = useState<Data[]>([]);
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/blogs`)
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setData(res.data.data);
+        setBlog(res.data.blog);
+      })
+      .catch((err) => toast.warning("failed to fetch blogs"));
   }, []);
+  const DublicateBlog = (index: number) => {
+    const dataToDublicate = blog[index];
+    const formData = new FormData();
+    formData.append("blog", JSON.stringify(dataToDublicate));
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/blogs?type=dublicate`,
+        formData
+      )
+      .then((res) => {
+        setData(res.data.data);
+        setBlog(res.data.blogs);
+        toast.success("successfully added");
+      })
+      .catch((err) => toast.warning("failed to dublicate"));
+  };
   return data.length === 0 ? (
     <Shimmer />
   ) : (
@@ -35,11 +63,11 @@ const Blog = () => {
       </div>
 
       <div className="p-5 border w-full rounded-xl ">
-        <div className="grid md:grid-cols-3 gap-y-4 grid-cols-1">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2   gap-y-4 grid-cols-1">
           {data.map((item, index) => (
             <div
               key={`${index}`}
-              className="border-gray-300 group relative shadow-lg h-full border-[1px] p-2  rounded-xl flex-1 m-2  hover:bg-gray-100"
+              className="border-gray-300 group relative shadow-lg h-full border-[1px] p-2  rounded-xl flex-1 m-2 pb-16 lg:pb-10 md:pb-14   hover:bg-gray-100"
             >
               <div className="w-full border h-[220px] rounded-xl overflow-hidden">
                 <Image
@@ -60,26 +88,54 @@ const Blog = () => {
                   {`${item?.description?.slice(0, 150)}...`}
                 </p>
               </div>
-              <div className="flex justify-center my-3">
-                <span className="underline text-red-500 cursor-pointer">
-                  Readmore
-                </span>
-              </div>
-              <div className="absolute text-gray-600 p-5 flex items-center justify-between h-4  opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-b-lg  bottom-0 left-0 right-0 mx-auto">
-                <Link href={`/admin/blogs/${item._id}`}>
-                  <div className="hover:text-red-400 cursor-pointer">
-                    <EditIcon />
-                  </div>
-                </Link>
-                <Link href={`/blogs/${item._id}`} target="_blank">
-                  <div className="hover:text-red-400 cursor-pointer">
-                    <RemoveRedEyeIcon />
-                  </div>
-                </Link>
+
+              <div className=" text-gray-600  absolute bottom-2 left-0 right-0 mx-auto justify-center flex items-center   ">
+                <ul className="menu menu-horizontal bg-base-200 rounded-box mt-6">
+                  <li>
+                    <div
+                      onClick={() => DublicateBlog(index)}
+                      className="tooltip"
+                      data-tip="Dublicate"
+                    >
+                      <ContentCopyIcon className="opacity-60 hover:opacity-90" />
+                    </div>
+                  </li>
+                  <li>
+                    <Link
+                      href={`/blogs/${item._id}`}
+                      target="_blank"
+                      className="tooltip"
+                      data-tip="Preview"
+                    >
+                      <VisibilityIcon className="opacity-60 hover:opacity-90" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={`/admin/blogs/${item._id}`}
+                      className="tooltip"
+                      data-tip="Edit"
+                    >
+                      <EditIcon className="opacity-60 hover:opacity-90" />
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
           ))}
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       </div>
     </div>
   );

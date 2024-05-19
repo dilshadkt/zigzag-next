@@ -5,6 +5,7 @@ import Corperate3 from "@/public/services/corperate/Brand Strategy.jpg";
 import Corperate4 from "@/public/services/corperate/Corporate Branding.jpg";
 import Corperate5 from "@/public/services/corperate/Online Presence.jpg";
 import Corperate6 from "@/public/services/corperate/Brand Messaging.jpg";
+
 import webdev from "@/public/services/webdev/Content Integration.jpg";
 import webdev1 from "@/public/services/webdev/Design and Development.jpg";
 import webdev2 from "@/public/services/webdev/Discovery and Planning.jpg";
@@ -12,6 +13,7 @@ import webdev3 from "@/public/services/webdev/Launch and Maintenance.jpg";
 import webdev4 from "@/public/services/webdev/Search Engine Optimization (SEO) Integration.jpg";
 import webdev5 from "@/public/services/webdev/Testing and Quality Assurance.jpg";
 import webdev6 from "@/public/services/webdev/Website Development.jpg";
+
 import social1 from "@/public/services/social/Adaptation.jpg";
 import social2 from "@/public/services/social/Community Engagement.jpg";
 import social3 from "@/public/services/social/Compelling Content Creation.jpg";
@@ -19,12 +21,14 @@ import social4 from "@/public/services/social/Performance Analytics.jpg";
 import social5 from "@/public/services/social/Social Media Marketing.jpg";
 import social6 from "@/public/services/social/Targeted Advertising.jpg";
 import social from "@/public/services/social/Strategy Planning.jpg";
+
 import seo6 from "@/public/services/seo/Comprehensive Website Audit.jpg";
 import seo1 from "@/public/services/seo/High-Quality Content Creation.jpg";
 import seo2 from "@/public/services/seo/Keyword Research and Strategy.jpeg";
 import seo3 from "@/public/services/seo/Link Building.jpg";
 import seo4 from "@/public/services/seo/On-Page Optimization.jpg";
 import seo5 from "@/public/services/seo/Performance Tracking and Analytics.jpg";
+
 import performance1 from "@/public/services/performance/Continuous Optimization.jpg";
 import performance from "@/public/services/performance/A,B Testing.jpg";
 import performance2 from "@/public/services/performance/Conversion-Oriented Design.jpg";
@@ -32,14 +36,23 @@ import performance3 from "@/public/services/performance/Data-Driven Strategy.jpg
 import performance4 from "@/public/services/performance/Multichannel Integration.jpg";
 import performance5 from "@/public/services/performance/Performance Marketing Service.jpg";
 import performance6 from "@/public/services/performance/Targeted Campaigns.jpg";
+
 import media1 from "@/public/services/media/Creative Conceptualization.jpg";
 import media from "@/public/services/media/Diverse Content Formats.jpg";
-
 import media2 from "@/public/services/media/Final Delivery.jpg";
 import media3 from "@/public/services/media/High-Quality Production.jpg";
 import media4 from "@/public/services/media/Media Production Services.jpg";
 import media5 from "@/public/services/media/Review and Feedback.jpg";
 import media6 from "@/public/services/media/Storytelling.jpeg";
+
+import HomeIcon from "@mui/icons-material/Home";
+import MovieFilterIcon from "@mui/icons-material/MovieFilter";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import NoteAddIcon from "@mui/icons-material/NoteAdd";
+import GroupsIcon from "@mui/icons-material/Groups";
+import AnimationIcon from "@mui/icons-material/Animation";
+import StyleIcon from "@mui/icons-material/Style";
+
 export const metaData = {
   metaTitle: "meta title",
   metaDescription: "meta description",
@@ -499,3 +512,41 @@ export const services: any = {
 };
 
 export const categories = ["Brand Identity", "Social Media"];
+
+export const sideBar = [
+  {
+    title: "Home",
+    router: "/admin",
+    icon: HomeIcon,
+  },
+  {
+    title: "Works",
+    router: "/admin/works",
+    icon: MovieFilterIcon,
+  },
+  {
+    title: "Blogs",
+    router: "/admin/blogs",
+    icon: LibraryBooksIcon,
+  },
+  {
+    title: "Pages",
+    router: "/admin/seo",
+    icon: NoteAddIcon,
+  },
+  {
+    title: "Experts",
+    router: "/admin/experts",
+    icon: GroupsIcon,
+  },
+  {
+    title: "Client",
+    router: "/admin/client",
+    icon: AnimationIcon,
+  },
+  {
+    title: "Testimonials",
+    router: "/admin/testimonial",
+    icon: StyleIcon,
+  },
+];
