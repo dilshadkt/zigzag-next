@@ -63,3 +63,9 @@ declare interface ServiceParams {
     service: string;
   };
 }
+
+declare interface Offer {
+  image: string;
+  link: string;
+  status: boolean;
+}
