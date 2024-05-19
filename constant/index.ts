@@ -52,6 +52,7 @@ import NoteAddIcon from "@mui/icons-material/NoteAdd";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AnimationIcon from "@mui/icons-material/Animation";
 import StyleIcon from "@mui/icons-material/Style";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 
 export const metaData = {
   metaTitle: "meta title",
@@ -548,5 +549,10 @@ export const sideBar = [
     title: "Testimonials",
     router: "/admin/testimonial",
     icon: StyleIcon,
+  },
+  {
+    title: "Offer",
+    router: "/admin/offer",
+    icon: LocalOfferIcon,
   },
 ];

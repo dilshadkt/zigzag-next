@@ -16,7 +16,7 @@ const Blogs = async () => {
       next: { revalidate: 10 },
     });
     const blogs = await response.json();
-    return blogs;
+    return blogs.data;
   };
   const blogs: Blog[] = await allBlogData();
 
@@ -34,7 +34,7 @@ const Blogs = async () => {
           </h4>
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1">
-          {blogs.map((item) => (
+          {blogs?.map((item) => (
             <BlogCard
               key={`${item._id}-${item.heading}`}
               id={item._id}
