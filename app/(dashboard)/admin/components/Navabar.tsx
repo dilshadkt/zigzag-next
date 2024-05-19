@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import logo from "@/public/digital-market-agency-in-malappuram.png";
 import PersonIcon from "@mui/icons-material/Person";
-
+import Cookies from "js-cookie";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -11,8 +11,8 @@ const Navabar = () => {
   const router = useRouter();
   const Logout = () => {
     if (typeof window !== "undefined") {
-      localStorage.clear();
-      router.push("/");
+      Cookies.remove("token");
+      router.replace("/auth/login");
     }
   };
   return (
