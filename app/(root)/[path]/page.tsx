@@ -6,6 +6,7 @@ import LatesBlog from "../blogs/[blog]/LatesBlog";
 import { Metadata } from "next";
 import { nanoid } from "nanoid";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   params: { path: string };
@@ -25,14 +26,36 @@ interface Blog {
 
 const page = async ({ params: { path } }: Props) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/seo/${path}`);
+  const offer = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/offer`);
   if (res.status === 404) {
     return notFound();
   }
+  const offers: { offers: Offer[] } = await offer.json();
+
   const Blog: Blog = await res.json();
   return (
     <>
       <div className="bg-white overflow-hidden px-[10%] flex  md:px-4  pb-[4%]">
-        <div className="flex-initial md:hidden lg:flex bg-red-300"></div>
+        {offers.offers.length !== 0 && (
+          <div className="flex-initial w-[20%] mr-3 mt-3 md:hidden lg:block ">
+            {offers?.offers.slice(0, 2).map((offer) => (
+              <Link href={offer.link}>
+                <div
+                  key={offer._id}
+                  className="mb-5 bg-blue-400 h-[350px] rounded-md overflow-hidden"
+                >
+                  <Image
+                    src={offer.image}
+                    alt="offer banner"
+                    width={250}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
         <div className="flex-1 bg-white   my-4  overflow-scroll max-w-screen-xl mx-auto">
           {Blog.page?.map((item: any) => (
             <div key={nanoid()} className="mb-4">

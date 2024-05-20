@@ -42,17 +42,31 @@ const Offer = () => {
           <AddIcon />
         </div>
       </nav>
-      <input {...register("text")} />
-      <section className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 w-full gap-3">
-        {offers?.map((item) => (
-          <Card
-            key={item._id}
-            offer={item}
-            offers={offers}
-            setOffers={setOffers}
-          />
-        ))}
-      </section>
+      {offers?.length !== 0 ? (
+        <section className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 w-full gap-3">
+          {offers?.map((item) => (
+            <Card
+              key={item._id}
+              offer={item}
+              offers={offers}
+              setOffers={setOffers}
+            />
+          ))}
+        </section>
+      ) : (
+        <div className="w-full h-[200px] bg-gray-300 rounded-lg flex items-center justify-center">
+          <div
+            onClick={() => setIsModalOpen(true)}
+            className="flex cursor-pointer group"
+          >
+            <LocalOfferIcon className="text-blue-500 group-hover:text-gray-800" />
+            <p className="mx-2 text-lg text-gray-600 group-hover:text-gray-800 font-semibold">
+              Add new offers
+            </p>
+          </div>
+        </div>
+      )}
+
       {isModalOpen && (
         <Modal setOffers={setOffers} setIsModalOpen={setIsModalOpen} />
       )}

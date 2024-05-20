@@ -59,7 +59,7 @@ const Modal = ({
         onClick={() => setIsModalOpen(false)}
         className="fixed top-0 left-0 right-0 bottom-0 m-auto bg-black  opacity-50"
       ></div>
-      <div className="fixed top-0 left-0 right-0 bottom-0 m-auto w-[30%] h-[450px] flex flex-col item-center bg-white rounded-lg">
+      <div className="fixed top-0 left-0 right-0 bottom-0 m-auto w-[30%] min-h-[450px] h-fit flex flex-col item-center bg-white rounded-lg">
         <div className="w-full  p-3  rounded-lg h-[300px]">
           <ImagePicker setCurrentImage={setCurrentImage} />
         </div>
