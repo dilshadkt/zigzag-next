@@ -28,7 +28,7 @@ const EditTool = ({
         </li>
         <li>
           <Link
-            href={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${visbility}`}
+            href={`/${visbility}`}
             target="_blank"
             className="tooltip"
             data-tip="Preview"
