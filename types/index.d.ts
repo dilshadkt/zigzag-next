@@ -68,4 +68,10 @@ declare interface Offer {
   image: string;
   link: string;
   status: boolean;
+  _id: string;
+}
+declare interface OfferProps {
+  offer: Offer;
+  setOffers: React.Dispatch<Offer[]>;
+  offers: Offer[];
 }

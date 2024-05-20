@@ -9,6 +9,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditTool from "../components/shared/EditTool";
 
 interface Content {
   page: any;
@@ -93,38 +94,12 @@ const SeoPage = () => {
                       {item.path}
                     </span>
                   </div>
-                  <div className="flex justify-center w-full">
-                    <ul className="menu menu-horizontal bg-base-200 rounded-box mt-6">
-                      <li>
-                        <div
-                          onClick={() => DublicateBlog(index)}
-                          className="tooltip"
-                          data-tip="Dublicate"
-                        >
-                          <ContentCopyIcon className="opacity-60 hover:opacity-90" />
-                        </div>
-                      </li>
-                      <li>
-                        <Link
-                          href={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${item.path}`}
-                          target="_blank"
-                          className="tooltip"
-                          data-tip="Preview"
-                        >
-                          <VisibilityIcon className="opacity-60 hover:opacity-90" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href={`/admin/seo/${item.path}`}
-                          className="tooltip"
-                          data-tip="Edit"
-                        >
-                          <EditIcon className="opacity-60 hover:opacity-90" />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
+                  <EditTool
+                    edit={item.path}
+                    visbility={item.path}
+                    dublicate={DublicateBlog}
+                    indexOfDublicateItem={index}
+                  />
                 </div>
               ))}
             </div>

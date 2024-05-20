@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { toast, ToastContainer } from "react-toastify";
+import EditTool from "../components/shared/EditTool";
 interface Data {
   _id: string;
   photos: string;
@@ -88,38 +89,13 @@ const Blog = () => {
                   {`${item?.description?.slice(0, 150)}...`}
                 </p>
               </div>
-
               <div className=" text-gray-600  absolute bottom-2 left-0 right-0 mx-auto justify-center flex items-center   ">
-                <ul className="menu menu-horizontal bg-base-200 rounded-box mt-6">
-                  <li>
-                    <div
-                      onClick={() => DublicateBlog(index)}
-                      className="tooltip"
-                      data-tip="Dublicate"
-                    >
-                      <ContentCopyIcon className="opacity-60 hover:opacity-90" />
-                    </div>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/blogs/${item._id}`}
-                      target="_blank"
-                      className="tooltip"
-                      data-tip="Preview"
-                    >
-                      <VisibilityIcon className="opacity-60 hover:opacity-90" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/admin/blogs/${item._id}`}
-                      className="tooltip"
-                      data-tip="Edit"
-                    >
-                      <EditIcon className="opacity-60 hover:opacity-90" />
-                    </Link>
-                  </li>
-                </ul>
+                <EditTool
+                  edit={item._id}
+                  visbility={item._id}
+                  dublicate={DublicateBlog}
+                  indexOfDublicateItem={index}
+                />
               </div>
             </div>
           ))}
