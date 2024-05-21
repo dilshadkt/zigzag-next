@@ -39,7 +39,7 @@ const page = async ({ params: { path } }: Props) => {
         {offers.offers.length !== 0 && (
           <div className="flex-initial w-[20%] mr-3 mt-3 md:hidden lg:block ">
             {offers?.offers.slice(0, 2).map((offer) => (
-              <Link href={offer.link}>
+              <Link key={nanoid()} href={offer.link}>
                 <div
                   key={offer._id}
                   className="mb-5 bg-blue-400 h-[350px] rounded-md overflow-hidden"
