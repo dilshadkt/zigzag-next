@@ -91,8 +91,8 @@ const Blog = () => {
               </div>
               <div className=" text-gray-600  absolute bottom-2 left-0 right-0 mx-auto justify-center flex items-center   ">
                 <EditTool
-                  edit={item._id}
-                  visbility={item._id}
+                  edit={`blogs/${item._id}`}
+                  visbility={`blogs/${item._id}`}
                   dublicate={DublicateBlog}
                   indexOfDublicateItem={index}
                 />

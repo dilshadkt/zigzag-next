@@ -37,7 +37,7 @@ const EditTool = ({
           </Link>
         </li>
         <li>
-          <Link href={`/admin/seo/${edit}`} className="tooltip" data-tip="Edit">
+          <Link href={`/admin/${edit}`} className="tooltip" data-tip="Edit">
             <EditIcon className="opacity-60 hover:opacity-90" />
           </Link>
         </li>

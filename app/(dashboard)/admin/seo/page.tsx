@@ -95,7 +95,7 @@ const SeoPage = () => {
                     </span>
                   </div>
                   <EditTool
-                    edit={item.path}
+                    edit={`seo/${item.path}`}
                     visbility={item.path}
                     dublicate={DublicateBlog}
                     indexOfDublicateItem={index}
