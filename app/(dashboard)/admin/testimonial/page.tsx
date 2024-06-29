@@ -5,6 +5,9 @@ import AddTestimonial from "./AddTestimonial";
 import axios from "axios";
 import EditTest from "./EditTest";
 import Image from "next/image";
+import { toast, ToastContainer } from "react-toastify";
+import { useDragAndDrop } from "@formkit/drag-and-drop/react";
+import { swap } from "@formkit/drag-and-drop";
 interface Data {
   photos: string;
   name: string;
@@ -19,14 +22,36 @@ const Testimonials = () => {
   const [data, setData] = useState<Data[]>([]);
   const [isEdit, setIsEdit] = useState(false);
   const [testimonial, setTestimonial] = useState<Data>(data[0]);
+  const [parent, orderedTestimonial, setOrderedTestimonial] = useDragAndDrop<
+    HTMLDivElement,
+    any
+  >([], {
+    group: "parent",
+    plugins: [swap()],
+  });
 
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/testimonial`)
-      .then((res) => setData(res.data))
+      .then((res) => {
+        setData(res.data);
+        setOrderedTestimonial(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
-
+  const changeOrder = async () => {
+    try {
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/testimonial/order`,
+        {
+          data: orderedTestimonial,
+        }
+      );
+      toast.success("saved changes");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div>
@@ -38,9 +63,19 @@ const Testimonials = () => {
           >
             <AddIcon />
           </div>
+          <button
+            onClick={() => changeOrder()}
+            className="rounded-lg    px-4
+            py-2 font-medium  mx-4 bg-black text-white"
+          >
+            Save
+          </button>
         </div>
-        <div className="px-5 pt-10 border rounded-xl grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
-          {data.map((item) => (
+        <div
+          ref={parent}
+          className="px-5 pt-10 border rounded-xl grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1"
+        >
+          {orderedTestimonial.map((item) => (
             <div
               onClick={() => {
                 setTestimonial(item);
@@ -93,6 +128,18 @@ const Testimonials = () => {
           setData={setData}
         />
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };

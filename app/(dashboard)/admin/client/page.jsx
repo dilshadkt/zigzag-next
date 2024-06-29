@@ -6,18 +6,41 @@ import Image from "next/image";
 import axios from "axios";
 import EditClients from "./EditClients";
 import Shimmer from "../components/Shimmer";
-
+import { useDragAndDrop } from "@formkit/drag-and-drop/react";
+import { swap } from "@formkit/drag-and-drop";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Client = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [client, setClient] = useState("");
+  const [parent, orderedClient, setOrderedClient] = useDragAndDrop([], {
+    group: "parent",
+    plugins: [swap()],
+  });
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/clients`)
-      .then((res) => setData(res.data))
+      .then((res) => {
+        setData(res.data);
+        setOrderedClient(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
+  const changeOrder = async () => {
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/clients/order`,
+        {
+          data: orderedClient,
+        }
+      );
+      toast.success("saved changes");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return data.length === 0 ? (
     <Shimmer />
   ) : (
@@ -31,9 +54,19 @@ const Client = () => {
           >
             <AddIcon />
           </div>
+          <button
+            onClick={() => changeOrder()}
+            className="rounded-lg    px-4
+            py-2 font-medium  mx-4 bg-black text-white"
+          >
+            Save
+          </button>
         </div>
-        <div className="p-5 border rounded-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
-          {data.map((item, index) => (
+        <div
+          ref={parent}
+          className="p-5 border rounded-xl grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1"
+        >
+          {orderedClient.map((item, index) => (
             <div
               onClick={() => {
                 setClient(item);
@@ -76,6 +109,18 @@ const Client = () => {
           setData={setData}
         />
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };
