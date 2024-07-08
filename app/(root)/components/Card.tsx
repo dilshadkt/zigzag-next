@@ -7,7 +7,7 @@ interface Props {
 
 const Card = ({ img }: Props) => {
   return (
-    <div className="mx-1 sm:h-[200px] lg:h-[220px] h-[150px] md:h-[280px]  rounded-xl bg-gray-400 overflow-hidden mb-3">
+    <div className="mx-1 sm:h-[260px] lg:h-fit max-h-[340px] h-fit md:h-[340px]  rounded-xl bg-gray-200 overflow-hidden mb-3">
       <Image
         src={img}
         alt={img.split("/")[img.split("/").length - 1]}

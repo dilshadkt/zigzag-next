@@ -8,7 +8,7 @@ const Loading = () => {
         {boxes.map((item, index) => (
           <div
             key={index}
-            className="m-2 h-[250px] lg:h-[170px] bg-gray-300 rounded-xl"
+            className="m-2 sm:h-[260px] lg:h-fit max-h-[340px] h-fit md:h-[340px] bg-gray-300 rounded-xl"
           ></div>
         ))}
       </div>
