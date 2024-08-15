@@ -12,7 +12,7 @@ import OurExpert from "../components/OurExpert";
 const Readmore = dynamic(() => import("./Readmore"), { ssr: false });
 const AboutUs = () => {
   return (
-    <div className="bg-white relative">
+    <div className="bg-white relative overflow-hidden">
       <div className="absolute -top-28 right-0 w-full   left-2/4 opacity-50 ">
         <Image
           src={aboutbg}
@@ -25,7 +25,7 @@ const AboutUs = () => {
             <h1 className="text-3xl text-gray-500">About Us</h1>
           </div>
           <div className="flex my-9 flex-col md:flex-row">
-            <div className="flex-1 flex md:justify-center md:mb-[8%] items-center">
+            <div className="flex-1 flex justify-center md:justify-center md:mb-[8%] items-center">
               <Image
                 src={aboutus}
                 className="md:w-[50%] w-[40%] h-fit"
@@ -34,7 +34,7 @@ const AboutUs = () => {
                 }
               />
             </div>
-            <div className="md:text-[22px] flex-1  text-lg   flex flex-col justify-center text-justify leading-[35px]">
+            <div className="md:text-[22px] flex-1  text-base  mt-3 md:mt-0  flex flex-col justify-center text-justify leading-[35px]">
               <div>
                 <p className="">
                   The story that leads us on the extraordinary journey of

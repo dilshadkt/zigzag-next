@@ -36,7 +36,7 @@ const Contact = () => {
     }
   };
   return (
-    <div className="px-[17%] sm:px-5 md:px-6 bg-white py-[3%] ">
+    <div className="md:px-[17%] px-6 bg-white py-[3%] ">
       <Head>
         <link
           rel="canonical"
@@ -46,7 +46,7 @@ const Contact = () => {
       </Head>
       <div className="w-full flex items-center flex-col">
         <h1 className="text-[#DB002F] text-3xl">Contact</h1>
-        <h3 className="text-gray-500 my-8 text-xl md:text-center">
+        <h3 className="text-gray-500 my-8 md:text-xl text-center">
           Please fill in the below form and wait for one of our experts to get
           back you
         </h3>
@@ -59,11 +59,7 @@ const Contact = () => {
             />
           </div>
           <div className="flex-1  flex items-center justify-center">
-            <form
-              className="w-[80%] sm:w-[95%] "
-              ref={form}
-              onSubmit={sendEmail}
-            >
+            <form className="md:w-[80%] w-full" ref={form} onSubmit={sendEmail}>
               <input
                 type="text"
                 placeholder="Enter your name"
