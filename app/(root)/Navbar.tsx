@@ -148,6 +148,17 @@ const Navbar = () => {
             </Link>
             <Link
               className={
+                currentPath === "/gallery"
+                  ? `underline underline-offset-8 `
+                  : ``
+              }
+              href={"/gallery"}
+              onClick={() => setisOpen(0)}
+            >
+              <li>Gallery</li>
+            </Link>
+            {/* <Link
+              className={
                 currentPath === "/contact"
                   ? `underline underline-offset-8 `
                   : ``
@@ -156,7 +167,7 @@ const Navbar = () => {
               onClick={() => setisOpen(0)}
             >
               <li>Contact</li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
         <div className="flex-1 flex items-center justify-end text-white ">
