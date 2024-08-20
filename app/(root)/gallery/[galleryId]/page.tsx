@@ -10,8 +10,8 @@ const GalleryDetails = () => {
       <p className="text-gray-600 text-center mt-3 text-lg font-medium">
         Experience the Power of Digital Marketing through our Success Stories
       </p>
-      <div className="grid grid-cols-6 gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">
-        <div className="flex items-center col-span-4 justify-center h-[400px]  rounded-md">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-y-5 md:gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">
+        <div className="flex items-center md:col-span-4 justify-center h-[400px]  rounded-md">
           <Image
             src={"/gallery/Rectangle 1.png"}
             alt="gallery"
@@ -21,7 +21,7 @@ const GalleryDetails = () => {
           />
         </div>
 
-        <div className="flex items-center col-span-2 justify-center h-[400px] overflow-hidden  rounded-md">
+        <div className="flex items-center md:col-span-2 justify-center h-fit md:h-[400px] overflow-hidden  rounded-md">
           <div className="w-full h-full grid grid-cols-1  gap-4">
             <div className="flex-1 overflow-hidden flex items-center justify-center">
               {" "}
@@ -45,7 +45,7 @@ const GalleryDetails = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center col-span-2 justify-center h-[400px] overflow-hidden  rounded-md">
+        <div className="flex items-center md:col-span-2 justify-center h-fit md:h-[400px] overflow-hidden  rounded-md">
           <div className="w-full h-full grid grid-cols-1  gap-4">
             <div className="flex-1 overflow-hidden flex items-center justify-center">
               {" "}
@@ -69,7 +69,7 @@ const GalleryDetails = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center col-span-4 justify-center h-[400px]  rounded-md">
+        <div className="flex items-center md:col-span-4 justify-center h-[400px]  rounded-md">
           <Image
             src={"/gallery/Rectangle 10.png"}
             alt="gallery"
