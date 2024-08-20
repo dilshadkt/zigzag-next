@@ -22,7 +22,7 @@ const Blogs = async () => {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto py-16  sm:px-5">
+      <div className="max-w-screen-xl mx-auto py-16  px-5">
         <div className="text-center">
           <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
             Blogs

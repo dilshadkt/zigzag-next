@@ -139,6 +139,15 @@ const Navbar = () => {
             </Link>
             <Link
               className={
+                currentPath === "/career" ? `underline underline-offset-8 ` : ``
+              }
+              href={"/career"}
+              onClick={() => setisOpen(0)}
+            >
+              <li>Career</li>
+            </Link>
+            <Link
+              className={
                 currentPath === "/contact"
                   ? `underline underline-offset-8 `
                   : ``

@@ -556,3 +556,19 @@ export const sideBar = [
     icon: LocalOfferIcon,
   },
 ];
+
+export const whyUs = [
+  "Collaborative environment: Work with a talented team of digital marketers",
+  " Professional growth: Develop new skills and advance your career",
+  " Innovation: Stay ahead of the curve with the latest digital trends",
+  "Fun: Enjoy a dynamic work environment with regular team-building activities",
+];
+export const benifits = [
+  "Professional development opportunities",
+  "Team-building activities",
+  "Vibrant Team",
+  "Work Life Balance",
+  "Training Sessions",
+  "Fun sessions",
+  "Cool Office Atmosphere",
+];
