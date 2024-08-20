@@ -80,3 +80,12 @@ declare interface contactModalPropos {
   onClose: React.Dispatch<boolean>;
   isOpen: boolean;
 }
+declare interface CareeProps {
+  title: string;
+  experience: string;
+  deadline: string;
+  skill: string;
+}
+declare interface CareerFormProps {
+  jobs: CareeProps[];
+}

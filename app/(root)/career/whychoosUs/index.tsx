@@ -3,7 +3,7 @@ import React from "react";
 
 const WhyUs = () => {
   return (
-    <section className=" bg-white max-w-screen-xl mx-auto  mb-36 px-5 flex flex-col items-center">
+    <section className=" bg-white max-w-screen-xl mx-auto  my-20 px-5 flex flex-col items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
         <div className="bg-[#DB002F] p-8 rounded-xl">
           <h4 className="text-white text-xl font-medium mt-2">
