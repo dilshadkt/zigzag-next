@@ -75,3 +75,8 @@ declare interface OfferProps {
   setOffers: React.Dispatch<Offer[]>;
   offers: Offer[];
 }
+
+declare interface contactModalPropos {
+  onClose: React.Dispatch<boolean>;
+  isOpen: boolean;
+}
