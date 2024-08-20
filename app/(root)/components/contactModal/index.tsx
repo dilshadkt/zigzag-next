@@ -108,9 +108,9 @@ const ContactModal = () => {
                 <select
                   required
                   className="  w-full p-3 mt-2  text-base rounded-lg bg-[#D6D6D6] appearance-none"
-                  name="find-us"
+                  name="enquiry"
                 >
-                  {contact.findUs.map((item) => (
+                  {contact.enquiry.map((item) => (
                     <option key={nanoid()}>{item}</option>
                   ))}
                 </select>
