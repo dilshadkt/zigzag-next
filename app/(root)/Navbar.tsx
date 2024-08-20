@@ -171,7 +171,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex-1 flex items-center justify-end text-white ">
-          <Link href={"/auth/login"}>
+          <Link href={"/contact"}>
             <PersonOutlineOutlinedIcon />
           </Link>
         </div>

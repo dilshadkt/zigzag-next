@@ -12,15 +12,17 @@ const Gallery = () => {
         Experience the Power of Digital Marketing through our Success Stories{" "}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">
-        <div className="flex items-center justify-center h-[400px]  rounded-md">
-          <Image
-            src={"/gallery/Rectangle 1.png"}
-            alt="gallery"
-            width={400}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <Link href={"/gallery/star-of-month"}>
+          <div className="flex items-center justify-center h-[400px]  rounded-md">
+            <Image
+              src={"/gallery/Rectangle 1.png"}
+              alt="gallery"
+              width={400}
+              height={400}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </Link>
         <div className="flex items-center justify-center h-[400px]  rounded-md">
           <Image
             src={"/gallery/Rectangle 2.png"}
