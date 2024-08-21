@@ -33,6 +33,7 @@ const ContactModal = () => {
     if (!hasVisitedBefor) {
       setTimeout(() => {
         setIsModalOpen(true);
+        localStorage.setItem("hasVisited", "true");
       }, 7000);
     }
   }, []);
