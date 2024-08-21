@@ -180,7 +180,7 @@ const ContactModal = () => {
                 <input
                   type="number"
                   required
-                  name="Number"
+                  name="number"
                   className="p-3 rounded-lg flex-1 bg-[#D6D6D6] "
                   placeholder="Enter Phone Number"
                 />
