@@ -51,8 +51,8 @@ const Gallery = () => {
           <p className="mt-3 text-white/80 text-center md:text-left md:w-[80%]">
             At ZigZag Digital Solutions, we take pride in our work and love to
             showcase our achievements. Browse through our gallery to see how
-            we've transformed businesses and helped them thrive in the digital
-            landscape.
+            we&apos;ve transformed businesses and helped them thrive in the
+            digital landscape.
           </p>
         </div>
         <div className="flex-initial w-fit mt-3 md:mt-0">
