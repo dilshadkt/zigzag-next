@@ -16,6 +16,7 @@ const Career = () => {
     },
   ];
   const [jobs, setJob] = useState(dummyJobs);
+  const [isFormHide, setIsFormHide] = useState(false);
   return (
     <>
       <section className="min-h-[50vh] bg-white max-w-screen-xl mx-auto py-16 mb-6 px-5 flex flex-col items-center">
@@ -57,7 +58,7 @@ const Career = () => {
               <div>
                 <h4 className="font-semibold mt-5">SKILLS</h4>
                 <p className="mt-2 text-gray-700">{job.skill}</p>
-                <a href="#apply">
+                <a href="#apply" onClick={() => setIsFormHide(true)}>
                   <button
                     className="bg-[#DB002F] w-full p-3 flex items-center justify-center text-white font-medium rounded-lg
                 mt-5"
@@ -71,7 +72,7 @@ const Career = () => {
         </div>
       </section>
       <WhyUs />
-      <CareerForm jobs={jobs} />
+      <CareerForm isVisible={isFormHide} jobs={jobs} />
     </>
   );
 };

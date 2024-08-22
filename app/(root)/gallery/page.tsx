@@ -13,34 +13,47 @@ const Gallery = () => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">
         <Link href={"/gallery/star-of-month"}>
-          <div className="flex items-center justify-center h-[400px]  rounded-md">
+          <div className="  group bg-black relative flex items-center justify-center h-[400px] overflow-hidden  rounded-md">
             <Image
               src={"/gallery/Rectangle 1.png"}
               alt="gallery"
               width={400}
               height={400}
-              className="w-full h-full object-cover"
+              className="w-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500 h-full object-cover"
             />
+            <h4 className="absolute text-white/75 scale-0 text-2xl capitalize font-semibold group-hover:scale-100 transition-all duration-500 top-0 bottom-0 left-0 right-0 m-auto flex items-center justify-center">
+              Star of month
+            </h4>
           </div>
         </Link>
-        <div className="flex items-center justify-center h-[400px]  rounded-md">
-          <Image
-            src={"/gallery/Rectangle 2.png"}
-            alt="gallery"
-            width={400}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="flex items-center justify-center h-[400px]  rounded-md">
-          <Image
-            src={"/gallery/Rectangle 4.png"}
-            alt="gallery"
-            width={400}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <Link href={"/gallery/star-of-month"}>
+          <div className="  group bg-black relative flex items-center justify-center h-[400px] overflow-hidden  rounded-md">
+            <Image
+              src={"/gallery/Rectangle 4.png"}
+              alt="gallery"
+              width={400}
+              height={400}
+              className="w-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500 h-full object-cover"
+            />
+            <h4 className="absolute text-white/75 scale-0 text-2xl capitalize font-semibold group-hover:scale-100 transition-all duration-500 top-0 bottom-0 left-0 right-0 m-auto flex items-center justify-center">
+              Star of month
+            </h4>
+          </div>
+        </Link>
+        <Link href={"/gallery/star-of-month"}>
+          <div className="  group bg-black relative flex items-center justify-center h-[400px] overflow-hidden  rounded-md">
+            <Image
+              src={"/gallery/Rectangle 2.png"}
+              alt="gallery"
+              width={400}
+              height={400}
+              className="w-full group-hover:scale-110 group-hover:opacity-50 transition-all duration-500 h-full object-cover"
+            />
+            <h4 className="absolute text-white/75 scale-0 text-2xl capitalize font-semibold group-hover:scale-100 transition-all duration-500 top-0 bottom-0 left-0 right-0 m-auto flex items-center justify-center">
+              Star of month
+            </h4>
+          </div>
+        </Link>
       </div>
       <div
         className=" w-full max-w-screen-lg mx-auto mt-10 mb-28  p-10 rounded-xl bg-[#DB002F] 

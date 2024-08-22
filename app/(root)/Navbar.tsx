@@ -31,7 +31,13 @@ const Navbar = () => {
     >
       <div className=" max-w-screen-2xl mx-auto  md:px-12 px-5 flex justify-between">
         <div className="flex-1 h-full">
-          <Image src={changeTheme ? changeLogo : logo} alt="logo" width={80} />
+          <Link href={"/"}>
+            <Image
+              src={changeTheme ? changeLogo : logo}
+              alt="logo"
+              width={80}
+            />
+          </Link>
         </div>
         <div
           className={`flex-initial lg:w-[45%]  md:w-[67%] md:mt-1 hidden md:flex   rounded-xl ${
@@ -77,7 +83,7 @@ const Navbar = () => {
               </Link>
               <div
                 onMouseLeave={() => setisOpen(0)}
-                className={`p-3 rounded-xl bg-white/70 absolute  ${
+                className={`p-3 rounded-xl bg-white border shadow-lg top-6 absolute  ${
                   isOpen ? `visible` : `invisible`
                 }`}
               >

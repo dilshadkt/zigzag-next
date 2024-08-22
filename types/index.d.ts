@@ -88,4 +88,5 @@ declare interface CareeProps {
 }
 declare interface CareerFormProps {
   jobs: CareeProps[];
+  isVisible: boolean;
 }

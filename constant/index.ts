@@ -572,3 +572,105 @@ export const benifits = [
   "Fun sessions",
   "Cool Office Atmosphere",
 ];
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import path from "path";
+export const socialMedia = [
+  {
+    title: "instagram",
+    id: 1,
+    link: "https://instagram.com/zig_zag_digital_solutions/",
+    icon: InstagramIcon,
+  },
+  {
+    title: "facebook",
+    id: 2,
+    link: "https://www.facebook.com/ZIGZAGDigitalSolutions/",
+    icon: FacebookIcon,
+  },
+  {
+    title: "linkedIn",
+    id: 3,
+    link: "https://www.linkedin.com/company/zig-zag-digital-solution-s",
+    icon: LinkedInIcon,
+  },
+  {
+    title: "youtube",
+    id: 4,
+    link: "https://www.youtube.com/@zigzagdigitalsolutions/",
+    icon: YouTubeIcon,
+  },
+];
+
+export const navabar = [
+  {
+    id: 1,
+    title: "Home",
+    path: "/",
+  },
+  {
+    id: 2,
+    title: "Service",
+    path: "/services",
+  },
+  {
+    id: 3,
+    title: "Portfolio",
+    path: "/portfolio",
+  },
+  {
+    id: 4,
+    title: "Blog",
+    path: "/blogs",
+  },
+  {
+    id: 5,
+    title: "Home",
+    path: "/",
+  },
+  {
+    id: 6,
+    title: "Contact Us",
+    path: "/contact",
+  },
+  {
+    id: 7,
+    title: "About",
+    path: "/about",
+  },
+];
+
+export const Footerservices = [
+  {
+    id: 1,
+    title: "Corporate identity",
+    path: "/services/Corporate",
+  },
+  {
+    id: 2,
+    title: "Social Media Marketing",
+    path: "/services/Social",
+  },
+  {
+    id: 3,
+    title: "SEO",
+    path: "/services/SEO",
+  },
+  {
+    id: 4,
+    title: "Website Development",
+    path: "/services/Website",
+  },
+  {
+    id: 5,
+    title: "Performance Marketing",
+    path: "/services/Performance",
+  },
+  {
+    id: 6,
+    title: "Media Production",
+    path: "/services/Media",
+  },
+];

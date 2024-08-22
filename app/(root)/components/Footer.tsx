@@ -5,7 +5,8 @@ import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Footerservices, navabar, socialMedia } from "@/constant";
 interface Blog {
   heading: string;
   _id: string;
@@ -45,36 +46,22 @@ const Footer = async () => {
                 </div>
               </div>
               <div className="flex">
-                <div className="hover:text-red-500 cursor-pointer">
-                  <a
-                    href="https://instagram.com/zig_zag_digital_solutions/"
-                    target="blank"
-                    title="Instagram"
-                    style={{ color: "inherit", textDecoration: "none" }}
+                {/* Social media icon section are here  */}
+                {socialMedia.map((item) => (
+                  <div
+                    key={item.id}
+                    className="hover:text-red-500 mr-2 cursor-pointer"
                   >
-                    <InstagramIcon />
-                  </a>
-                </div>
-                <div className="mx-2 hover:text-red-500 cursor-pointer">
-                  <a
-                    href="https://www.facebook.com/ZIGZAGDigitalSolutions/"
-                    target="blank"
-                    title="facebook"
-                    style={{ color: "inherit", textDecoration: "none" }}
-                  >
-                    <FacebookIcon />
-                  </a>
-                </div>
-                <div className="hover:text-red-500 cursor-pointer">
-                  <a
-                    href="https://www.linkedin.com/company/zig-zag-digital-solution-s"
-                    target="blank"
-                    title="linkedIn"
-                    style={{ color: "inherit", textDecoration: "none" }}
-                  >
-                    <LinkedInIcon />
-                  </a>
-                </div>
+                    <a
+                      href={item.link}
+                      target="blank"
+                      title={item.title}
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
+                      <item.icon />
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -83,78 +70,33 @@ const Footer = async () => {
               <h3 className="font-semibold text-xl mb-6">Company</h3>
 
               <ul className="list-disc pl-4">
-                <Link href={"/"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Home
-                  </li>
-                </Link>
-                <Link href={"/services"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Service
-                  </li>
-                </Link>
-                <Link href={"/portfolio"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Portfolio
-                  </li>
-                </Link>
-                <Link href={"/blogs"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Blog
-                  </li>
-                </Link>
-                <Link href={"/contact"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Contact Us
-                  </li>
-                </Link>
-                <Link href={"/about"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    About
-                  </li>
-                </Link>
+                {/* navbara redirctions are here  */}
+                {navabar.map((item) => (
+                  <Link key={item.id} href={item.path}>
+                    <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
+                      {item.title}
+                    </li>
+                  </Link>
+                ))}
               </ul>
             </div>
             <div className="flex-initial w-[30%]">
               <h3 className="font-semibold text-xl mb-6">Services</h3>
 
               <ul className="list-disc pl-4">
-                <Link href={"/services/Corporate"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Corporate identity
-                  </li>
-                </Link>
-                <Link href={"/services/Social"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Social Media Marketing
-                  </li>
-                </Link>
-                <Link href={"/services/SEO"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    SEO
-                  </li>
-                </Link>
-                <Link href={"/services/Website"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Website Development
-                  </li>
-                </Link>
-                <Link href="/services/Performance">
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    {" "}
-                    Performance Marketing
-                  </li>
-                </Link>
-                <Link href={"/services/Media"}>
-                  <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
-                    Media Production
-                  </li>
-                </Link>
+                {/* Service section are here  */}
+                {Footerservices.map((item) => (
+                  <Link key={item.id} href={item.path}>
+                    <li className="my-2 font-medium cursor-pointer hover:text-[#15181e]">
+                      {item.title}
+                    </li>
+                  </Link>
+                ))}
               </ul>
             </div>
             <div className="flex-1 ">
               <h3 className="font-semibold text-xl mb-6">Latest Articles</h3>
-
+              {/* Lates article are here  */}
               <ul className="list-disc pl-4">
                 {latestArticle.map((item) => (
                   <Link key={item._id} href={`/blogs/${item._id}`}>

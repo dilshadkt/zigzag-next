@@ -24,7 +24,7 @@ const Blogs = async () => {
     <>
       <div className="max-w-screen-xl mx-auto py-16  px-5">
         <div className="text-center">
-          <h2 className="text-3xl sm:text-2xl text-secondary font-medium">
+          <h2 className="md:text-3xl text-2xl text-secondary font-medium">
             Blogs
           </h2>
         </div>

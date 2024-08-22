@@ -19,10 +19,12 @@ const AboutUs = () => {
           alt={"best digital marketing agency in malappuram"}
         />
       </div>
-      <div className="max-w-screen-xl mx-auto px-3 md:px-5 py-[2%] relative overflow-hidden z-0">
+      <div className="max-w-screen-xl mx-auto px-3 md:px-5 py-16 relative overflow-hidden z-0">
         <div>
           <div className="flex justify-center">
-            <h1 className="text-3xl text-gray-500">About Us</h1>
+            <h1 className="md:text-3xl text-2xl text-secondary font-medium">
+              About Us
+            </h1>
           </div>
           <div className="flex my-9 flex-col md:flex-row">
             <div className="flex-1 flex justify-center md:justify-center md:mb-[8%] items-center">

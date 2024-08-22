@@ -22,7 +22,7 @@ const OurExpert = () => {
     if (index < 0) {
       setIndex(lastIndex);
     }
-    if (index > lastIndex - 3) {
+    if (index > lastIndex - 4) {
       setIndex(0);
     }
   }, [index, data.length]);
@@ -36,13 +36,13 @@ const OurExpert = () => {
   return (
     <>
       <div className="bg-white ">
-        <div className="max-w-screen-xl mx-auto  py-10 md:py-[2%]  flex flex-col items-center">
+        <div className="max-w-screen-xl   mx-auto  py-10 md:py-[2%]  flex flex-col items-center">
           <div className="flex justify-center">
             <h4 className="md:text-3xl  text-2xl text-secondary font-medium">
               Our Experts
             </h4>
           </div>
-          <div className="md:flex hidden items-start  my-[5%]  overflow-hidden    max-w-[780px] ">
+          <div className="md:flex hidden items-start  my-[5%]  overflow-hidden    max-w-[960px] ">
             {data.map((person) => {
               const { _id, image, name, role } = person;
 
