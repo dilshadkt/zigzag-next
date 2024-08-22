@@ -132,7 +132,7 @@ const Footer = async () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#FCFAFA] ">
+      <div className="bg-[#FCFAFA] relative z-50 ">
         <h4 className="p-2 text-center text-sm pb-[22%] md:pb-3">
           © 2023 Zig Zag Digital Marketing Agency Manjeri. All rights reserved
         </h4>
