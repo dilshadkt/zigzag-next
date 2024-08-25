@@ -11,7 +11,7 @@ interface Props {
 }
 const MobileNav = ({ currentPath }: Props) => {
   return (
-    <div className="  fixed md:hidden flex left-0 right-0 m-auto mx-5 bottom-4 py-3 px-2 bg-white shadow-2xl z-50 rounded-2xl ">
+    <div className="  fixed md:hidden flex left-0 right-0 m-auto mx-3 bottom-4 py-3 px-2 bg-white border shadow-2xl z-50 rounded-2xl ">
       <div className="flex-1 flex flex-col items-center justify-center">
         <Link href={"/about"}>
           <div className="mb-2 flex items-center justify-center">
@@ -28,7 +28,7 @@ const MobileNav = ({ currentPath }: Props) => {
               currentPath === "/about"
                 ? `text-black font-semibold`
                 : `text-red-500`
-            } text-sm `}
+            } text-xs font-medium `}
           >
             About
           </h5>
@@ -50,7 +50,7 @@ const MobileNav = ({ currentPath }: Props) => {
               currentPath === "/services"
                 ? `text-black font-semibold`
                 : `text-red-500`
-            } text-sm`}
+            } text-xs font-medium`}
           >
             Service
           </h5>
@@ -68,7 +68,7 @@ const MobileNav = ({ currentPath }: Props) => {
             />
           </div>
           <h5
-            className={` text-sm ${
+            className={` text-xs font-medium ${
               currentPath === "/" ? `text-black font-semibold` : `text-red-500`
             }`}
           >
@@ -92,7 +92,7 @@ const MobileNav = ({ currentPath }: Props) => {
               currentPath === "/portfolio"
                 ? `text-black font-semibold`
                 : `text-red-500`
-            }  text-sm`}
+            }  text-xs font-medium`}
           >
             Portfolio
           </h5>
@@ -114,7 +114,7 @@ const MobileNav = ({ currentPath }: Props) => {
               currentPath === "/contact"
                 ? `text-black font-semibold`
                 : `text-red-500`
-            } text-sm`}
+            } text-xs font-medium`}
           >
             Contact
           </h5>

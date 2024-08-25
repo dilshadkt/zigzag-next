@@ -7,7 +7,7 @@ const GalleryDetails = () => {
       <h2 className="md:text-3xl text-2xl text-secondary font-medium">
         Star Of the Month
       </h2>
-      <p className="text-gray-600 text-center mt-3 text-lg font-medium">
+      <p className="text-gray-600 text-center mt-3 text-sm md:text-lg font-medium">
         Experience the Power of Digital Marketing through our Success Stories
       </p>
       <div className="grid grid-cols-1 md:grid-cols-6 gap-y-5 md:gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">

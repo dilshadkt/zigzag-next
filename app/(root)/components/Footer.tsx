@@ -108,7 +108,11 @@ const Footer = async () => {
               </ul>
             </div>
           </div>
-          <div className="bg-white flex flex-col items-center md:flex-row rounded-3xl shadow-2xl absolute px-5 md:py-[2%] py-[3%] bottom-[90%] md:w-[70%] w-[90%] left-0 right-0 m-auto z-0">
+          <div
+            className="bg-white border border-gray-100 flex flex-col
+             items-center md:flex-row rounded-3xl shadow-2xl absolute px-5 md:py-5
+           py-[3%] bottom-[90%] md:w-[70%] w-[94%] left-0 right-0 m-auto z-0"
+          >
             <div className="flex-1  text-3xl flex items-center justify-center">
               <div className="md:w-[70%] w-full ">
                 <h3 className="text-xl md:text-2xl text-center font-semibold text-red-500">
@@ -123,7 +127,7 @@ const Footer = async () => {
                   Digital Marketing Agency in Malappuram
                 </h3>
                 <Link href={"/contact"}>
-                  <span className="my-3 md:my-0 whitespace-nowrap text-black  font-medium md:text-red-500 cursor-pointer hover:bg-gray-100 p-2 rounded-2xl px-4">
+                  <span className="my-3 text-sm md:text-base md:my-0 whitespace-nowrap text-black  font-medium md:text-red-500 cursor-pointer hover:bg-gray-100 p-2 rounded-2xl px-4">
                     Get A Free Consultation
                   </span>
                 </Link>
@@ -132,7 +136,7 @@ const Footer = async () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#FCFAFA] relative z-50 ">
+      <div className="bg-[#FCFAFA] relative  ">
         <h4 className="p-2 text-center text-sm pb-[22%] md:pb-3">
           © 2023 Zig Zag Digital Marketing Agency Manjeri. All rights reserved
         </h4>

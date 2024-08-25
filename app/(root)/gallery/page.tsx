@@ -8,7 +8,7 @@ const Gallery = () => {
       <h2 className="md:text-3xl text-2xl text-secondary font-medium">
         Our Gallery
       </h2>
-      <p className="text-gray-600 text-center mt-3 text-lg font-medium">
+      <p className="text-gray-600 text-center mt-3 text-sm md:text-lg font-medium">
         Experience the Power of Digital Marketing through our Success Stories{" "}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-screen-lg mx-auto mt-16 my-10">

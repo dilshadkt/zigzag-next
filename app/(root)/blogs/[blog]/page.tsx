@@ -25,8 +25,8 @@ const BlogPage = async ({ params: { blog } }: Props) => {
   const offers: { offers: Offer[] } = await offer.json();
   return (
     <div className="relative">
-      <div className="bg-white px-[14%]  md:px-6 pt-7 pb-[4%]">
-        <div className="max-w-screen-2xl mx-auto">
+      <div className="bg-white md:px-[14%]  px-4 pt-7 pb-[4%]">
+        <div className="max-w-screen-2xl mx-auto ">
           <div className="w-full md:h-[350px] h-[200px] overflow-hidden flex rounded-xl">
             <Image
               src={Blog.photos}
@@ -37,9 +37,9 @@ const BlogPage = async ({ params: { blog } }: Props) => {
               quality={100}
             />
           </div>
-          <div className="flex gap-5 ">
+          <div className="flex flex-col md:flex-row gap-5 ">
             <div
-              className={` flex-initial w-[23%]   grid grid-cols-1 items-start   ${
+              className={` flex-initial md:w-[23%]   grid grid-cols-1 items-start   ${
                 offers.offers.length === 0 ? `hidden` : `block`
               } `}
             >

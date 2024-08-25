@@ -3,7 +3,7 @@ import React from "react";
 
 const WhyUs = () => {
   return (
-    <section className=" bg-white max-w-screen-xl mx-auto  my-20 px-5 flex flex-col items-center">
+    <section className=" bg-white max-w-screen-xl mx-auto  my-20 mb-40 px-3 md:px-5 flex flex-col items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
         <div className="bg-[#DB002F] p-8 rounded-xl">
           <h4 className="text-white text-xl font-medium mt-2">
@@ -11,14 +11,14 @@ const WhyUs = () => {
           </h4>
           <hr className="bg-gray-100 mt-4" />
           <div>
-            <ul className="list-disc font-medium gap-3 flex flex-col pl-5 mt-6 text-white">
+            <ul className="list-disc text-sm md:text-base font-medium gap-3 flex flex-col  pl-3 md:pl-5 mt-6 text-white">
               {whyUs.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="p-8">
+        <div className="p-8 text-sm md:text-base">
           <ul className="list-disc font-medium gap-3 flex flex-col ">
             {benifits.map((item, index) => (
               <li key={index}>{item}</li>

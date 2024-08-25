@@ -8,9 +8,11 @@ import { usePathname } from "next/navigation";
 import MobileNav from "./components/MobileNav";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import changeLogo from "@/public/digital-market-agency-in-malappuram.png";
+import MenuIcon from "@mui/icons-material/Menu";
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(0);
   const [changeTheme, setChangeTheme] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPath = usePathname();
   const handleScroll = () => {
     window.scrollY > 720 ? setChangeTheme(true) : setChangeTheme(false);
@@ -22,11 +24,13 @@ const Navbar = () => {
 
   return (
     <div
-      className={`h-20 ${
+      className={`h-20 relative ${
+        isMenuOpen ? `` : "overflow-hidden  "
+      } sticky top-0 z-20   ${
         changeTheme
-          ? ` bg-transparent`
+          ? ` bg-white`
           : `bg-[#DB002F] transition-all ease-out duration-75 `
-      } sticky top-0 z-20    `}
+      }  `}
       onMouseLeave={() => setisOpen(0)}
     >
       <div className=" max-w-screen-2xl mx-auto  md:px-12 px-5 flex justify-between">
@@ -177,9 +181,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex-1 flex items-center justify-end text-white ">
-          <Link href={"/contact"}>
+          <Link href={"/contact"} className="hidden md:block">
             <PersonOutlineOutlinedIcon />
           </Link>
+          <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <MenuIcon
+              className={`${changeTheme ? "text-black" : `text-white`}`}
+            />
+          </div>
         </div>
       </div>
       <MobileNav currentPath={currentPath} />
@@ -187,6 +196,33 @@ const Navbar = () => {
         <a href="https://wa.me/9946443551?text=Hello ZigZag">
           <WhatsAppIcon />
         </a>
+      </div>
+      {/* slider menu  */}
+      <div
+        className={` w-[200px] bg-white/80 flex flex-col p-4 border-b border-l rounded-bl-lg h-[200px] absolute transition-all duration-300 ${
+          isMenuOpen ? `right-0` : `-right-[100%]`
+        } `}
+      >
+        <ul className="flex flex-col gap-3">
+          <Link
+            className={
+              currentPath === "/career" ? `underline underline-offset-8 ` : ``
+            }
+            href={"/career"}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <li>Career</li>
+          </Link>
+          <Link
+            className={
+              currentPath === "/gallery" ? `underline underline-offset-8 ` : ``
+            }
+            href={"/gallery"}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <li>Gallery</li>
+          </Link>
+        </ul>
       </div>
     </div>
   );

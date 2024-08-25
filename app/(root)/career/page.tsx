@@ -30,20 +30,23 @@ const Career = () => {
           {jobs.map((job) => (
             <div
               key={job._id}
-              className="p-7 w-full bg-white border shadow-md rounded-xl"
+              className="p-3 md:p-7 w-full bg-white border shadow-md rounded-xl"
             >
               <div className="flex items-center">
-                <div className="w-[50px] aspect-square  rounded-lg bg-[#DB002F] flex items-center justify-center">
+                <div className=" w-[35px] md:w-[50px] aspect-square  rounded-lg bg-[#DB002F] flex items-center justify-center">
                   <Image
                     src={"/icons/Vector.png"}
                     alt="job icon"
                     width={20}
                     height={20}
+                    className=" w-3 md:w-5 aspect-square"
                   />
                 </div>
-                <h4 className="text-xl font-medium ml-2">{job.title}</h4>
+                <h4 className="text-lg md:text-xl font-medium ml-2">
+                  {job.title}
+                </h4>
               </div>
-              <div className="flex items-center my-4 gap-4 ">
+              <div className="flex flex-col text-xs md:text-base md:flex-row items-start md:items-center my-4 gap-2 md:gap-4 ">
                 <div className="flex items-center bg-[#DEDEDE] w-fit gap-2  px-3 py-1 rounded-xl">
                   <h5>Experience</h5>
                   <span className="w-2 h-2 rounded-full bg-[#DB002F]"></span>
@@ -57,7 +60,9 @@ const Career = () => {
               </div>
               <div>
                 <h4 className="font-semibold mt-5">SKILLS</h4>
-                <p className="mt-2 text-gray-700">{job.skill}</p>
+                <p className="mt-2 text-gray-700 text-sm md:text-base">
+                  {job.skill}
+                </p>
                 <a href="#apply" onClick={() => setIsFormHide(true)}>
                   <button
                     className="bg-[#DB002F] w-full p-3 flex items-center justify-center text-white font-medium rounded-lg
@@ -72,7 +77,7 @@ const Career = () => {
         </div>
       </section>
       <WhyUs />
-      <CareerForm isVisible={isFormHide} jobs={jobs} />
+      {/* <CareerForm isVisible={isFormHide} jobs={jobs} /> */}
     </>
   );
 };
