@@ -513,7 +513,8 @@ export const services: any = {
 };
 
 export const categories = ["Brand Identity", "Social Media"];
-
+import WorkIcon from "@mui/icons-material/Work";
+import CollectionsIcon from "@mui/icons-material/Collections";
 export const sideBar = [
   {
     title: "Home",
@@ -554,6 +555,16 @@ export const sideBar = [
     title: "Offer",
     router: "/admin/offer",
     icon: LocalOfferIcon,
+  },
+  {
+    title: "Career",
+    router: "/admin/career",
+    icon: WorkIcon,
+  },
+  {
+    title: "Gallery",
+    router: "/admin/gallery",
+    icon: CollectionsIcon,
   },
 ];
 
