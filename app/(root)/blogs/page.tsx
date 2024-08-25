@@ -22,14 +22,14 @@ const Blogs = async () => {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto py-16  px-5">
+      <div className="max-w-screen-xl mx-auto py-16 px-2 md:px-5">
         <div className="text-center">
           <h2 className="md:text-3xl text-2xl text-secondary font-medium">
             Blogs
           </h2>
         </div>
         <div className="flex justify-center my-[2%] ">
-          <h4 className="text-xl font-semibold px-3">
+          <h4 className="text-lg text-center md:text-xl font-semibold px-3">
             Gain Digital Marketing Industry Insights and Trending Tips
           </h4>
         </div>

@@ -206,6 +206,15 @@ const Navbar = () => {
         <ul className="flex flex-col gap-3">
           <Link
             className={
+              currentPath === "/blogs" ? `underline underline-offset-8 ` : ``
+            }
+            href={"/blogs"}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <li>Blogs</li>
+          </Link>
+          <Link
+            className={
               currentPath === "/career" ? `underline underline-offset-8 ` : ``
             }
             href={"/career"}
