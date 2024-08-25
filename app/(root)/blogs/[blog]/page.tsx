@@ -3,6 +3,7 @@ import React from "react";
 import LatesBlog from "./LatesBlog";
 import { Metadata } from "next";
 import parse from "html-react-parser";
+import Link from "next/link";
 
 interface Props {
   params: { blog: string };
@@ -24,9 +25,9 @@ const BlogPage = async ({ params: { blog } }: Props) => {
   const offers: { offers: Offer[] } = await offer.json();
   return (
     <div className="relative">
-      <div className="bg-white px-[14%]  md:px-6  py-[4%]">
+      <div className="bg-white px-[14%]  md:px-6 pt-7 pb-[4%]">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="w-full h-[300px] md:h-[240px] sm:h-[200px] overflow-hidden flex rounded-xl">
+          <div className="w-full md:h-[350px] h-[200px] overflow-hidden flex rounded-xl">
             <Image
               src={Blog.photos}
               alt={Blog.photos.split("/")[Blog.photos.split("/").length - 1]}
@@ -44,22 +45,20 @@ const BlogPage = async ({ params: { blog } }: Props) => {
             >
               <div className="sticky top-[80px]">
                 {offers.offers.map((offer) => (
-                  <div
+                  <Link
+                    href={offer.link}
                     key={offer._id}
                     className="flex items-center justify-center  "
                   >
                     <Image
                       src={offers.offers[0].image}
                       alt="offer banner"
-                      width={250}
-                      height={400}
-                      className="w-full h-full max-w-[350px] object-contain"
+                      width={400}
+                      height={600}
+                      quality={100}
+                      className="w-full h-full max-w-[350px] rounded-xl my-5 overflow-hidden object-contain"
                     />
-                    <div
-                      className="absolute top-3 right-3 flex items-center justify-center w-8 aspect-square 
-          rounded-full "
-                    ></div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
