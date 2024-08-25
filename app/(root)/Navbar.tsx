@@ -184,7 +184,7 @@ const Navbar = () => {
           <Link href={"/contact"} className="hidden md:block">
             <PersonOutlineOutlinedIcon />
           </Link>
-          <div onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
             <MenuIcon
               className={`${changeTheme ? "text-black" : `text-white`}`}
             />
