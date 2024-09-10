@@ -24,9 +24,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`h-20 relative ${
-        isMenuOpen ? `` : "overflow-hidden  "
-      } sticky top-0 z-20   ${
+      className={`h-20 relative ${isMenuOpen ? `` : " "} sticky top-0 z-20   ${
         changeTheme
           ? ` bg-white`
           : `bg-[#DB002F] transition-all ease-out duration-75 `

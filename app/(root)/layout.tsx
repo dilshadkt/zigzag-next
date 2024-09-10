@@ -6,7 +6,7 @@ import Footer from "@/app/(root)/components/Footer";
 import ContactModal from "./components/contactModal";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
       <main className=" md:mb-0 "> {children}</main>
       <ContactModal />
