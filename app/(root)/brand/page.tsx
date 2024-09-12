@@ -3,7 +3,7 @@ import React from "react";
 
 const Brand = () => {
   return (
-    <section className="h-fit bg-white">
+    <section className="h-fit bg-white  px-10">
       <div className="max-w-screen-2xl h-full overflow-y-auto mx-auto">
         <div>
           <Image

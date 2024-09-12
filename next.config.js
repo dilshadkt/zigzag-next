@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https", // Change "http" to "https"
+        protocol: "http", // Change "http" to "https"
         hostname: "res.cloudinary.com",
       },
     ],
